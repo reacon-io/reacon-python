@@ -10,7 +10,7 @@ const sha = value => typeof value === 'string' && /^[a-f0-9]{40}$/.test(value);
 /** Obtain and cryptographically verify this job's GitHub identity. Registry
  * credentials use their own audience and exchange; this token is never saved.
  * The returned metadata is not a transferable publication authorization. */
-export async function githubPublisherIdentity({ configuration, environment, fetchImpl = fetch, now = Date.now }) {
+export async function githubPublisherIdentity({ configuration, environment, fetchImpl = fetch, tokenProvider, now = Date.now }) {
   const env = { ...environment }, config = { ...configuration };
   const repository = `reacon-io/reacon-${config.family}`;
   const workflowRef = `${repository}/.github/workflows/publish.yml@refs/heads/main`;
@@ -67,7 +67,14 @@ export async function githubPublisherIdentity({ configuration, environment, fetc
       return JSON.parse(Buffer.concat(chunks));
     } catch { throw new Error('Invalid GitHub identity response; details suppressed'); }
   }
-  const response = await json(requestUrl, { Authorization: `Bearer ${env.ACTIONS_ID_TOKEN_REQUEST_TOKEN}` });
+  // Production uses the official Actions toolkit for runner-specific HTTP/proxy
+  // behavior. Regardless of transport, verify the returned JWT ourselves below.
+  let response;
+  if (tokenProvider !== undefined) {
+    if (typeof tokenProvider !== 'function') throw new Error('Invalid GitHub token provider');
+    try { response = { value: await tokenProvider(AUDIENCE) }; }
+    catch { throw new Error('Official GitHub token request failed; details suppressed'); }
+  } else response = await json(requestUrl, { Authorization: `Bearer ${env.ACTIONS_ID_TOKEN_REQUEST_TOKEN}` });
   let header, claims, parts;
   try {
     if (typeof response.value !== 'string' || response.value.length > 32768) throw new Error();
