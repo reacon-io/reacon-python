@@ -30,19 +30,41 @@ export async function githubPublisherIdentity({ configuration, environment, fetc
     if (endpoint.protocol !== 'https:' || !endpoint.hostname.endsWith('.actions.githubusercontent.com') ||
         endpoint.port || endpoint.username || endpoint.password || endpoint.hash) throw new Error();
   } catch { throw new Error('Unexpected GitHub job identity endpoint'); }
-  endpoint.searchParams.set('audience', AUDIENCE);
+  if (endpoint.searchParams.has('audience')) throw new Error('Unexpected preselected GitHub identity audience');
+  // Preserve the runner-provided query bytes, as the official Actions toolkit
+  // does. Re-serializing an opaque signed/request URL can change its meaning.
+  const requestUrl = `${env.ACTIONS_ID_TOKEN_REQUEST_URL}${endpoint.search ? '&' : '?'}audience=${encodeURIComponent(AUDIENCE)}`;
   async function json(url, headers = {}) {
     let response;
-    try { response = await fetchImpl(url, { redirect: 'error', signal: AbortSignal.timeout(30000), headers: { Accept: 'application/json', ...headers } }); }
+    try { response = await fetchImpl(url, { redirect: 'error', signal: AbortSignal.timeout(30000), headers: { Accept: 'application/json', 'User-Agent': 'reacon-sdk-publisher', ...headers } }); }
     catch { throw new Error('GitHub identity transport failed; details suppressed'); }
-    if (response.status !== 200) { await response.body?.cancel(); throw new Error(`GitHub identity HTTP ${response.status}`); }
+    if (response.status !== 200) {
+      // Azure/GitHub return useful structured errors for invalid token requests.
+      // Keep a bounded, redacted message; never echo a raw body, URL or token.
+      let detail = '';
+      try {
+        const reader = response.body.getReader(), chunks = []; let size = 0;
+        while (true) {
+          const { value, done } = await reader.read(); if (done) break;
+          size += value.length; if (size > 8192) { await reader.cancel(); throw new Error(); }
+          chunks.push(value);
+        }
+        const body = JSON.parse(Buffer.concat(chunks));
+        if (typeof body.message === 'string') detail = body.message
+          .split(env.ACTIONS_ID_TOKEN_REQUEST_TOKEN).join('[redacted]')
+          .replace(/https?:\/\/\S+/g, '[url]')
+          .replace(/[A-Za-z0-9_./+=-]{32,}/g, '[redacted]')
+          .replace(/[^A-Za-z0-9 .,;:!?()\[\]'_-]/g, ' ').slice(0, 300);
+      } catch { /* Unstructured or oversized errors remain suppressed. */ }
+      throw new Error(`GitHub identity HTTP ${response.status}${detail ? `: ${detail}` : ''}`);
+    }
     try {
       const chunks = []; let size = 0;
       for await (const chunk of response.body) { size += chunk.length; if (size > 128 * 1024) throw new Error(); chunks.push(chunk); }
       return JSON.parse(Buffer.concat(chunks));
     } catch { throw new Error('Invalid GitHub identity response; details suppressed'); }
   }
-  const response = await json(endpoint.href, { Authorization: `Bearer ${env.ACTIONS_ID_TOKEN_REQUEST_TOKEN}` });
+  const response = await json(requestUrl, { Authorization: `Bearer ${env.ACTIONS_ID_TOKEN_REQUEST_TOKEN}` });
   let header, claims, parts;
   try {
     if (typeof response.value !== 'string' || response.value.length > 32768) throw new Error();
