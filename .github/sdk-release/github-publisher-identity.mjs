@@ -49,12 +49,15 @@ export async function githubPublisherIdentity({ configuration, environment, fetc
           size += value.length; if (size > 8192) { await reader.cancel(); throw new Error(); }
           chunks.push(value);
         }
-        const body = JSON.parse(Buffer.concat(chunks));
-        if (typeof body.message === 'string') detail = body.message
+        const text = Buffer.concat(chunks).toString('utf8');
+        let message;
+        try { const body = JSON.parse(text); message = body.message ?? body.error_description ?? body.error?.message ?? body.error; }
+        catch { message = text.replace(/<[^>]*>/g, ' '); }
+        if (typeof message === 'string') detail = message
           .split(env.ACTIONS_ID_TOKEN_REQUEST_TOKEN).join('[redacted]')
           .replace(/https?:\/\/\S+/g, '[url]')
           .replace(/[A-Za-z0-9_./+=-]{32,}/g, '[redacted]')
-          .replace(/[^A-Za-z0-9 .,;:!?()\[\]'_-]/g, ' ').slice(0, 300);
+          .replace(/[^A-Za-z0-9 .,;:!?()\[\]'_-]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 300);
       } catch { /* Unstructured or oversized errors remain suppressed. */ }
       throw new Error(`GitHub identity HTTP ${response.status}${detail ? `: ${detail}` : ''}`);
     }
