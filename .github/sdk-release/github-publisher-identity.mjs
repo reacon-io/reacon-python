@@ -73,7 +73,22 @@ export async function githubPublisherIdentity({ configuration, environment, fetc
   if (tokenProvider !== undefined) {
     if (typeof tokenProvider !== 'function') throw new Error('Invalid GitHub token provider');
     try { response = { value: await tokenProvider(AUDIENCE) }; }
-    catch { throw new Error('Official GitHub token request failed; details suppressed'); }
+    catch (error) {
+      // Only expose the official client's documented error envelope. Arbitrary
+      // provider exceptions may contain secrets and remain fully suppressed.
+      const message = typeof error?.message === 'string' ? error.message : '';
+      const envelope = message.match(/Failed to get ID Token\.[\s\S]*?Error Code\s*:\s*(\d{3})\s+Error Message:\s*([\s\S]*)/);
+      let detail = '';
+      if (envelope) {
+        const safe = envelope[2].split(env.ACTIONS_ID_TOKEN_REQUEST_TOKEN).join('[redacted]')
+          .split(env.ACTIONS_ID_TOKEN_REQUEST_URL).join('[url]')
+          .replace(/https?:\/\/\S+/g, '[url]')
+          .replace(/[A-Za-z0-9_./+=-]{32,}/g, '[redacted]')
+          .replace(/[^A-Za-z0-9 .,;:!?()\[\]'_-]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 500);
+        detail = ` HTTP ${envelope[1]}${safe ? `: ${safe}` : ''}`;
+      }
+      throw new Error(`Official GitHub token request failed${detail || '; details suppressed'}`);
+    }
   } else response = await json(requestUrl, { Authorization: `Bearer ${env.ACTIONS_ID_TOKEN_REQUEST_TOKEN}` });
   let header, claims, parts;
   try {
