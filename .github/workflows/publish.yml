@@ -28,6 +28,8 @@ jobs:
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
         with:
           node-version: 24.11.0
+      - name: Install pinned publisher identity tools
+        run: npm ci --prefix .github/sdk-release --ignore-scripts --no-audit --no-fund
       - name: Verify signed publisher identity without uploading a package
         run: node .github/sdk-release/verify-identity.mjs
       - name: Retain publisher identity evidence
