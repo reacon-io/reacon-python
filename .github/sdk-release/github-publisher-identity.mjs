@@ -1,7 +1,7 @@
 import { createHash, createPublicKey, verify } from 'node:crypto';
 
 const ISSUER = 'https://token.actions.githubusercontent.com';
-const AUDIENCE = 'https://github.com/reacon-io/reacon-sdk-releases';
+const AUDIENCE = 'https://github.com/reacon-io';
 const OWNER_ID = '334414696';
 const FAMILIES = ['typescript', 'python', 'go', 'rust', 'php', 'ruby', 'java', 'kotlin', 'csharp'];
 const id = value => typeof value === 'string' && /^[1-9]\d*$/.test(value) && Number.isSafeInteger(Number(value));
@@ -112,7 +112,7 @@ export async function githubPublisherIdentity({ configuration, environment, fetc
   } catch { throw new Error('GitHub job identity signature verification failed'); }
   const seconds = now() / 1000;
   if (!Number.isFinite(seconds) || claims.iss !== ISSUER || claims.aud !== AUDIENCE ||
-      claims.sub !== `repo:${repository}:environment:release` || claims.environment !== 'release' ||
+      claims.sub !== `repo:reacon-io@${OWNER_ID}/reacon-${config.family}@${config.repositoryId}:environment:release` || claims.environment !== 'release' ||
       claims.repository !== repository || claims.repository_id !== String(config.repositoryId) ||
       claims.repository_owner !== 'reacon-io' || claims.repository_owner_id !== OWNER_ID ||
       claims.repository_visibility !== config.visibility || claims.ref !== 'refs/heads/main' || claims.ref_type !== 'branch' ||
