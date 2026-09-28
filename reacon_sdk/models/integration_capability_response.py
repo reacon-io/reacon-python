@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from reacon_sdk.models.integration_capability_response_output import IntegrationCapabilityResponseOutput
+from reacon_sdk.models.integration_capability_response_output_non_null import IntegrationCapabilityResponseOutputNonNull
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -35,7 +35,7 @@ class IntegrationCapabilityResponse(BaseModel):
     estimated_credits: StrictInt = Field(alias="estimatedCredits")
     execution_id: StrictStr = Field(alias="executionId")
     mode: StrictStr = Field(description="Known values: preview, live. Clients preserve future values.")
-    output: IntegrationCapabilityResponseOutput
+    output: Optional[IntegrationCapabilityResponseOutputNonNull]
     replay: StrictBool
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["actualCredits", "capability", "charged", "emulated", "estimatedCredits", "executionId", "mode", "output", "replay"]
@@ -90,6 +90,8 @@ class IntegrationCapabilityResponse(BaseModel):
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
+        if self.output is None and "output" in self.model_fields_set:
+            _dict['output'] = None
         return _dict
 
     @classmethod
@@ -109,7 +111,7 @@ class IntegrationCapabilityResponse(BaseModel):
             "estimatedCredits": obj.get("estimatedCredits"),
             "executionId": obj.get("executionId"),
             "mode": obj.get("mode"),
-            "output": IntegrationCapabilityResponseOutput.from_dict(obj["output"]) if obj.get("output") is not None else None,
+            "output": IntegrationCapabilityResponseOutputNonNull.from_dict(obj["output"]) if obj.get("output") is not None else None,
             "replay": obj.get("replay")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
