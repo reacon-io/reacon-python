@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from reacon_sdk.models.mail_post_analytics_export_response200_next_cursor import MailPostAnalyticsExportResponse200NextCursor
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +31,7 @@ class MailPostAnalyticsExportResponse200(BaseModel):
     content: StrictStr
     content_type: StrictStr = Field(alias="contentType")
     filename: StrictStr
-    next_cursor: MailPostAnalyticsExportResponse200NextCursor = Field(alias="nextCursor")
+    next_cursor: Optional[MailPostAnalyticsExportResponse200NextCursor] = Field(alias="nextCursor")
     row_count: Union[StrictFloat, StrictInt] = Field(alias="rowCount")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["content", "contentType", "filename", "nextCursor", "rowCount"]
@@ -92,6 +92,11 @@ class MailPostAnalyticsExportResponse200(BaseModel):
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
+
+        # set to None if next_cursor (nullable) is None
+        # and model_fields_set contains the field
+        if self.next_cursor is None and "next_cursor" in self.model_fields_set:
+            _dict['nextCursor'] = None
 
         return _dict
 

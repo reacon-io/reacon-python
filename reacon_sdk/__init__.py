@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.2.0b1"
+__version__ = "0.3.0b1"
 
 # Define package exports
 __all__ = [
@@ -325,7 +325,6 @@ __all__ = [
     "MailPostAnalyticsExportRequestAfter",
     "MailPostAnalyticsExportResponse200",
     "MailPostAnalyticsExportResponse200NextCursor",
-    "MailPostAnalyticsExportResponse200NextCursorAnyOf",
     "MailPostCadenceCampaignsByCampaignIdStateRequest",
     "MailPostCadenceCampaignsByCampaignIdStateResponse200",
     "MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf",
@@ -971,7 +970,6 @@ from reacon_sdk.models.mail_post_analytics_export_request import MailPostAnalyti
 from reacon_sdk.models.mail_post_analytics_export_request_after import MailPostAnalyticsExportRequestAfter as MailPostAnalyticsExportRequestAfter
 from reacon_sdk.models.mail_post_analytics_export_response200 import MailPostAnalyticsExportResponse200 as MailPostAnalyticsExportResponse200
 from reacon_sdk.models.mail_post_analytics_export_response200_next_cursor import MailPostAnalyticsExportResponse200NextCursor as MailPostAnalyticsExportResponse200NextCursor
-from reacon_sdk.models.mail_post_analytics_export_response200_next_cursor_any_of import MailPostAnalyticsExportResponse200NextCursorAnyOf as MailPostAnalyticsExportResponse200NextCursorAnyOf
 from reacon_sdk.models.mail_post_cadence_campaigns_by_campaign_id_state_request import MailPostCadenceCampaignsByCampaignIdStateRequest as MailPostCadenceCampaignsByCampaignIdStateRequest
 from reacon_sdk.models.mail_post_cadence_campaigns_by_campaign_id_state_response200 import MailPostCadenceCampaignsByCampaignIdStateResponse200 as MailPostCadenceCampaignsByCampaignIdStateResponse200
 from reacon_sdk.models.mail_post_cadence_campaigns_by_campaign_id_state_response200_any_of import MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf as MailPostCadenceCampaignsByCampaignIdStateResponse200AnyOf
