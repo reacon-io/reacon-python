@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.3.0b1"
+__version__ = "0.4.0b1"
 
 # Define package exports
 __all__ = [
@@ -162,6 +162,7 @@ __all__ = [
     "InspectGoogleSheetRequest",
     "IntegrationCapabilityResponse",
     "IntegrationCapabilityResponseOutput",
+    "IntegrationCapabilityResponseOutputNonNull",
     "IntegrationConnection",
     "IntegrationConnectionHealth",
     "IntegrationConnectionList",
@@ -807,6 +808,7 @@ from reacon_sdk.models.inspect_excel_workbook_request import InspectExcelWorkboo
 from reacon_sdk.models.inspect_google_sheet_request import InspectGoogleSheetRequest as InspectGoogleSheetRequest
 from reacon_sdk.models.integration_capability_response import IntegrationCapabilityResponse as IntegrationCapabilityResponse
 from reacon_sdk.models.integration_capability_response_output import IntegrationCapabilityResponseOutput as IntegrationCapabilityResponseOutput
+from reacon_sdk.models.integration_capability_response_output_non_null import IntegrationCapabilityResponseOutputNonNull as IntegrationCapabilityResponseOutputNonNull
 from reacon_sdk.models.integration_connection import IntegrationConnection as IntegrationConnection
 from reacon_sdk.models.integration_connection_health import IntegrationConnectionHealth as IntegrationConnectionHealth
 from reacon_sdk.models.integration_connection_list import IntegrationConnectionList as IntegrationConnectionList

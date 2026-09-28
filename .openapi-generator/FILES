@@ -148,6 +148,7 @@ reacon_sdk/models/inspect_excel_workbook_request.py
 reacon_sdk/models/inspect_google_sheet_request.py
 reacon_sdk/models/integration_capability_response.py
 reacon_sdk/models/integration_capability_response_output.py
+reacon_sdk/models/integration_capability_response_output_non_null.py
 reacon_sdk/models/integration_connection.py
 reacon_sdk/models/integration_connection_health.py
 reacon_sdk/models/integration_connection_list.py
