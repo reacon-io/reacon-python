@@ -590,6 +590,7 @@ async function defaultRunGit(args, input, env) {
 
 // scripts/public-api/lib/github-release-access.mjs
 import { createPrivateKey, sign } from "node:crypto";
+import { setTimeout as delay } from "node:timers/promises";
 var API = "https://api.github.com";
 var API_VERSION = "2026-03-10";
 var OWNER = "reacon-io";
@@ -617,22 +618,27 @@ async function githubRequest(fetchImpl, token, path, { method = "GET", body, exp
   const validatedPath = path.replace(/(\/compare\/[a-f0-9]{40})\.\.\.([a-f0-9]{40})(?=\?|$)/, "$1-to-$2");
   if (!/^\/[A-Za-z0-9_/?=&.-]+$/.test(path) || path.startsWith("//") || validatedPath.includes("..")) throw new Error("Invalid GitHub API path");
   let response;
-  try {
-    response = await fetchImpl(`${API}${path}`, {
-      method,
-      redirect: "error",
-      signal: AbortSignal.timeout(3e4),
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${token}`,
-        "X-GitHub-Api-Version": API_VERSION,
-        "User-Agent": "reacon-sdk-release-access",
-        ...body === void 0 ? {} : { "Content-Type": "application/json" }
-      },
-      ...body === void 0 ? {} : { body: JSON.stringify(body) }
-    });
-  } catch {
-    throw new Error("GitHub API transport failed (details suppressed to protect credentials)");
+  for (let attempt = 0; ; attempt++) {
+    try {
+      response = await fetchImpl(`${API}${path}`, {
+        method,
+        redirect: "error",
+        signal: AbortSignal.timeout(3e4),
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${token}`,
+          "X-GitHub-Api-Version": API_VERSION,
+          "User-Agent": "reacon-sdk-release-access",
+          ...body === void 0 ? {} : { "Content-Type": "application/json" }
+        },
+        ...body === void 0 ? {} : { body: JSON.stringify(body) }
+      });
+    } catch {
+      throw new Error("GitHub API transport failed (details suppressed to protect credentials)");
+    }
+    if (method !== "GET" || ![502, 503, 504].includes(response.status) || attempt >= 2) break;
+    await response.body?.cancel();
+    await delay(1e3 * (attempt + 1));
   }
   if (response.status !== expectedStatus) {
     await response.body?.cancel();
@@ -728,7 +734,7 @@ function repositoryCredentials({ inventory, packages, clientId, privateKey, fetc
 }
 
 // scripts/public-api/lib/github-release-state.mjs
-import { setTimeout as delay } from "node:timers/promises";
+import { setTimeout as delay2 } from "node:timers/promises";
 var RELEASE_STATE_REPOSITORY = "reacon-io/reacon-sdk-releases";
 var REMOTE = `https://github.com/${RELEASE_STATE_REPOSITORY}.git`;
 async function githubReleaseStateStore({
@@ -800,7 +806,7 @@ async function githubReleaseStateStore({
           throw new Error("GitHub state token revocation failed; stop and reconcile");
         }
       }
-      await delay(1e3);
+      await delay2(1e3);
     }
   };
   try {
@@ -1455,7 +1461,13 @@ async function runFilePublicationWorker({
       uploadFailure = error.publicationDiagnostic ?? { stage: "upload", reason: known.includes(error.message) ? error.message : "Unrecognized upload error; details suppressed" };
     }
   }
-  const after = uploadAttempted ? await registry.inspect(subject) : before;
+  let after = uploadAttempted ? await registry.inspect(subject) : before;
+  let propagationChecks = 0;
+  while (uploadAttempted && after.status !== "found" && propagationChecks < 12) {
+    await wait(5e3);
+    after = await registry.inspect(subject);
+    propagationChecks++;
+  }
   return {
     formatVersion: 1,
     kind: "sdk-file-publication-worker",
@@ -1478,6 +1490,7 @@ async function runFilePublicationWorker({
     uploadFailure,
     before,
     after,
+    propagationChecks,
     packagePublished: after.status === "found" && after.identitySha256 === expected.identitySha256,
     releaseStateUpdated: false,
     publicInstallVerified: false
