@@ -41,6 +41,7 @@ class InsightsApi:
     async def get_email_insights(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -101,7 +102,7 @@ class InsightsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -114,6 +115,7 @@ class InsightsApi:
     async def get_email_insights_with_http_info(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -174,7 +176,7 @@ class InsightsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -187,6 +189,7 @@ class InsightsApi:
     async def get_email_insights_without_preload_content(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -247,7 +250,7 @@ class InsightsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -256,6 +259,7 @@ class InsightsApi:
     def get_email_insights_sync(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -277,7 +281,7 @@ class InsightsApi:
         return run_sync(
             self.get_email_insights(
                 email=email,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -290,6 +294,7 @@ class InsightsApi:
     def get_email_insights_sync_with_http_info(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -311,7 +316,7 @@ class InsightsApi:
         return run_sync(
             self.get_email_insights_with_http_info(
                 email=email,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -324,6 +329,7 @@ class InsightsApi:
     def get_email_insights_sync_without_preload_content(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -345,7 +351,7 @@ class InsightsApi:
         return run_sync(
             self.get_email_insights_without_preload_content(
                 email=email,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

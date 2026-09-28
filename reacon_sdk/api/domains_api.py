@@ -43,6 +43,7 @@ class DomainsApi:
     async def get_domain_catch_all(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -103,7 +104,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -116,6 +117,7 @@ class DomainsApi:
     async def get_domain_catch_all_with_http_info(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -176,7 +178,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -189,6 +191,7 @@ class DomainsApi:
     async def get_domain_catch_all_without_preload_content(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -249,7 +252,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -258,6 +261,7 @@ class DomainsApi:
     def get_domain_catch_all_sync(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -279,7 +283,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_catch_all(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -292,6 +296,7 @@ class DomainsApi:
     def get_domain_catch_all_sync_with_http_info(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -313,7 +318,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_catch_all_with_http_info(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -326,6 +331,7 @@ class DomainsApi:
     def get_domain_catch_all_sync_without_preload_content(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -347,7 +353,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_catch_all_without_preload_content(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -424,6 +430,7 @@ class DomainsApi:
     async def get_domain_company_context(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -484,7 +491,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -497,6 +504,7 @@ class DomainsApi:
     async def get_domain_company_context_with_http_info(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -557,7 +565,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -570,6 +578,7 @@ class DomainsApi:
     async def get_domain_company_context_without_preload_content(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -630,7 +639,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -639,6 +648,7 @@ class DomainsApi:
     def get_domain_company_context_sync(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -660,7 +670,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_company_context(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -673,6 +683,7 @@ class DomainsApi:
     def get_domain_company_context_sync_with_http_info(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -694,7 +705,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_company_context_with_http_info(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -707,6 +718,7 @@ class DomainsApi:
     def get_domain_company_context_sync_without_preload_content(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -728,7 +740,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_company_context_without_preload_content(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -805,6 +817,7 @@ class DomainsApi:
     async def get_domain_counts(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -864,7 +877,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -877,6 +890,7 @@ class DomainsApi:
     async def get_domain_counts_with_http_info(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -936,7 +950,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -949,6 +963,7 @@ class DomainsApi:
     async def get_domain_counts_without_preload_content(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1008,7 +1023,7 @@ class DomainsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1017,6 +1032,7 @@ class DomainsApi:
     def get_domain_counts_sync(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1038,7 +1054,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_counts(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1051,6 +1067,7 @@ class DomainsApi:
     def get_domain_counts_sync_with_http_info(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1072,7 +1089,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_counts_with_http_info(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1085,6 +1102,7 @@ class DomainsApi:
     def get_domain_counts_sync_without_preload_content(
         self,
         domain: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1106,7 +1124,7 @@ class DomainsApi:
         return run_sync(
             self.get_domain_counts_without_preload_content(
                 domain=domain,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

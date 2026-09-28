@@ -52,6 +52,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         create_lead_request: CreateLeadRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -115,7 +116,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -129,6 +130,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         create_lead_request: CreateLeadRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -192,7 +194,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -206,6 +208,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         create_lead_request: CreateLeadRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -269,7 +272,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -279,6 +282,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         create_lead_request: CreateLeadRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -301,7 +305,7 @@ class LeadsApi:
             self.create_lead(
                 team_id=team_id,
                 create_lead_request=create_lead_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -315,6 +319,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         create_lead_request: CreateLeadRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -337,7 +342,7 @@ class LeadsApi:
             self.create_lead_with_http_info(
                 team_id=team_id,
                 create_lead_request=create_lead_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -351,6 +356,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         create_lead_request: CreateLeadRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -373,7 +379,7 @@ class LeadsApi:
             self.create_lead_without_preload_content(
                 team_id=team_id,
                 create_lead_request=create_lead_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -466,6 +472,7 @@ class LeadsApi:
     async def delete_lead(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -527,7 +534,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -540,6 +547,7 @@ class LeadsApi:
     async def delete_lead_with_http_info(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -601,7 +609,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -614,6 +622,7 @@ class LeadsApi:
     async def delete_lead_without_preload_content(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -675,7 +684,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -684,6 +693,7 @@ class LeadsApi:
     def delete_lead_sync(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -705,7 +715,7 @@ class LeadsApi:
         return run_sync(
             self.delete_lead(
                 lead_id=lead_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -718,6 +728,7 @@ class LeadsApi:
     def delete_lead_sync_with_http_info(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -739,7 +750,7 @@ class LeadsApi:
         return run_sync(
             self.delete_lead_with_http_info(
                 lead_id=lead_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -752,6 +763,7 @@ class LeadsApi:
     def delete_lead_sync_without_preload_content(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -773,7 +785,7 @@ class LeadsApi:
         return run_sync(
             self.delete_lead_without_preload_content(
                 lead_id=lead_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -851,6 +863,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         export_leads_request: ExportLeadsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -918,7 +931,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -932,6 +945,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         export_leads_request: ExportLeadsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -999,7 +1013,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1013,6 +1027,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         export_leads_request: ExportLeadsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1077,7 +1092,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1087,6 +1102,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         export_leads_request: ExportLeadsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1109,7 +1125,7 @@ class LeadsApi:
             self.export_leads(
                 team_id=team_id,
                 export_leads_request=export_leads_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1123,6 +1139,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         export_leads_request: ExportLeadsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1145,7 +1162,7 @@ class LeadsApi:
             self.export_leads_with_http_info(
                 team_id=team_id,
                 export_leads_request=export_leads_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1159,6 +1176,7 @@ class LeadsApi:
         self,
         team_id: StrictStr,
         export_leads_request: ExportLeadsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1181,7 +1199,7 @@ class LeadsApi:
             self.export_leads_without_preload_content(
                 team_id=team_id,
                 export_leads_request=export_leads_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1275,6 +1293,7 @@ class LeadsApi:
     async def get_lead(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1336,7 +1355,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1349,6 +1368,7 @@ class LeadsApi:
     async def get_lead_with_http_info(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1410,7 +1430,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1423,6 +1443,7 @@ class LeadsApi:
     async def get_lead_without_preload_content(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1484,7 +1505,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1493,6 +1514,7 @@ class LeadsApi:
     def get_lead_sync(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1514,7 +1536,7 @@ class LeadsApi:
         return run_sync(
             self.get_lead(
                 lead_id=lead_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1527,6 +1549,7 @@ class LeadsApi:
     def get_lead_sync_with_http_info(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1548,7 +1571,7 @@ class LeadsApi:
         return run_sync(
             self.get_lead_with_http_info(
                 lead_id=lead_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1561,6 +1584,7 @@ class LeadsApi:
     def get_lead_sync_without_preload_content(
         self,
         lead_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1582,7 +1606,7 @@ class LeadsApi:
         return run_sync(
             self.get_lead_without_preload_content(
                 lead_id=lead_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1669,6 +1693,7 @@ class LeadsApi:
         order: Optional[StrictStr] = None,
         position: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1759,7 +1784,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1782,6 +1807,7 @@ class LeadsApi:
         order: Optional[StrictStr] = None,
         position: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1872,7 +1898,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1895,6 +1921,7 @@ class LeadsApi:
         order: Optional[StrictStr] = None,
         position: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1985,7 +2012,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2004,6 +2031,7 @@ class LeadsApi:
         order: Optional[StrictStr] = None,
         position: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2035,7 +2063,7 @@ class LeadsApi:
                 order=order,
                 position=position,
                 filters=filters,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2058,6 +2086,7 @@ class LeadsApi:
         order: Optional[StrictStr] = None,
         position: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2089,7 +2118,7 @@ class LeadsApi:
                 order=order,
                 position=position,
                 filters=filters,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2112,6 +2141,7 @@ class LeadsApi:
         order: Optional[StrictStr] = None,
         position: Optional[StrictStr] = None,
         filters: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2143,7 +2173,7 @@ class LeadsApi:
                 order=order,
                 position=position,
                 filters=filters,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2271,6 +2301,7 @@ class LeadsApi:
         self,
         lead_id: StrictStr,
         update_lead_request: Optional[UpdateLeadRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2335,7 +2366,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2349,6 +2380,7 @@ class LeadsApi:
         self,
         lead_id: StrictStr,
         update_lead_request: Optional[UpdateLeadRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2413,7 +2445,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2427,6 +2459,7 @@ class LeadsApi:
         self,
         lead_id: StrictStr,
         update_lead_request: Optional[UpdateLeadRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2491,7 +2524,7 @@ class LeadsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2501,6 +2534,7 @@ class LeadsApi:
         self,
         lead_id: StrictStr,
         update_lead_request: Optional[UpdateLeadRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2523,7 +2557,7 @@ class LeadsApi:
             self.update_lead(
                 lead_id=lead_id,
                 update_lead_request=update_lead_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2537,6 +2571,7 @@ class LeadsApi:
         self,
         lead_id: StrictStr,
         update_lead_request: Optional[UpdateLeadRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2559,7 +2594,7 @@ class LeadsApi:
             self.update_lead_with_http_info(
                 lead_id=lead_id,
                 update_lead_request=update_lead_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2573,6 +2608,7 @@ class LeadsApi:
         self,
         lead_id: StrictStr,
         update_lead_request: Optional[UpdateLeadRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2595,7 +2631,7 @@ class LeadsApi:
             self.update_lead_without_preload_content(
                 lead_id=lead_id,
                 update_lead_request=update_lead_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

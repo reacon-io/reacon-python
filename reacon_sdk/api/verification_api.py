@@ -44,6 +44,7 @@ class VerificationApi:
     async def verify_batch(
         self,
         batch_verification_request: BatchVerificationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -103,7 +104,7 @@ class VerificationApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -116,6 +117,7 @@ class VerificationApi:
     async def verify_batch_with_http_info(
         self,
         batch_verification_request: BatchVerificationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -175,7 +177,7 @@ class VerificationApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -188,6 +190,7 @@ class VerificationApi:
     async def verify_batch_without_preload_content(
         self,
         batch_verification_request: BatchVerificationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -247,7 +250,7 @@ class VerificationApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -256,6 +259,7 @@ class VerificationApi:
     def verify_batch_sync(
         self,
         batch_verification_request: BatchVerificationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -277,7 +281,7 @@ class VerificationApi:
         return run_sync(
             self.verify_batch(
                 batch_verification_request=batch_verification_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -290,6 +294,7 @@ class VerificationApi:
     def verify_batch_sync_with_http_info(
         self,
         batch_verification_request: BatchVerificationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -311,7 +316,7 @@ class VerificationApi:
         return run_sync(
             self.verify_batch_with_http_info(
                 batch_verification_request=batch_verification_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -324,6 +329,7 @@ class VerificationApi:
     def verify_batch_sync_without_preload_content(
         self,
         batch_verification_request: BatchVerificationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -345,7 +351,7 @@ class VerificationApi:
         return run_sync(
             self.verify_batch_without_preload_content(
                 batch_verification_request=batch_verification_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -437,6 +443,7 @@ class VerificationApi:
         email: StrictStr,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -505,7 +512,7 @@ class VerificationApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -520,6 +527,7 @@ class VerificationApi:
         email: StrictStr,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -588,7 +596,7 @@ class VerificationApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -603,6 +611,7 @@ class VerificationApi:
         email: StrictStr,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -671,7 +680,7 @@ class VerificationApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -682,6 +691,7 @@ class VerificationApi:
         email: StrictStr,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -705,7 +715,7 @@ class VerificationApi:
                 email=email,
                 cache_max_age=cache_max_age,
                 only_if_free=only_if_free,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -720,6 +730,7 @@ class VerificationApi:
         email: StrictStr,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -743,7 +754,7 @@ class VerificationApi:
                 email=email,
                 cache_max_age=cache_max_age,
                 only_if_free=only_if_free,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -758,6 +769,7 @@ class VerificationApi:
         email: StrictStr,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -781,7 +793,7 @@ class VerificationApi:
                 email=email,
                 cache_max_age=cache_max_age,
                 only_if_free=only_if_free,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

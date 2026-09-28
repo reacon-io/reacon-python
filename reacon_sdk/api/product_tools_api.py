@@ -43,6 +43,7 @@ class ProductToolsApi:
         self,
         tool: StrictStr,
         product_tool_request: ProductToolRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -107,7 +108,7 @@ class ProductToolsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -121,6 +122,7 @@ class ProductToolsApi:
         self,
         tool: StrictStr,
         product_tool_request: ProductToolRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -185,7 +187,7 @@ class ProductToolsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -199,6 +201,7 @@ class ProductToolsApi:
         self,
         tool: StrictStr,
         product_tool_request: ProductToolRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -263,7 +266,7 @@ class ProductToolsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -273,6 +276,7 @@ class ProductToolsApi:
         self,
         tool: StrictStr,
         product_tool_request: ProductToolRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -295,7 +299,7 @@ class ProductToolsApi:
             self.execute_product_tool(
                 tool=tool,
                 product_tool_request=product_tool_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -309,6 +313,7 @@ class ProductToolsApi:
         self,
         tool: StrictStr,
         product_tool_request: ProductToolRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -331,7 +336,7 @@ class ProductToolsApi:
             self.execute_product_tool_with_http_info(
                 tool=tool,
                 product_tool_request=product_tool_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -345,6 +350,7 @@ class ProductToolsApi:
         self,
         tool: StrictStr,
         product_tool_request: ProductToolRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -367,7 +373,7 @@ class ProductToolsApi:
             self.execute_product_tool_without_preload_content(
                 tool=tool,
                 product_tool_request=product_tool_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

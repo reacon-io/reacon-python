@@ -15,6 +15,7 @@ from .configuration import Configuration
 from .api.domains_api import DomainsApi
 from .api.emails_api import EmailsApi
 from .api.leads_api import LeadsApi
+from .pagination import LeadsClient, EmailsClient
 from .api.verification_api import VerificationApi
 from .models.verification_stage import VerificationStage
 from .models.verification_progress import VerificationProgress
@@ -58,18 +59,19 @@ class AsyncReacon:
     JSON methods use generated resource clients. Streaming uses the same HTTPX
     pool, TLS configuration and connection limits without response buffering.
     """
-    def __init__(self, api_key: str, *, base_url: str = 'https://api.reacon.io', http_client: httpx.AsyncClient | None = None):
+    def __init__(self, api_key: str, *, base_url: str = 'https://api.reacon.io', http_client: httpx.AsyncClient | None = None, request_timeout: float = 30.0, safe_retries=None):
         if not api_key:
             raise ValueError('api_key is required')
+        from .http_policy import positive_seconds
+        request_timeout = positive_seconds(request_timeout)
         self._key = api_key
         self._base_url = base_url.rstrip('/')
         self._owned = http_client is None
         self._http = http_client or httpx.AsyncClient(follow_redirects=False)
-        self._generated = ApiClient(Configuration(host=self._base_url, api_key={'ApiKey': api_key}))
-        self._generated.rest_client.pool_manager = self._http
+        self._generated = ApiClient(Configuration(host=self._base_url, api_key={'ApiKey': api_key}, request_timeout=request_timeout, safe_retries=safe_retries), http_client=self._http)
         self.domains = DomainsApi(self._generated)
-        self.emails = EmailsApi(self._generated)
-        self.leads = LeadsApi(self._generated)
+        self.emails = EmailsClient(self._generated)
+        self.leads = LeadsClient(self._generated)
         self.verification = VerificationApi(self._generated)
 
     async def __aenter__(self) -> AsyncReacon:

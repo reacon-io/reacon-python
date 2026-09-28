@@ -54,4 +54,16 @@ def run_sync(coro: Coroutine[Any, Any, T]) -> T:
     ``async`` code) as it would block that loop; use the ``await``-able async
     methods directly in that case.
     """
-    return asyncio.run_coroutine_threadsafe(coro, _get_sync_loop()).result()
+    try:
+        asyncio.get_running_loop()
+    except RuntimeError:
+        pass
+    else:
+        coro.close()
+        raise RuntimeError("Use the async SDK methods inside an event loop")
+    future = asyncio.run_coroutine_threadsafe(coro, _get_sync_loop())
+    try:
+        return future.result()
+    except BaseException:
+        future.cancel()
+        raise

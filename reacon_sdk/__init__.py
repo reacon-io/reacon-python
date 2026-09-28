@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.0b1"
+__version__ = "0.1.0b4"
 
 # Define package exports
 __all__ = [
@@ -1304,3 +1304,6 @@ from reacon_sdk.models.verification_stream_error import VerificationStreamError 
 
 
 from reacon_sdk.client import AsyncReacon, VerificationEvent, ReaconProtocolError, ReaconTimeoutError, ReaconStreamApiError
+
+from reacon_sdk.http_policy import ReaconRequestTimeoutError, ReaconTransportError, ReaconResponseDecodeError, ReaconRetryPolicyError
+from reacon_sdk.pagination import LeadsClient, EmailsClient, ReaconPaginationError

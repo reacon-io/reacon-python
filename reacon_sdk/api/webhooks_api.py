@@ -45,6 +45,7 @@ class WebhooksApi:
     async def create_automation_hook(
         self,
         create_automation_hook_request: CreateAutomationHookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -105,7 +106,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -118,6 +119,7 @@ class WebhooksApi:
     async def create_automation_hook_with_http_info(
         self,
         create_automation_hook_request: CreateAutomationHookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -178,7 +180,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -191,6 +193,7 @@ class WebhooksApi:
     async def create_automation_hook_without_preload_content(
         self,
         create_automation_hook_request: CreateAutomationHookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -251,7 +254,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -260,6 +263,7 @@ class WebhooksApi:
     def create_automation_hook_sync(
         self,
         create_automation_hook_request: CreateAutomationHookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -281,7 +285,7 @@ class WebhooksApi:
         return run_sync(
             self.create_automation_hook(
                 create_automation_hook_request=create_automation_hook_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -294,6 +298,7 @@ class WebhooksApi:
     def create_automation_hook_sync_with_http_info(
         self,
         create_automation_hook_request: CreateAutomationHookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -315,7 +320,7 @@ class WebhooksApi:
         return run_sync(
             self.create_automation_hook_with_http_info(
                 create_automation_hook_request=create_automation_hook_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -328,6 +333,7 @@ class WebhooksApi:
     def create_automation_hook_sync_without_preload_content(
         self,
         create_automation_hook_request: CreateAutomationHookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -349,7 +355,7 @@ class WebhooksApi:
         return run_sync(
             self.create_automation_hook_without_preload_content(
                 create_automation_hook_request=create_automation_hook_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -439,6 +445,7 @@ class WebhooksApi:
     async def create_segment_installation(
         self,
         create_segment_installation_request: CreateSegmentInstallationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -498,7 +505,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -511,6 +518,7 @@ class WebhooksApi:
     async def create_segment_installation_with_http_info(
         self,
         create_segment_installation_request: CreateSegmentInstallationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -570,7 +578,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -583,6 +591,7 @@ class WebhooksApi:
     async def create_segment_installation_without_preload_content(
         self,
         create_segment_installation_request: CreateSegmentInstallationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -642,7 +651,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -651,6 +660,7 @@ class WebhooksApi:
     def create_segment_installation_sync(
         self,
         create_segment_installation_request: CreateSegmentInstallationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -672,7 +682,7 @@ class WebhooksApi:
         return run_sync(
             self.create_segment_installation(
                 create_segment_installation_request=create_segment_installation_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -685,6 +695,7 @@ class WebhooksApi:
     def create_segment_installation_sync_with_http_info(
         self,
         create_segment_installation_request: CreateSegmentInstallationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -706,7 +717,7 @@ class WebhooksApi:
         return run_sync(
             self.create_segment_installation_with_http_info(
                 create_segment_installation_request=create_segment_installation_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -719,6 +730,7 @@ class WebhooksApi:
     def create_segment_installation_sync_without_preload_content(
         self,
         create_segment_installation_request: CreateSegmentInstallationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -740,7 +752,7 @@ class WebhooksApi:
         return run_sync(
             self.create_segment_installation_without_preload_content(
                 create_segment_installation_request=create_segment_installation_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -830,6 +842,7 @@ class WebhooksApi:
     async def delete_automation_hook(
         self,
         hook_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -890,7 +903,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -903,6 +916,7 @@ class WebhooksApi:
     async def delete_automation_hook_with_http_info(
         self,
         hook_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -963,7 +977,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -976,6 +990,7 @@ class WebhooksApi:
     async def delete_automation_hook_without_preload_content(
         self,
         hook_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1036,7 +1051,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1045,6 +1060,7 @@ class WebhooksApi:
     def delete_automation_hook_sync(
         self,
         hook_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1066,7 +1082,7 @@ class WebhooksApi:
         return run_sync(
             self.delete_automation_hook(
                 hook_id=hook_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1079,6 +1095,7 @@ class WebhooksApi:
     def delete_automation_hook_sync_with_http_info(
         self,
         hook_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1100,7 +1117,7 @@ class WebhooksApi:
         return run_sync(
             self.delete_automation_hook_with_http_info(
                 hook_id=hook_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1113,6 +1130,7 @@ class WebhooksApi:
     def delete_automation_hook_sync_without_preload_content(
         self,
         hook_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1134,7 +1152,7 @@ class WebhooksApi:
         return run_sync(
             self.delete_automation_hook_without_preload_content(
                 hook_id=hook_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1211,6 +1229,7 @@ class WebhooksApi:
     async def delete_segment_installation(
         self,
         installation_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1271,7 +1290,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1284,6 +1303,7 @@ class WebhooksApi:
     async def delete_segment_installation_with_http_info(
         self,
         installation_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1344,7 +1364,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1357,6 +1377,7 @@ class WebhooksApi:
     async def delete_segment_installation_without_preload_content(
         self,
         installation_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1417,7 +1438,7 @@ class WebhooksApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1426,6 +1447,7 @@ class WebhooksApi:
     def delete_segment_installation_sync(
         self,
         installation_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1447,7 +1469,7 @@ class WebhooksApi:
         return run_sync(
             self.delete_segment_installation(
                 installation_id=installation_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1460,6 +1482,7 @@ class WebhooksApi:
     def delete_segment_installation_sync_with_http_info(
         self,
         installation_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1481,7 +1504,7 @@ class WebhooksApi:
         return run_sync(
             self.delete_segment_installation_with_http_info(
                 installation_id=installation_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1494,6 +1517,7 @@ class WebhooksApi:
     def delete_segment_installation_sync_without_preload_content(
         self,
         installation_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1515,7 +1539,7 @@ class WebhooksApi:
         return run_sync(
             self.delete_segment_installation_without_preload_content(
                 installation_id=installation_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
