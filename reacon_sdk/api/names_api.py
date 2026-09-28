@@ -45,6 +45,7 @@ class NamesApi:
         domain: StrictStr,
         first: Optional[StrictStr] = None,
         last: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -111,7 +112,7 @@ class NamesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -126,6 +127,7 @@ class NamesApi:
         domain: StrictStr,
         first: Optional[StrictStr] = None,
         last: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -192,7 +194,7 @@ class NamesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -207,6 +209,7 @@ class NamesApi:
         domain: StrictStr,
         first: Optional[StrictStr] = None,
         last: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -273,7 +276,7 @@ class NamesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -284,6 +287,7 @@ class NamesApi:
         domain: StrictStr,
         first: Optional[StrictStr] = None,
         last: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -307,7 +311,7 @@ class NamesApi:
                 domain=domain,
                 first=first,
                 last=last,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -322,6 +326,7 @@ class NamesApi:
         domain: StrictStr,
         first: Optional[StrictStr] = None,
         last: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -345,7 +350,7 @@ class NamesApi:
                 domain=domain,
                 first=first,
                 last=last,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -360,6 +365,7 @@ class NamesApi:
         domain: StrictStr,
         first: Optional[StrictStr] = None,
         last: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -383,7 +389,7 @@ class NamesApi:
                 domain=domain,
                 first=first,
                 last=last,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -476,6 +482,7 @@ class NamesApi:
         last: Optional[StrictStr] = None,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -550,7 +557,7 @@ class NamesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -567,6 +574,7 @@ class NamesApi:
         last: Optional[StrictStr] = None,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -641,7 +649,7 @@ class NamesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -658,6 +666,7 @@ class NamesApi:
         last: Optional[StrictStr] = None,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -732,7 +741,7 @@ class NamesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -745,6 +754,7 @@ class NamesApi:
         last: Optional[StrictStr] = None,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -770,7 +780,7 @@ class NamesApi:
                 last=last,
                 cache_max_age=cache_max_age,
                 only_if_free=only_if_free,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -787,6 +797,7 @@ class NamesApi:
         last: Optional[StrictStr] = None,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -812,7 +823,7 @@ class NamesApi:
                 last=last,
                 cache_max_age=cache_max_age,
                 only_if_free=only_if_free,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -829,6 +840,7 @@ class NamesApi:
         last: Optional[StrictStr] = None,
         cache_max_age: Optional[StrictStr] = None,
         only_if_free: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -854,7 +866,7 @@ class NamesApi:
                 last=last,
                 cache_max_age=cache_max_age,
                 only_if_free=only_if_free,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

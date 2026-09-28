@@ -179,6 +179,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_teams_request: MailPostPortfolioTeamsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -245,7 +246,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -259,6 +260,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_teams_request: MailPostPortfolioTeamsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -325,7 +327,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -339,6 +341,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_teams_request: MailPostPortfolioTeamsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -405,7 +408,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -415,6 +418,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_teams_request: MailPostPortfolioTeamsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -437,7 +441,7 @@ class MailApi:
             self.add_mail_portfolio_team(
                 team_id=team_id,
                 mail_post_portfolio_teams_request=mail_post_portfolio_teams_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -451,6 +455,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_teams_request: MailPostPortfolioTeamsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -473,7 +478,7 @@ class MailApi:
             self.add_mail_portfolio_team_with_http_info(
                 team_id=team_id,
                 mail_post_portfolio_teams_request=mail_post_portfolio_teams_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -487,6 +492,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_teams_request: MailPostPortfolioTeamsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -509,7 +515,7 @@ class MailApi:
             self.add_mail_portfolio_team_without_preload_content(
                 team_id=team_id,
                 mail_post_portfolio_teams_request=mail_post_portfolio_teams_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -603,6 +609,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -669,7 +676,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -683,6 +690,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -749,7 +757,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -763,6 +771,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -829,7 +838,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -839,6 +848,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -861,7 +871,7 @@ class MailApi:
             self.archive_mail_experiment(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -875,6 +885,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -897,7 +908,7 @@ class MailApi:
             self.archive_mail_experiment_with_http_info(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -911,6 +922,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -933,7 +945,7 @@ class MailApi:
             self.archive_mail_experiment_without_preload_content(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1014,6 +1026,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1080,7 +1093,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1094,6 +1107,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1160,7 +1174,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1174,6 +1188,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1240,7 +1255,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1250,6 +1265,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1272,7 +1288,7 @@ class MailApi:
             self.cancel_mail_message(
                 team_id=team_id,
                 message_id=message_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1286,6 +1302,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1308,7 +1325,7 @@ class MailApi:
             self.cancel_mail_message_with_http_info(
                 team_id=team_id,
                 message_id=message_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1322,6 +1339,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1344,7 +1362,7 @@ class MailApi:
             self.cancel_mail_message_without_preload_content(
                 team_id=team_id,
                 message_id=message_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1426,6 +1444,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_cadence_campaigns_by_campaign_id_state_request: MailPostCadenceCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1495,7 +1514,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1510,6 +1529,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_cadence_campaigns_by_campaign_id_state_request: MailPostCadenceCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1579,7 +1599,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1594,6 +1614,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_cadence_campaigns_by_campaign_id_state_request: MailPostCadenceCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1663,7 +1684,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1674,6 +1695,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_cadence_campaigns_by_campaign_id_state_request: MailPostCadenceCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1697,7 +1719,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_cadence_campaigns_by_campaign_id_state_request=mail_post_cadence_campaigns_by_campaign_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1712,6 +1734,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_cadence_campaigns_by_campaign_id_state_request: MailPostCadenceCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1735,7 +1758,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_cadence_campaigns_by_campaign_id_state_request=mail_post_cadence_campaigns_by_campaign_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1750,6 +1773,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_cadence_campaigns_by_campaign_id_state_request: MailPostCadenceCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1773,7 +1797,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_cadence_campaigns_by_campaign_id_state_request=mail_post_cadence_campaigns_by_campaign_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1871,6 +1895,7 @@ class MailApi:
         team_id: StrictStr,
         run_id: StrictStr,
         mail_post_cadence_runs_by_run_id_state_request: MailPostCadenceRunsByRunIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1940,7 +1965,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1955,6 +1980,7 @@ class MailApi:
         team_id: StrictStr,
         run_id: StrictStr,
         mail_post_cadence_runs_by_run_id_state_request: MailPostCadenceRunsByRunIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2024,7 +2050,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2039,6 +2065,7 @@ class MailApi:
         team_id: StrictStr,
         run_id: StrictStr,
         mail_post_cadence_runs_by_run_id_state_request: MailPostCadenceRunsByRunIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2108,7 +2135,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2119,6 +2146,7 @@ class MailApi:
         team_id: StrictStr,
         run_id: StrictStr,
         mail_post_cadence_runs_by_run_id_state_request: MailPostCadenceRunsByRunIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2142,7 +2170,7 @@ class MailApi:
                 team_id=team_id,
                 run_id=run_id,
                 mail_post_cadence_runs_by_run_id_state_request=mail_post_cadence_runs_by_run_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2157,6 +2185,7 @@ class MailApi:
         team_id: StrictStr,
         run_id: StrictStr,
         mail_post_cadence_runs_by_run_id_state_request: MailPostCadenceRunsByRunIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2180,7 +2209,7 @@ class MailApi:
                 team_id=team_id,
                 run_id=run_id,
                 mail_post_cadence_runs_by_run_id_state_request=mail_post_cadence_runs_by_run_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2195,6 +2224,7 @@ class MailApi:
         team_id: StrictStr,
         run_id: StrictStr,
         mail_post_cadence_runs_by_run_id_state_request: MailPostCadenceRunsByRunIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2218,7 +2248,7 @@ class MailApi:
                 team_id=team_id,
                 run_id=run_id,
                 mail_post_cadence_runs_by_run_id_state_request=mail_post_cadence_runs_by_run_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2316,6 +2346,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_state_request: MailPostCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2385,7 +2416,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2400,6 +2431,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_state_request: MailPostCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2469,7 +2501,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2484,6 +2516,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_state_request: MailPostCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2553,7 +2586,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2564,6 +2597,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_state_request: MailPostCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2587,7 +2621,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_campaigns_by_campaign_id_state_request=mail_post_campaigns_by_campaign_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2602,6 +2636,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_state_request: MailPostCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2625,7 +2660,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_campaigns_by_campaign_id_state_request=mail_post_campaigns_by_campaign_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2640,6 +2675,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_state_request: MailPostCampaignsByCampaignIdStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2663,7 +2699,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_campaigns_by_campaign_id_state_request=mail_post_campaigns_by_campaign_id_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2760,6 +2796,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_classify_reply_request: MailPostCrmClassifyReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2826,7 +2863,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2840,6 +2877,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_classify_reply_request: MailPostCrmClassifyReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2906,7 +2944,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2920,6 +2958,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_classify_reply_request: MailPostCrmClassifyReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2986,7 +3025,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2996,6 +3035,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_classify_reply_request: MailPostCrmClassifyReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3018,7 +3058,7 @@ class MailApi:
             self.classify_mail_reply(
                 team_id=team_id,
                 mail_post_crm_classify_reply_request=mail_post_crm_classify_reply_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3032,6 +3072,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_classify_reply_request: MailPostCrmClassifyReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3054,7 +3095,7 @@ class MailApi:
             self.classify_mail_reply_with_http_info(
                 team_id=team_id,
                 mail_post_crm_classify_reply_request=mail_post_crm_classify_reply_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3068,6 +3109,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_classify_reply_request: MailPostCrmClassifyReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3090,7 +3132,7 @@ class MailApi:
             self.classify_mail_reply_without_preload_content(
                 team_id=team_id,
                 mail_post_crm_classify_reply_request=mail_post_crm_classify_reply_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3185,6 +3227,7 @@ class MailApi:
         team_id: StrictStr,
         task_id: StrictStr,
         mail_post_crm_tasks_by_task_id_complete_request: MailPostCrmTasksByTaskIdCompleteRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3254,7 +3297,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -3269,6 +3312,7 @@ class MailApi:
         team_id: StrictStr,
         task_id: StrictStr,
         mail_post_crm_tasks_by_task_id_complete_request: MailPostCrmTasksByTaskIdCompleteRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3338,7 +3382,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -3353,6 +3397,7 @@ class MailApi:
         team_id: StrictStr,
         task_id: StrictStr,
         mail_post_crm_tasks_by_task_id_complete_request: MailPostCrmTasksByTaskIdCompleteRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3422,7 +3467,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -3433,6 +3478,7 @@ class MailApi:
         team_id: StrictStr,
         task_id: StrictStr,
         mail_post_crm_tasks_by_task_id_complete_request: MailPostCrmTasksByTaskIdCompleteRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3456,7 +3502,7 @@ class MailApi:
                 team_id=team_id,
                 task_id=task_id,
                 mail_post_crm_tasks_by_task_id_complete_request=mail_post_crm_tasks_by_task_id_complete_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3471,6 +3517,7 @@ class MailApi:
         team_id: StrictStr,
         task_id: StrictStr,
         mail_post_crm_tasks_by_task_id_complete_request: MailPostCrmTasksByTaskIdCompleteRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3494,7 +3541,7 @@ class MailApi:
                 team_id=team_id,
                 task_id=task_id,
                 mail_post_crm_tasks_by_task_id_complete_request=mail_post_crm_tasks_by_task_id_complete_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3509,6 +3556,7 @@ class MailApi:
         team_id: StrictStr,
         task_id: StrictStr,
         mail_post_crm_tasks_by_task_id_complete_request: MailPostCrmTasksByTaskIdCompleteRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3532,7 +3580,7 @@ class MailApi:
                 team_id=team_id,
                 task_id=task_id,
                 mail_post_crm_tasks_by_task_id_complete_request=mail_post_crm_tasks_by_task_id_complete_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3630,6 +3678,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_request: MailPostDeliverabilityMailboxesByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3699,7 +3748,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -3714,6 +3763,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_request: MailPostDeliverabilityMailboxesByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3783,7 +3833,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -3798,6 +3848,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_request: MailPostDeliverabilityMailboxesByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3867,7 +3918,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -3878,6 +3929,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_request: MailPostDeliverabilityMailboxesByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3901,7 +3953,7 @@ class MailApi:
                 team_id=team_id,
                 mailbox_id=mailbox_id,
                 mail_post_deliverability_mailboxes_by_mailbox_id_request=mail_post_deliverability_mailboxes_by_mailbox_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3916,6 +3968,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_request: MailPostDeliverabilityMailboxesByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3939,7 +3992,7 @@ class MailApi:
                 team_id=team_id,
                 mailbox_id=mailbox_id,
                 mail_post_deliverability_mailboxes_by_mailbox_id_request=mail_post_deliverability_mailboxes_by_mailbox_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3954,6 +4007,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_request: MailPostDeliverabilityMailboxesByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3977,7 +4031,7 @@ class MailApi:
                 team_id=team_id,
                 mailbox_id=mailbox_id,
                 mail_post_deliverability_mailboxes_by_mailbox_id_request=mail_post_deliverability_mailboxes_by_mailbox_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4074,6 +4128,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_tracking_domain_request: MailPostTrackingDomainRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4140,7 +4195,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4154,6 +4209,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_tracking_domain_request: MailPostTrackingDomainRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4220,7 +4276,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4234,6 +4290,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_tracking_domain_request: MailPostTrackingDomainRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4300,7 +4357,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -4310,6 +4367,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_tracking_domain_request: MailPostTrackingDomainRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4332,7 +4390,7 @@ class MailApi:
             self.configure_mail_tracking_domain(
                 team_id=team_id,
                 mail_post_tracking_domain_request=mail_post_tracking_domain_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4346,6 +4404,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_tracking_domain_request: MailPostTrackingDomainRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4368,7 +4427,7 @@ class MailApi:
             self.configure_mail_tracking_domain_with_http_info(
                 team_id=team_id,
                 mail_post_tracking_domain_request=mail_post_tracking_domain_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4382,6 +4441,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_tracking_domain_request: MailPostTrackingDomainRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4404,7 +4464,7 @@ class MailApi:
             self.configure_mail_tracking_domain_without_preload_content(
                 team_id=team_id,
                 mail_post_tracking_domain_request=mail_post_tracking_domain_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4499,6 +4559,7 @@ class MailApi:
         team_id: StrictStr,
         cadence_id: StrictStr,
         mail_post_cadences_by_cadence_id_copy_request: MailPostCadencesByCadenceIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4568,7 +4629,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4583,6 +4644,7 @@ class MailApi:
         team_id: StrictStr,
         cadence_id: StrictStr,
         mail_post_cadences_by_cadence_id_copy_request: MailPostCadencesByCadenceIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4652,7 +4714,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4667,6 +4729,7 @@ class MailApi:
         team_id: StrictStr,
         cadence_id: StrictStr,
         mail_post_cadences_by_cadence_id_copy_request: MailPostCadencesByCadenceIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4736,7 +4799,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -4747,6 +4810,7 @@ class MailApi:
         team_id: StrictStr,
         cadence_id: StrictStr,
         mail_post_cadences_by_cadence_id_copy_request: MailPostCadencesByCadenceIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4770,7 +4834,7 @@ class MailApi:
                 team_id=team_id,
                 cadence_id=cadence_id,
                 mail_post_cadences_by_cadence_id_copy_request=mail_post_cadences_by_cadence_id_copy_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4785,6 +4849,7 @@ class MailApi:
         team_id: StrictStr,
         cadence_id: StrictStr,
         mail_post_cadences_by_cadence_id_copy_request: MailPostCadencesByCadenceIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4808,7 +4873,7 @@ class MailApi:
                 team_id=team_id,
                 cadence_id=cadence_id,
                 mail_post_cadences_by_cadence_id_copy_request=mail_post_cadences_by_cadence_id_copy_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4823,6 +4888,7 @@ class MailApi:
         team_id: StrictStr,
         cadence_id: StrictStr,
         mail_post_cadences_by_cadence_id_copy_request: MailPostCadencesByCadenceIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4846,7 +4912,7 @@ class MailApi:
                 team_id=team_id,
                 cadence_id=cadence_id,
                 mail_post_cadences_by_cadence_id_copy_request=mail_post_cadences_by_cadence_id_copy_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4944,6 +5010,7 @@ class MailApi:
         team_id: StrictStr,
         template_id: StrictStr,
         mail_post_templates_by_template_id_copy_request: MailPostTemplatesByTemplateIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5013,7 +5080,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5028,6 +5095,7 @@ class MailApi:
         team_id: StrictStr,
         template_id: StrictStr,
         mail_post_templates_by_template_id_copy_request: MailPostTemplatesByTemplateIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5097,7 +5165,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5112,6 +5180,7 @@ class MailApi:
         team_id: StrictStr,
         template_id: StrictStr,
         mail_post_templates_by_template_id_copy_request: MailPostTemplatesByTemplateIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5181,7 +5250,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -5192,6 +5261,7 @@ class MailApi:
         team_id: StrictStr,
         template_id: StrictStr,
         mail_post_templates_by_template_id_copy_request: MailPostTemplatesByTemplateIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5215,7 +5285,7 @@ class MailApi:
                 team_id=team_id,
                 template_id=template_id,
                 mail_post_templates_by_template_id_copy_request=mail_post_templates_by_template_id_copy_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5230,6 +5300,7 @@ class MailApi:
         team_id: StrictStr,
         template_id: StrictStr,
         mail_post_templates_by_template_id_copy_request: MailPostTemplatesByTemplateIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5253,7 +5324,7 @@ class MailApi:
                 team_id=team_id,
                 template_id=template_id,
                 mail_post_templates_by_template_id_copy_request=mail_post_templates_by_template_id_copy_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5268,6 +5339,7 @@ class MailApi:
         team_id: StrictStr,
         template_id: StrictStr,
         mail_post_templates_by_template_id_copy_request: MailPostTemplatesByTemplateIdCopyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5291,7 +5363,7 @@ class MailApi:
                 team_id=team_id,
                 template_id=template_id,
                 mail_post_templates_by_template_id_copy_request=mail_post_templates_by_template_id_copy_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5388,6 +5460,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_campaigns_request: MailPostCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5454,7 +5527,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5468,6 +5541,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_campaigns_request: MailPostCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5534,7 +5608,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5548,6 +5622,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_campaigns_request: MailPostCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5614,7 +5689,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -5624,6 +5699,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_campaigns_request: MailPostCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5646,7 +5722,7 @@ class MailApi:
             self.create_mail_campaign_draft(
                 team_id=team_id,
                 mail_post_campaigns_request=mail_post_campaigns_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5660,6 +5736,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_campaigns_request: MailPostCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5682,7 +5759,7 @@ class MailApi:
             self.create_mail_campaign_draft_with_http_info(
                 team_id=team_id,
                 mail_post_campaigns_request=mail_post_campaigns_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5696,6 +5773,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_campaigns_request: MailPostCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5718,7 +5796,7 @@ class MailApi:
             self.create_mail_campaign_draft_without_preload_content(
                 team_id=team_id,
                 mail_post_campaigns_request=mail_post_campaigns_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5812,6 +5890,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_notes_request: MailPostCrmNotesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5878,7 +5957,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5892,6 +5971,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_notes_request: MailPostCrmNotesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5958,7 +6038,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5972,6 +6052,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_notes_request: MailPostCrmNotesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6038,7 +6119,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -6048,6 +6129,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_notes_request: MailPostCrmNotesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6070,7 +6152,7 @@ class MailApi:
             self.create_mail_crm_note(
                 team_id=team_id,
                 mail_post_crm_notes_request=mail_post_crm_notes_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6084,6 +6166,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_notes_request: MailPostCrmNotesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6106,7 +6189,7 @@ class MailApi:
             self.create_mail_crm_note_with_http_info(
                 team_id=team_id,
                 mail_post_crm_notes_request=mail_post_crm_notes_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6120,6 +6203,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_notes_request: MailPostCrmNotesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6142,7 +6226,7 @@ class MailApi:
             self.create_mail_crm_note_without_preload_content(
                 team_id=team_id,
                 mail_post_crm_notes_request=mail_post_crm_notes_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6236,6 +6320,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_tasks_request: MailPostCrmTasksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6302,7 +6387,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -6316,6 +6401,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_tasks_request: MailPostCrmTasksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6382,7 +6468,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -6396,6 +6482,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_tasks_request: MailPostCrmTasksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6462,7 +6549,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -6472,6 +6559,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_tasks_request: MailPostCrmTasksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6494,7 +6582,7 @@ class MailApi:
             self.create_mail_crm_task(
                 team_id=team_id,
                 mail_post_crm_tasks_request=mail_post_crm_tasks_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6508,6 +6596,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_tasks_request: MailPostCrmTasksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6530,7 +6619,7 @@ class MailApi:
             self.create_mail_crm_task_with_http_info(
                 team_id=team_id,
                 mail_post_crm_tasks_request=mail_post_crm_tasks_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6544,6 +6633,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_tasks_request: MailPostCrmTasksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6566,7 +6656,7 @@ class MailApi:
             self.create_mail_crm_task_without_preload_content(
                 team_id=team_id,
                 mail_post_crm_tasks_request=mail_post_crm_tasks_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6660,6 +6750,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_pools_request: MailPostDeliverabilityPoolsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6726,7 +6817,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -6740,6 +6831,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_pools_request: MailPostDeliverabilityPoolsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6806,7 +6898,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -6820,6 +6912,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_pools_request: MailPostDeliverabilityPoolsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6886,7 +6979,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -6896,6 +6989,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_pools_request: MailPostDeliverabilityPoolsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6918,7 +7012,7 @@ class MailApi:
             self.create_mail_mailbox_pool(
                 team_id=team_id,
                 mail_post_deliverability_pools_request=mail_post_deliverability_pools_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6932,6 +7026,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_pools_request: MailPostDeliverabilityPoolsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6954,7 +7049,7 @@ class MailApi:
             self.create_mail_mailbox_pool_with_http_info(
                 team_id=team_id,
                 mail_post_deliverability_pools_request=mail_post_deliverability_pools_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6968,6 +7063,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_pools_request: MailPostDeliverabilityPoolsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6990,7 +7086,7 @@ class MailApi:
             self.create_mail_mailbox_pool_without_preload_content(
                 team_id=team_id,
                 mail_post_deliverability_pools_request=mail_post_deliverability_pools_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7084,6 +7180,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_request: MailPostPortfolioRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7150,7 +7247,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7164,6 +7261,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_request: MailPostPortfolioRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7230,7 +7328,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7244,6 +7342,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_request: MailPostPortfolioRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7310,7 +7409,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -7320,6 +7419,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_request: MailPostPortfolioRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7342,7 +7442,7 @@ class MailApi:
             self.create_mail_portfolio(
                 team_id=team_id,
                 mail_post_portfolio_request=mail_post_portfolio_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7356,6 +7456,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_request: MailPostPortfolioRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7378,7 +7479,7 @@ class MailApi:
             self.create_mail_portfolio_with_http_info(
                 team_id=team_id,
                 mail_post_portfolio_request=mail_post_portfolio_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7392,6 +7493,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_request: MailPostPortfolioRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7414,7 +7516,7 @@ class MailApi:
             self.create_mail_portfolio_without_preload_content(
                 team_id=team_id,
                 mail_post_portfolio_request=mail_post_portfolio_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7508,6 +7610,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_suppressions_request: MailPostPortfolioSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7574,7 +7677,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7588,6 +7691,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_suppressions_request: MailPostPortfolioSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7654,7 +7758,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7668,6 +7772,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_suppressions_request: MailPostPortfolioSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7734,7 +7839,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -7744,6 +7849,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_suppressions_request: MailPostPortfolioSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7766,7 +7872,7 @@ class MailApi:
             self.create_mail_portfolio_suppression(
                 team_id=team_id,
                 mail_post_portfolio_suppressions_request=mail_post_portfolio_suppressions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7780,6 +7886,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_suppressions_request: MailPostPortfolioSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7802,7 +7909,7 @@ class MailApi:
             self.create_mail_portfolio_suppression_with_http_info(
                 team_id=team_id,
                 mail_post_portfolio_suppressions_request=mail_post_portfolio_suppressions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7816,6 +7923,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_portfolio_suppressions_request: MailPostPortfolioSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7838,7 +7946,7 @@ class MailApi:
             self.create_mail_portfolio_suppression_without_preload_content(
                 team_id=team_id,
                 mail_post_portfolio_suppressions_request=mail_post_portfolio_suppressions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7932,6 +8040,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_suppressions_request: MailPostSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7998,7 +8107,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8012,6 +8121,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_suppressions_request: MailPostSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8078,7 +8188,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8092,6 +8202,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_suppressions_request: MailPostSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8158,7 +8269,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -8168,6 +8279,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_suppressions_request: MailPostSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8190,7 +8302,7 @@ class MailApi:
             self.create_mail_suppression(
                 team_id=team_id,
                 mail_post_suppressions_request=mail_post_suppressions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8204,6 +8316,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_suppressions_request: MailPostSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8226,7 +8339,7 @@ class MailApi:
             self.create_mail_suppression_with_http_info(
                 team_id=team_id,
                 mail_post_suppressions_request=mail_post_suppressions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8240,6 +8353,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_suppressions_request: MailPostSuppressionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8262,7 +8376,7 @@ class MailApi:
             self.create_mail_suppression_without_preload_content(
                 team_id=team_id,
                 mail_post_suppressions_request=mail_post_suppressions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8356,6 +8470,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_webhooks_request: MailPostWebhooksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8422,7 +8537,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8436,6 +8551,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_webhooks_request: MailPostWebhooksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8502,7 +8618,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8516,6 +8632,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_webhooks_request: MailPostWebhooksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8582,7 +8699,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -8592,6 +8709,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_webhooks_request: MailPostWebhooksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8614,7 +8732,7 @@ class MailApi:
             self.create_mail_webhook(
                 team_id=team_id,
                 mail_post_webhooks_request=mail_post_webhooks_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8628,6 +8746,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_webhooks_request: MailPostWebhooksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8650,7 +8769,7 @@ class MailApi:
             self.create_mail_webhook_with_http_info(
                 team_id=team_id,
                 mail_post_webhooks_request=mail_post_webhooks_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8664,6 +8783,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_webhooks_request: MailPostWebhooksRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8686,7 +8806,7 @@ class MailApi:
             self.create_mail_webhook_without_preload_content(
                 team_id=team_id,
                 mail_post_webhooks_request=mail_post_webhooks_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8781,6 +8901,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_decide_request: MailPostExperimentsByExperimentKeyDecideRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8850,7 +8971,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8865,6 +8986,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_decide_request: MailPostExperimentsByExperimentKeyDecideRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8934,7 +9056,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8949,6 +9071,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_decide_request: MailPostExperimentsByExperimentKeyDecideRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9018,7 +9141,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -9029,6 +9152,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_decide_request: MailPostExperimentsByExperimentKeyDecideRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9052,7 +9176,7 @@ class MailApi:
                 team_id=team_id,
                 experiment_key=experiment_key,
                 mail_post_experiments_by_experiment_key_decide_request=mail_post_experiments_by_experiment_key_decide_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9067,6 +9191,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_decide_request: MailPostExperimentsByExperimentKeyDecideRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9090,7 +9215,7 @@ class MailApi:
                 team_id=team_id,
                 experiment_key=experiment_key,
                 mail_post_experiments_by_experiment_key_decide_request=mail_post_experiments_by_experiment_key_decide_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9105,6 +9230,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_decide_request: MailPostExperimentsByExperimentKeyDecideRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9128,7 +9254,7 @@ class MailApi:
                 team_id=team_id,
                 experiment_key=experiment_key,
                 mail_post_experiments_by_experiment_key_decide_request=mail_post_experiments_by_experiment_key_decide_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9226,6 +9352,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_delete_campaigns_by_campaign_id_request: MailDeleteCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9295,7 +9422,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -9310,6 +9437,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_delete_campaigns_by_campaign_id_request: MailDeleteCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9379,7 +9507,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -9394,6 +9522,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_delete_campaigns_by_campaign_id_request: MailDeleteCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9463,7 +9592,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -9474,6 +9603,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_delete_campaigns_by_campaign_id_request: MailDeleteCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9497,7 +9627,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_delete_campaigns_by_campaign_id_request=mail_delete_campaigns_by_campaign_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9512,6 +9642,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_delete_campaigns_by_campaign_id_request: MailDeleteCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9535,7 +9666,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_delete_campaigns_by_campaign_id_request=mail_delete_campaigns_by_campaign_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9550,6 +9681,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_delete_campaigns_by_campaign_id_request: MailDeleteCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9573,7 +9705,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_delete_campaigns_by_campaign_id_request=mail_delete_campaigns_by_campaign_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9670,6 +9802,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         automation_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9736,7 +9869,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -9750,6 +9883,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         automation_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9816,7 +9950,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -9830,6 +9964,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         automation_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9896,7 +10031,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -9906,6 +10041,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         automation_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9928,7 +10064,7 @@ class MailApi:
             self.delete_mail_reply_automation(
                 team_id=team_id,
                 automation_id=automation_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9942,6 +10078,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         automation_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9964,7 +10101,7 @@ class MailApi:
             self.delete_mail_reply_automation_with_http_info(
                 team_id=team_id,
                 automation_id=automation_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9978,6 +10115,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         automation_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10000,7 +10138,7 @@ class MailApi:
             self.delete_mail_reply_automation_without_preload_content(
                 team_id=team_id,
                 automation_id=automation_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10080,6 +10218,7 @@ class MailApi:
     async def delete_mail_tracking_domain(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10143,7 +10282,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10156,6 +10295,7 @@ class MailApi:
     async def delete_mail_tracking_domain_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10219,7 +10359,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10232,6 +10372,7 @@ class MailApi:
     async def delete_mail_tracking_domain_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10295,7 +10436,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -10304,6 +10445,7 @@ class MailApi:
     def delete_mail_tracking_domain_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10325,7 +10467,7 @@ class MailApi:
         return run_sync(
             self.delete_mail_tracking_domain(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10338,6 +10480,7 @@ class MailApi:
     def delete_mail_tracking_domain_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10359,7 +10502,7 @@ class MailApi:
         return run_sync(
             self.delete_mail_tracking_domain_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10372,6 +10515,7 @@ class MailApi:
     def delete_mail_tracking_domain_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10393,7 +10537,7 @@ class MailApi:
         return run_sync(
             self.delete_mail_tracking_domain_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10471,6 +10615,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10537,7 +10682,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10551,6 +10696,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10617,7 +10763,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10631,6 +10777,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10697,7 +10844,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -10707,6 +10854,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10729,7 +10877,7 @@ class MailApi:
             self.delete_mail_webhook(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10743,6 +10891,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10765,7 +10914,7 @@ class MailApi:
             self.delete_mail_webhook_with_http_info(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10779,6 +10928,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10801,7 +10951,7 @@ class MailApi:
             self.delete_mail_webhook_without_preload_content(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10882,6 +11032,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10948,7 +11099,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10962,6 +11113,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11028,7 +11180,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11042,6 +11194,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11108,7 +11261,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -11118,6 +11271,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11140,7 +11294,7 @@ class MailApi:
             self.disconnect_mail_mailbox(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11154,6 +11308,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11176,7 +11331,7 @@ class MailApi:
             self.disconnect_mail_mailbox_with_http_info(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11190,6 +11345,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11212,7 +11368,7 @@ class MailApi:
             self.disconnect_mail_mailbox_without_preload_content(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11293,6 +11449,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11359,7 +11516,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11373,6 +11530,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11439,7 +11597,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11453,6 +11611,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11519,7 +11678,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -11529,6 +11688,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11551,7 +11711,7 @@ class MailApi:
             self.duplicate_mail_campaign_draft(
                 team_id=team_id,
                 campaign_id=campaign_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11565,6 +11725,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11587,7 +11748,7 @@ class MailApi:
             self.duplicate_mail_campaign_draft_with_http_info(
                 team_id=team_id,
                 campaign_id=campaign_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11601,6 +11762,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11623,7 +11785,7 @@ class MailApi:
             self.duplicate_mail_campaign_draft_without_preload_content(
                 team_id=team_id,
                 campaign_id=campaign_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11704,6 +11866,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_messages_request: MailPostMessagesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11770,7 +11933,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11784,6 +11947,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_messages_request: MailPostMessagesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11850,7 +12014,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11864,6 +12028,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_messages_request: MailPostMessagesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11930,7 +12095,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -11940,6 +12105,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_messages_request: MailPostMessagesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11962,7 +12128,7 @@ class MailApi:
             self.enqueue_mail_message(
                 team_id=team_id,
                 mail_post_messages_request=mail_post_messages_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11976,6 +12142,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_messages_request: MailPostMessagesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11998,7 +12165,7 @@ class MailApi:
             self.enqueue_mail_message_with_http_info(
                 team_id=team_id,
                 mail_post_messages_request=mail_post_messages_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12012,6 +12179,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_messages_request: MailPostMessagesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12034,7 +12202,7 @@ class MailApi:
             self.enqueue_mail_message_without_preload_content(
                 team_id=team_id,
                 mail_post_messages_request=mail_post_messages_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12128,6 +12296,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_request: MailPostCadenceRunsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12194,7 +12363,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12208,6 +12377,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_request: MailPostCadenceRunsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12274,7 +12444,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12288,6 +12458,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_request: MailPostCadenceRunsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12354,7 +12525,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -12364,6 +12535,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_request: MailPostCadenceRunsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12386,7 +12558,7 @@ class MailApi:
             self.enroll_mail_cadence(
                 team_id=team_id,
                 mail_post_cadence_runs_request=mail_post_cadence_runs_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12400,6 +12572,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_request: MailPostCadenceRunsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12422,7 +12595,7 @@ class MailApi:
             self.enroll_mail_cadence_with_http_info(
                 team_id=team_id,
                 mail_post_cadence_runs_request=mail_post_cadence_runs_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12436,6 +12609,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_request: MailPostCadenceRunsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12458,7 +12632,7 @@ class MailApi:
             self.enroll_mail_cadence_without_preload_content(
                 team_id=team_id,
                 mail_post_cadence_runs_request=mail_post_cadence_runs_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12552,6 +12726,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_analytics_export_request: MailPostAnalyticsExportRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12618,7 +12793,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12632,6 +12807,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_analytics_export_request: MailPostAnalyticsExportRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12698,7 +12874,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12712,6 +12888,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_analytics_export_request: MailPostAnalyticsExportRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12778,7 +12955,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -12788,6 +12965,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_analytics_export_request: MailPostAnalyticsExportRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12810,7 +12988,7 @@ class MailApi:
             self.export_mail_analytics(
                 team_id=team_id,
                 mail_post_analytics_export_request=mail_post_analytics_export_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12824,6 +13002,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_analytics_export_request: MailPostAnalyticsExportRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12846,7 +13025,7 @@ class MailApi:
             self.export_mail_analytics_with_http_info(
                 team_id=team_id,
                 mail_post_analytics_export_request=mail_post_analytics_export_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12860,6 +13039,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_analytics_export_request: MailPostAnalyticsExportRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12882,7 +13062,7 @@ class MailApi:
             self.export_mail_analytics_without_preload_content(
                 team_id=team_id,
                 mail_post_analytics_export_request=mail_post_analytics_export_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12977,6 +13157,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13046,7 +13227,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13061,6 +13242,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13130,7 +13312,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13145,6 +13327,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13214,7 +13397,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -13225,6 +13408,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13248,7 +13432,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13263,6 +13447,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13286,7 +13471,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13301,6 +13486,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13324,7 +13510,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13413,6 +13599,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13482,7 +13669,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13497,6 +13684,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13566,7 +13754,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13581,6 +13769,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13650,7 +13839,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -13661,6 +13850,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13684,7 +13874,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13699,6 +13889,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13722,7 +13913,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13737,6 +13928,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13760,7 +13952,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13848,6 +14040,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13914,7 +14107,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13928,6 +14121,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13994,7 +14188,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14008,6 +14202,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14074,7 +14269,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -14084,6 +14279,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14106,7 +14302,7 @@ class MailApi:
             self.get_mail_campaign_draft(
                 team_id=team_id,
                 campaign_id=campaign_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14120,6 +14316,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14142,7 +14339,7 @@ class MailApi:
             self.get_mail_campaign_draft_with_http_info(
                 team_id=team_id,
                 campaign_id=campaign_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14156,6 +14353,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         campaign_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14178,7 +14376,7 @@ class MailApi:
             self.get_mail_campaign_draft_without_preload_content(
                 team_id=team_id,
                 campaign_id=campaign_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14258,6 +14456,7 @@ class MailApi:
     async def get_mail_campaign_progress(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14321,7 +14520,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14334,6 +14533,7 @@ class MailApi:
     async def get_mail_campaign_progress_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14397,7 +14597,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14410,6 +14610,7 @@ class MailApi:
     async def get_mail_campaign_progress_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14473,7 +14674,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -14482,6 +14683,7 @@ class MailApi:
     def get_mail_campaign_progress_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14503,7 +14705,7 @@ class MailApi:
         return run_sync(
             self.get_mail_campaign_progress(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14516,6 +14718,7 @@ class MailApi:
     def get_mail_campaign_progress_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14537,7 +14740,7 @@ class MailApi:
         return run_sync(
             self.get_mail_campaign_progress_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14550,6 +14753,7 @@ class MailApi:
     def get_mail_campaign_progress_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14571,7 +14775,7 @@ class MailApi:
         return run_sync(
             self.get_mail_campaign_progress_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14648,6 +14852,7 @@ class MailApi:
     async def get_mail_channels(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14711,7 +14916,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14724,6 +14929,7 @@ class MailApi:
     async def get_mail_channels_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14787,7 +14993,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14800,6 +15006,7 @@ class MailApi:
     async def get_mail_channels_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14863,7 +15070,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -14872,6 +15079,7 @@ class MailApi:
     def get_mail_channels_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14893,7 +15101,7 @@ class MailApi:
         return run_sync(
             self.get_mail_channels(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14906,6 +15114,7 @@ class MailApi:
     def get_mail_channels_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14927,7 +15136,7 @@ class MailApi:
         return run_sync(
             self.get_mail_channels_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14940,6 +15149,7 @@ class MailApi:
     def get_mail_channels_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14961,7 +15171,7 @@ class MailApi:
         return run_sync(
             self.get_mail_channels_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15039,6 +15249,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_states_batch_request: MailPostCrmStatesBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15105,7 +15316,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15119,6 +15330,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_states_batch_request: MailPostCrmStatesBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15185,7 +15397,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15199,6 +15411,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_states_batch_request: MailPostCrmStatesBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15265,7 +15478,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -15275,6 +15488,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_states_batch_request: MailPostCrmStatesBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15297,7 +15511,7 @@ class MailApi:
             self.get_mail_contact_states(
                 team_id=team_id,
                 mail_post_crm_states_batch_request=mail_post_crm_states_batch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15311,6 +15525,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_states_batch_request: MailPostCrmStatesBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15333,7 +15548,7 @@ class MailApi:
             self.get_mail_contact_states_with_http_info(
                 team_id=team_id,
                 mail_post_crm_states_batch_request=mail_post_crm_states_batch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15347,6 +15562,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_states_batch_request: MailPostCrmStatesBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15369,7 +15585,7 @@ class MailApi:
             self.get_mail_contact_states_without_preload_content(
                 team_id=team_id,
                 mail_post_crm_states_batch_request=mail_post_crm_states_batch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15463,6 +15679,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_contacts_batch_request: MailPostCrmContactsBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15529,7 +15746,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15543,6 +15760,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_contacts_batch_request: MailPostCrmContactsBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15609,7 +15827,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15623,6 +15841,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_contacts_batch_request: MailPostCrmContactsBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15689,7 +15908,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -15699,6 +15918,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_contacts_batch_request: MailPostCrmContactsBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15721,7 +15941,7 @@ class MailApi:
             self.get_mail_contacts(
                 team_id=team_id,
                 mail_post_crm_contacts_batch_request=mail_post_crm_contacts_batch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15735,6 +15955,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_contacts_batch_request: MailPostCrmContactsBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15757,7 +15978,7 @@ class MailApi:
             self.get_mail_contacts_with_http_info(
                 team_id=team_id,
                 mail_post_crm_contacts_batch_request=mail_post_crm_contacts_batch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15771,6 +15992,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_crm_contacts_batch_request: MailPostCrmContactsBatchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15793,7 +16015,7 @@ class MailApi:
             self.get_mail_contacts_without_preload_content(
                 team_id=team_id,
                 mail_post_crm_contacts_batch_request=mail_post_crm_contacts_batch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15886,6 +16108,7 @@ class MailApi:
     async def get_mail_deliverability(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15949,7 +16172,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15962,6 +16185,7 @@ class MailApi:
     async def get_mail_deliverability_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16025,7 +16249,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16038,6 +16262,7 @@ class MailApi:
     async def get_mail_deliverability_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16101,7 +16326,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -16110,6 +16335,7 @@ class MailApi:
     def get_mail_deliverability_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16131,7 +16357,7 @@ class MailApi:
         return run_sync(
             self.get_mail_deliverability(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16144,6 +16370,7 @@ class MailApi:
     def get_mail_deliverability_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16165,7 +16392,7 @@ class MailApi:
         return run_sync(
             self.get_mail_deliverability_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16178,6 +16405,7 @@ class MailApi:
     def get_mail_deliverability_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16199,7 +16427,7 @@ class MailApi:
         return run_sync(
             self.get_mail_deliverability_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16279,6 +16507,7 @@ class MailApi:
         experiment_key: StrictStr,
         revision: Annotated[int, Field(strict=True, gt=0)],
         at: Optional[datetime] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16351,7 +16580,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16367,6 +16596,7 @@ class MailApi:
         experiment_key: StrictStr,
         revision: Annotated[int, Field(strict=True, gt=0)],
         at: Optional[datetime] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16439,7 +16669,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16455,6 +16685,7 @@ class MailApi:
         experiment_key: StrictStr,
         revision: Annotated[int, Field(strict=True, gt=0)],
         at: Optional[datetime] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16527,7 +16758,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -16539,6 +16770,7 @@ class MailApi:
         experiment_key: StrictStr,
         revision: Annotated[int, Field(strict=True, gt=0)],
         at: Optional[datetime] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16563,7 +16795,7 @@ class MailApi:
                 experiment_key=experiment_key,
                 revision=revision,
                 at=at,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16579,6 +16811,7 @@ class MailApi:
         experiment_key: StrictStr,
         revision: Annotated[int, Field(strict=True, gt=0)],
         at: Optional[datetime] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16603,7 +16836,7 @@ class MailApi:
                 experiment_key=experiment_key,
                 revision=revision,
                 at=at,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16619,6 +16852,7 @@ class MailApi:
         experiment_key: StrictStr,
         revision: Annotated[int, Field(strict=True, gt=0)],
         at: Optional[datetime] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16643,7 +16877,7 @@ class MailApi:
                 experiment_key=experiment_key,
                 revision=revision,
                 at=at,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16742,6 +16976,7 @@ class MailApi:
     async def get_mail_experiments_overview(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16805,7 +17040,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16818,6 +17053,7 @@ class MailApi:
     async def get_mail_experiments_overview_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16881,7 +17117,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16894,6 +17130,7 @@ class MailApi:
     async def get_mail_experiments_overview_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16957,7 +17194,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -16966,6 +17203,7 @@ class MailApi:
     def get_mail_experiments_overview_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16987,7 +17225,7 @@ class MailApi:
         return run_sync(
             self.get_mail_experiments_overview(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17000,6 +17238,7 @@ class MailApi:
     def get_mail_experiments_overview_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17021,7 +17260,7 @@ class MailApi:
         return run_sync(
             self.get_mail_experiments_overview_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17034,6 +17273,7 @@ class MailApi:
     def get_mail_experiments_overview_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17055,7 +17295,7 @@ class MailApi:
         return run_sync(
             self.get_mail_experiments_overview_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17134,6 +17374,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17203,7 +17444,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -17218,6 +17459,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17287,7 +17529,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -17302,6 +17544,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17371,7 +17614,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -17382,6 +17625,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17405,7 +17649,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17420,6 +17664,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17443,7 +17688,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17458,6 +17703,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17481,7 +17727,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17568,6 +17814,7 @@ class MailApi:
     async def get_mail_portfolio(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17631,7 +17878,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -17644,6 +17891,7 @@ class MailApi:
     async def get_mail_portfolio_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17707,7 +17955,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -17720,6 +17968,7 @@ class MailApi:
     async def get_mail_portfolio_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17783,7 +18032,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -17792,6 +18041,7 @@ class MailApi:
     def get_mail_portfolio_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17813,7 +18063,7 @@ class MailApi:
         return run_sync(
             self.get_mail_portfolio(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17826,6 +18076,7 @@ class MailApi:
     def get_mail_portfolio_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17847,7 +18098,7 @@ class MailApi:
         return run_sync(
             self.get_mail_portfolio_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17860,6 +18111,7 @@ class MailApi:
     def get_mail_portfolio_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17881,7 +18133,7 @@ class MailApi:
         return run_sync(
             self.get_mail_portfolio_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17960,6 +18212,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18029,7 +18282,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -18044,6 +18297,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18113,7 +18367,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -18128,6 +18382,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18197,7 +18452,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -18208,6 +18463,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18231,7 +18487,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -18246,6 +18502,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18269,7 +18526,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -18284,6 +18541,7 @@ class MailApi:
         team_id: StrictStr,
         var_from: Optional[StrictStr] = None,
         to: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18307,7 +18565,7 @@ class MailApi:
                 team_id=team_id,
                 var_from=var_from,
                 to=to,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -18394,6 +18652,7 @@ class MailApi:
     async def get_mail_queue(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18457,7 +18716,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -18470,6 +18729,7 @@ class MailApi:
     async def get_mail_queue_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18533,7 +18793,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -18546,6 +18806,7 @@ class MailApi:
     async def get_mail_queue_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18609,7 +18870,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -18618,6 +18879,7 @@ class MailApi:
     def get_mail_queue_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18639,7 +18901,7 @@ class MailApi:
         return run_sync(
             self.get_mail_queue(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -18652,6 +18914,7 @@ class MailApi:
     def get_mail_queue_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18673,7 +18936,7 @@ class MailApi:
         return run_sync(
             self.get_mail_queue_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -18686,6 +18949,7 @@ class MailApi:
     def get_mail_queue_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18707,7 +18971,7 @@ class MailApi:
         return run_sync(
             self.get_mail_queue_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -18784,6 +19048,7 @@ class MailApi:
     async def get_mail_tracking_domain(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18847,7 +19112,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -18860,6 +19125,7 @@ class MailApi:
     async def get_mail_tracking_domain_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18923,7 +19189,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -18936,6 +19202,7 @@ class MailApi:
     async def get_mail_tracking_domain_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -18999,7 +19266,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -19008,6 +19275,7 @@ class MailApi:
     def get_mail_tracking_domain_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19029,7 +19297,7 @@ class MailApi:
         return run_sync(
             self.get_mail_tracking_domain(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -19042,6 +19310,7 @@ class MailApi:
     def get_mail_tracking_domain_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19063,7 +19332,7 @@ class MailApi:
         return run_sync(
             self.get_mail_tracking_domain_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -19076,6 +19345,7 @@ class MailApi:
     def get_mail_tracking_domain_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19097,7 +19367,7 @@ class MailApi:
         return run_sync(
             self.get_mail_tracking_domain_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -19175,6 +19445,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_domain_health_request: MailPostDeliverabilityDomainHealthRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19241,7 +19512,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -19255,6 +19526,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_domain_health_request: MailPostDeliverabilityDomainHealthRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19321,7 +19593,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -19335,6 +19607,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_domain_health_request: MailPostDeliverabilityDomainHealthRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19401,7 +19674,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -19411,6 +19684,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_domain_health_request: MailPostDeliverabilityDomainHealthRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19433,7 +19707,7 @@ class MailApi:
             self.inspect_mail_domain_health(
                 team_id=team_id,
                 mail_post_deliverability_domain_health_request=mail_post_deliverability_domain_health_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -19447,6 +19721,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_domain_health_request: MailPostDeliverabilityDomainHealthRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19469,7 +19744,7 @@ class MailApi:
             self.inspect_mail_domain_health_with_http_info(
                 team_id=team_id,
                 mail_post_deliverability_domain_health_request=mail_post_deliverability_domain_health_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -19483,6 +19758,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_deliverability_domain_health_request: MailPostDeliverabilityDomainHealthRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19505,7 +19781,7 @@ class MailApi:
             self.inspect_mail_domain_health_without_preload_content(
                 team_id=team_id,
                 mail_post_deliverability_domain_health_request=mail_post_deliverability_domain_health_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -19599,6 +19875,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_campaigns_request: MailPostCadenceCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19665,7 +19942,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -19679,6 +19956,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_campaigns_request: MailPostCadenceCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19745,7 +20023,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -19759,6 +20037,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_campaigns_request: MailPostCadenceCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19825,7 +20104,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -19835,6 +20114,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_campaigns_request: MailPostCadenceCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19857,7 +20137,7 @@ class MailApi:
             self.launch_mail_cadence_campaign(
                 team_id=team_id,
                 mail_post_cadence_campaigns_request=mail_post_cadence_campaigns_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -19871,6 +20151,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_campaigns_request: MailPostCadenceCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19893,7 +20174,7 @@ class MailApi:
             self.launch_mail_cadence_campaign_with_http_info(
                 team_id=team_id,
                 mail_post_cadence_campaigns_request=mail_post_cadence_campaigns_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -19907,6 +20188,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_campaigns_request: MailPostCadenceCampaignsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -19929,7 +20211,7 @@ class MailApi:
             self.launch_mail_cadence_campaign_without_preload_content(
                 team_id=team_id,
                 mail_post_cadence_campaigns_request=mail_post_cadence_campaigns_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -20024,6 +20306,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_launch_request: MailPostCampaignsByCampaignIdLaunchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20093,7 +20376,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -20108,6 +20391,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_launch_request: MailPostCampaignsByCampaignIdLaunchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20177,7 +20461,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -20192,6 +20476,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_launch_request: MailPostCampaignsByCampaignIdLaunchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20261,7 +20546,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -20272,6 +20557,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_launch_request: MailPostCampaignsByCampaignIdLaunchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20295,7 +20581,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_campaigns_by_campaign_id_launch_request=mail_post_campaigns_by_campaign_id_launch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -20310,6 +20596,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_launch_request: MailPostCampaignsByCampaignIdLaunchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20333,7 +20620,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_campaigns_by_campaign_id_launch_request=mail_post_campaigns_by_campaign_id_launch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -20348,6 +20635,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_post_campaigns_by_campaign_id_launch_request: MailPostCampaignsByCampaignIdLaunchRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20371,7 +20659,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_post_campaigns_by_campaign_id_launch_request=mail_post_campaigns_by_campaign_id_launch_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -20467,6 +20755,7 @@ class MailApi:
     async def list_mail_audience_lists(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20530,7 +20819,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -20543,6 +20832,7 @@ class MailApi:
     async def list_mail_audience_lists_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20606,7 +20896,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -20619,6 +20909,7 @@ class MailApi:
     async def list_mail_audience_lists_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20682,7 +20973,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -20691,6 +20982,7 @@ class MailApi:
     def list_mail_audience_lists_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20712,7 +21004,7 @@ class MailApi:
         return run_sync(
             self.list_mail_audience_lists(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -20725,6 +21017,7 @@ class MailApi:
     def list_mail_audience_lists_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20746,7 +21039,7 @@ class MailApi:
         return run_sync(
             self.list_mail_audience_lists_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -20759,6 +21052,7 @@ class MailApi:
     def list_mail_audience_lists_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20780,7 +21074,7 @@ class MailApi:
         return run_sync(
             self.list_mail_audience_lists_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -20857,6 +21151,7 @@ class MailApi:
     async def list_mail_cadence_campaigns(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20920,7 +21215,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -20933,6 +21228,7 @@ class MailApi:
     async def list_mail_cadence_campaigns_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -20996,7 +21292,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -21009,6 +21305,7 @@ class MailApi:
     async def list_mail_cadence_campaigns_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21072,7 +21369,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -21081,6 +21378,7 @@ class MailApi:
     def list_mail_cadence_campaigns_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21102,7 +21400,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadence_campaigns(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -21115,6 +21413,7 @@ class MailApi:
     def list_mail_cadence_campaigns_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21136,7 +21435,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadence_campaigns_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -21149,6 +21448,7 @@ class MailApi:
     def list_mail_cadence_campaigns_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21170,7 +21470,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadence_campaigns_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -21247,6 +21547,7 @@ class MailApi:
     async def list_mail_cadence_runs(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21310,7 +21611,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -21323,6 +21624,7 @@ class MailApi:
     async def list_mail_cadence_runs_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21386,7 +21688,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -21399,6 +21701,7 @@ class MailApi:
     async def list_mail_cadence_runs_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21462,7 +21765,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -21471,6 +21774,7 @@ class MailApi:
     def list_mail_cadence_runs_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21492,7 +21796,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadence_runs(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -21505,6 +21809,7 @@ class MailApi:
     def list_mail_cadence_runs_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21526,7 +21831,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadence_runs_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -21539,6 +21844,7 @@ class MailApi:
     def list_mail_cadence_runs_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21560,7 +21866,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadence_runs_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -21637,6 +21943,7 @@ class MailApi:
     async def list_mail_cadences(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21700,7 +22007,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -21713,6 +22020,7 @@ class MailApi:
     async def list_mail_cadences_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21776,7 +22084,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -21789,6 +22097,7 @@ class MailApi:
     async def list_mail_cadences_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21852,7 +22161,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -21861,6 +22170,7 @@ class MailApi:
     def list_mail_cadences_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21882,7 +22192,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadences(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -21895,6 +22205,7 @@ class MailApi:
     def list_mail_cadences_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21916,7 +22227,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadences_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -21929,6 +22240,7 @@ class MailApi:
     def list_mail_cadences_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -21950,7 +22262,7 @@ class MailApi:
         return run_sync(
             self.list_mail_cadences_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -22027,6 +22339,7 @@ class MailApi:
     async def list_mail_campaign_drafts(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22090,7 +22403,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -22103,6 +22416,7 @@ class MailApi:
     async def list_mail_campaign_drafts_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22166,7 +22480,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -22179,6 +22493,7 @@ class MailApi:
     async def list_mail_campaign_drafts_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22242,7 +22557,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -22251,6 +22566,7 @@ class MailApi:
     def list_mail_campaign_drafts_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22272,7 +22588,7 @@ class MailApi:
         return run_sync(
             self.list_mail_campaign_drafts(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -22285,6 +22601,7 @@ class MailApi:
     def list_mail_campaign_drafts_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22306,7 +22623,7 @@ class MailApi:
         return run_sync(
             self.list_mail_campaign_drafts_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -22319,6 +22636,7 @@ class MailApi:
     def list_mail_campaign_drafts_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22340,7 +22658,7 @@ class MailApi:
         return run_sync(
             self.list_mail_campaign_drafts_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -22417,6 +22735,7 @@ class MailApi:
     async def list_mail_contact_states(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22480,7 +22799,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -22493,6 +22812,7 @@ class MailApi:
     async def list_mail_contact_states_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22556,7 +22876,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -22569,6 +22889,7 @@ class MailApi:
     async def list_mail_contact_states_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22632,7 +22953,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -22641,6 +22962,7 @@ class MailApi:
     def list_mail_contact_states_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22662,7 +22984,7 @@ class MailApi:
         return run_sync(
             self.list_mail_contact_states(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -22675,6 +22997,7 @@ class MailApi:
     def list_mail_contact_states_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22696,7 +23019,7 @@ class MailApi:
         return run_sync(
             self.list_mail_contact_states_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -22709,6 +23032,7 @@ class MailApi:
     def list_mail_contact_states_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22730,7 +23054,7 @@ class MailApi:
         return run_sync(
             self.list_mail_contact_states_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -22809,6 +23133,7 @@ class MailApi:
         team_id: StrictStr,
         status: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22878,7 +23203,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -22893,6 +23218,7 @@ class MailApi:
         team_id: StrictStr,
         status: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -22962,7 +23288,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -22977,6 +23303,7 @@ class MailApi:
         team_id: StrictStr,
         status: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23046,7 +23373,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -23057,6 +23384,7 @@ class MailApi:
         team_id: StrictStr,
         status: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23080,7 +23408,7 @@ class MailApi:
                 team_id=team_id,
                 status=status,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -23095,6 +23423,7 @@ class MailApi:
         team_id: StrictStr,
         status: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23118,7 +23447,7 @@ class MailApi:
                 team_id=team_id,
                 status=status,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -23133,6 +23462,7 @@ class MailApi:
         team_id: StrictStr,
         status: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23156,7 +23486,7 @@ class MailApi:
                 team_id=team_id,
                 status=status,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -23245,6 +23575,7 @@ class MailApi:
         team_id: StrictStr,
         contact_id: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23314,7 +23645,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -23329,6 +23660,7 @@ class MailApi:
         team_id: StrictStr,
         contact_id: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23398,7 +23730,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -23413,6 +23745,7 @@ class MailApi:
         team_id: StrictStr,
         contact_id: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23482,7 +23815,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -23493,6 +23826,7 @@ class MailApi:
         team_id: StrictStr,
         contact_id: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23516,7 +23850,7 @@ class MailApi:
                 team_id=team_id,
                 contact_id=contact_id,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -23531,6 +23865,7 @@ class MailApi:
         team_id: StrictStr,
         contact_id: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23554,7 +23889,7 @@ class MailApi:
                 team_id=team_id,
                 contact_id=contact_id,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -23569,6 +23904,7 @@ class MailApi:
         team_id: StrictStr,
         contact_id: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23592,7 +23928,7 @@ class MailApi:
                 team_id=team_id,
                 contact_id=contact_id,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -23679,6 +24015,7 @@ class MailApi:
     async def list_mail_experiments(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23742,7 +24079,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -23755,6 +24092,7 @@ class MailApi:
     async def list_mail_experiments_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23818,7 +24156,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -23831,6 +24169,7 @@ class MailApi:
     async def list_mail_experiments_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23894,7 +24233,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -23903,6 +24242,7 @@ class MailApi:
     def list_mail_experiments_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23924,7 +24264,7 @@ class MailApi:
         return run_sync(
             self.list_mail_experiments(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -23937,6 +24277,7 @@ class MailApi:
     def list_mail_experiments_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23958,7 +24299,7 @@ class MailApi:
         return run_sync(
             self.list_mail_experiments_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -23971,6 +24312,7 @@ class MailApi:
     def list_mail_experiments_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -23992,7 +24334,7 @@ class MailApi:
         return run_sync(
             self.list_mail_experiments_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -24073,6 +24415,7 @@ class MailApi:
         label: Optional[StrictStr] = None,
         query: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24148,7 +24491,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -24165,6 +24508,7 @@ class MailApi:
         label: Optional[StrictStr] = None,
         query: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24240,7 +24584,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -24257,6 +24601,7 @@ class MailApi:
         label: Optional[StrictStr] = None,
         query: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24332,7 +24677,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -24345,6 +24690,7 @@ class MailApi:
         label: Optional[StrictStr] = None,
         query: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24370,7 +24716,7 @@ class MailApi:
                 label=label,
                 query=query,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -24387,6 +24733,7 @@ class MailApi:
         label: Optional[StrictStr] = None,
         query: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24412,7 +24759,7 @@ class MailApi:
                 label=label,
                 query=query,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -24429,6 +24776,7 @@ class MailApi:
         label: Optional[StrictStr] = None,
         query: Optional[StrictStr] = None,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24454,7 +24802,7 @@ class MailApi:
                 label=label,
                 query=query,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -24556,6 +24904,7 @@ class MailApi:
         assignment: Optional[StrictStr] = None,
         query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24634,7 +24983,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -24652,6 +25001,7 @@ class MailApi:
         assignment: Optional[StrictStr] = None,
         query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24730,7 +25080,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -24748,6 +25098,7 @@ class MailApi:
         assignment: Optional[StrictStr] = None,
         query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24826,7 +25177,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -24840,6 +25191,7 @@ class MailApi:
         assignment: Optional[StrictStr] = None,
         query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24866,7 +25218,7 @@ class MailApi:
                 assignment=assignment,
                 query=query,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -24884,6 +25236,7 @@ class MailApi:
         assignment: Optional[StrictStr] = None,
         query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24910,7 +25263,7 @@ class MailApi:
                 assignment=assignment,
                 query=query,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -24928,6 +25281,7 @@ class MailApi:
         assignment: Optional[StrictStr] = None,
         query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -24954,7 +25308,7 @@ class MailApi:
                 assignment=assignment,
                 query=query,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -25056,6 +25410,7 @@ class MailApi:
     async def list_mail_mailboxes(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25119,7 +25474,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -25132,6 +25487,7 @@ class MailApi:
     async def list_mail_mailboxes_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25195,7 +25551,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -25208,6 +25564,7 @@ class MailApi:
     async def list_mail_mailboxes_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25271,7 +25628,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -25280,6 +25637,7 @@ class MailApi:
     def list_mail_mailboxes_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25301,7 +25659,7 @@ class MailApi:
         return run_sync(
             self.list_mail_mailboxes(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -25314,6 +25672,7 @@ class MailApi:
     def list_mail_mailboxes_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25335,7 +25694,7 @@ class MailApi:
         return run_sync(
             self.list_mail_mailboxes_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -25348,6 +25707,7 @@ class MailApi:
     def list_mail_mailboxes_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25369,7 +25729,7 @@ class MailApi:
         return run_sync(
             self.list_mail_mailboxes_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -25448,6 +25808,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25517,7 +25878,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -25532,6 +25893,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25601,7 +25963,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -25616,6 +25978,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25685,7 +26048,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -25696,6 +26059,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25719,7 +26083,7 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -25734,6 +26098,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25757,7 +26122,7 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -25772,6 +26137,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25795,7 +26161,7 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -25882,6 +26248,7 @@ class MailApi:
     async def list_mail_reply_automations(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -25945,7 +26312,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -25958,6 +26325,7 @@ class MailApi:
     async def list_mail_reply_automations_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26021,7 +26389,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -26034,6 +26402,7 @@ class MailApi:
     async def list_mail_reply_automations_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26097,7 +26466,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -26106,6 +26475,7 @@ class MailApi:
     def list_mail_reply_automations_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26127,7 +26497,7 @@ class MailApi:
         return run_sync(
             self.list_mail_reply_automations(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -26140,6 +26510,7 @@ class MailApi:
     def list_mail_reply_automations_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26161,7 +26532,7 @@ class MailApi:
         return run_sync(
             self.list_mail_reply_automations_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -26174,6 +26545,7 @@ class MailApi:
     def list_mail_reply_automations_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26195,7 +26567,7 @@ class MailApi:
         return run_sync(
             self.list_mail_reply_automations_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -26274,6 +26646,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26343,7 +26716,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -26358,6 +26731,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26427,7 +26801,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -26442,6 +26816,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26511,7 +26886,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -26522,6 +26897,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26545,7 +26921,7 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -26560,6 +26936,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26583,7 +26960,7 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -26598,6 +26975,7 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=200, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26621,7 +26999,7 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -26708,6 +27086,7 @@ class MailApi:
     async def list_mail_suppressions(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26771,7 +27150,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -26784,6 +27163,7 @@ class MailApi:
     async def list_mail_suppressions_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26847,7 +27227,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -26860,6 +27240,7 @@ class MailApi:
     async def list_mail_suppressions_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26923,7 +27304,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -26932,6 +27313,7 @@ class MailApi:
     def list_mail_suppressions_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26953,7 +27335,7 @@ class MailApi:
         return run_sync(
             self.list_mail_suppressions(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -26966,6 +27348,7 @@ class MailApi:
     def list_mail_suppressions_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -26987,7 +27370,7 @@ class MailApi:
         return run_sync(
             self.list_mail_suppressions_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -27000,6 +27383,7 @@ class MailApi:
     def list_mail_suppressions_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27021,7 +27405,7 @@ class MailApi:
         return run_sync(
             self.list_mail_suppressions_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -27098,6 +27482,7 @@ class MailApi:
     async def list_mail_templates(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27161,7 +27546,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -27174,6 +27559,7 @@ class MailApi:
     async def list_mail_templates_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27237,7 +27623,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -27250,6 +27636,7 @@ class MailApi:
     async def list_mail_templates_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27313,7 +27700,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -27322,6 +27709,7 @@ class MailApi:
     def list_mail_templates_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27343,7 +27731,7 @@ class MailApi:
         return run_sync(
             self.list_mail_templates(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -27356,6 +27744,7 @@ class MailApi:
     def list_mail_templates_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27377,7 +27766,7 @@ class MailApi:
         return run_sync(
             self.list_mail_templates_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -27390,6 +27779,7 @@ class MailApi:
     def list_mail_templates_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27411,7 +27801,7 @@ class MailApi:
         return run_sync(
             self.list_mail_templates_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -27488,6 +27878,7 @@ class MailApi:
     async def list_mail_webhooks(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27551,7 +27942,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -27564,6 +27955,7 @@ class MailApi:
     async def list_mail_webhooks_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27627,7 +28019,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -27640,6 +28032,7 @@ class MailApi:
     async def list_mail_webhooks_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27703,7 +28096,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -27712,6 +28105,7 @@ class MailApi:
     def list_mail_webhooks_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27733,7 +28127,7 @@ class MailApi:
         return run_sync(
             self.list_mail_webhooks(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -27746,6 +28140,7 @@ class MailApi:
     def list_mail_webhooks_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27767,7 +28162,7 @@ class MailApi:
         return run_sync(
             self.list_mail_webhooks_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -27780,6 +28175,7 @@ class MailApi:
     def list_mail_webhooks_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27801,7 +28197,7 @@ class MailApi:
         return run_sync(
             self.list_mail_webhooks_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -27879,6 +28275,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -27945,7 +28342,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -27959,6 +28356,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28025,7 +28423,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -28039,6 +28437,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28105,7 +28504,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -28115,6 +28514,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28137,7 +28537,7 @@ class MailApi:
             self.pause_mail_experiment(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -28151,6 +28551,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28173,7 +28574,7 @@ class MailApi:
             self.pause_mail_experiment_with_http_info(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -28187,6 +28588,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28209,7 +28611,7 @@ class MailApi:
             self.pause_mail_experiment_without_preload_content(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -28291,6 +28693,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_pause_request: MailPostDeliverabilityMailboxesByMailboxIdPauseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28360,7 +28763,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -28375,6 +28778,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_pause_request: MailPostDeliverabilityMailboxesByMailboxIdPauseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28444,7 +28848,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -28459,6 +28863,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_pause_request: MailPostDeliverabilityMailboxesByMailboxIdPauseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28528,7 +28933,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -28539,6 +28944,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_pause_request: MailPostDeliverabilityMailboxesByMailboxIdPauseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28562,7 +28968,7 @@ class MailApi:
                 team_id=team_id,
                 mailbox_id=mailbox_id,
                 mail_post_deliverability_mailboxes_by_mailbox_id_pause_request=mail_post_deliverability_mailboxes_by_mailbox_id_pause_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -28577,6 +28983,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_pause_request: MailPostDeliverabilityMailboxesByMailboxIdPauseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28600,7 +29007,7 @@ class MailApi:
                 team_id=team_id,
                 mailbox_id=mailbox_id,
                 mail_post_deliverability_mailboxes_by_mailbox_id_pause_request=mail_post_deliverability_mailboxes_by_mailbox_id_pause_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -28615,6 +29022,7 @@ class MailApi:
         team_id: StrictStr,
         mailbox_id: StrictStr,
         mail_post_deliverability_mailboxes_by_mailbox_id_pause_request: MailPostDeliverabilityMailboxesByMailboxIdPauseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28638,7 +29046,7 @@ class MailApi:
                 team_id=team_id,
                 mailbox_id=mailbox_id,
                 mail_post_deliverability_mailboxes_by_mailbox_id_pause_request=mail_post_deliverability_mailboxes_by_mailbox_id_pause_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -28735,6 +29143,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_preflight_request: MailPostCadenceRunsPreflightRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28801,7 +29210,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -28815,6 +29224,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_preflight_request: MailPostCadenceRunsPreflightRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28881,7 +29291,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -28895,6 +29305,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_preflight_request: MailPostCadenceRunsPreflightRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28961,7 +29372,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -28971,6 +29382,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_preflight_request: MailPostCadenceRunsPreflightRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -28993,7 +29405,7 @@ class MailApi:
             self.preflight_mail_cadence_enrollment(
                 team_id=team_id,
                 mail_post_cadence_runs_preflight_request=mail_post_cadence_runs_preflight_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29007,6 +29419,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_preflight_request: MailPostCadenceRunsPreflightRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29029,7 +29442,7 @@ class MailApi:
             self.preflight_mail_cadence_enrollment_with_http_info(
                 team_id=team_id,
                 mail_post_cadence_runs_preflight_request=mail_post_cadence_runs_preflight_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29043,6 +29456,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadence_runs_preflight_request: MailPostCadenceRunsPreflightRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29065,7 +29479,7 @@ class MailApi:
             self.preflight_mail_cadence_enrollment_without_preload_content(
                 team_id=team_id,
                 mail_post_cadence_runs_preflight_request=mail_post_cadence_runs_preflight_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29159,6 +29573,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_mailboxes_manual_request: MailPostMailboxesManualRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29225,7 +29640,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -29239,6 +29654,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_mailboxes_manual_request: MailPostMailboxesManualRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29305,7 +29721,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -29319,6 +29735,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_mailboxes_manual_request: MailPostMailboxesManualRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29385,7 +29802,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -29395,6 +29812,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_mailboxes_manual_request: MailPostMailboxesManualRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29417,7 +29835,7 @@ class MailApi:
             self.provision_mail_mailbox(
                 team_id=team_id,
                 mail_post_mailboxes_manual_request=mail_post_mailboxes_manual_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29431,6 +29849,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_mailboxes_manual_request: MailPostMailboxesManualRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29453,7 +29872,7 @@ class MailApi:
             self.provision_mail_mailbox_with_http_info(
                 team_id=team_id,
                 mail_post_mailboxes_manual_request=mail_post_mailboxes_manual_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29467,6 +29886,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_mailboxes_manual_request: MailPostMailboxesManualRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29489,7 +29909,7 @@ class MailApi:
             self.provision_mail_mailbox_without_preload_content(
                 team_id=team_id,
                 mail_post_mailboxes_manual_request=mail_post_mailboxes_manual_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29583,6 +30003,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29649,7 +30070,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -29663,6 +30084,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29729,7 +30151,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -29743,6 +30165,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29809,7 +30232,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -29819,6 +30242,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29841,7 +30265,7 @@ class MailApi:
             self.reconcile_mail_mailbox_health(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29855,6 +30279,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29877,7 +30302,7 @@ class MailApi:
             self.reconcile_mail_mailbox_health_with_http_info(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29891,6 +30316,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -29913,7 +30339,7 @@ class MailApi:
             self.reconcile_mail_mailbox_health_without_preload_content(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -29994,6 +30420,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30060,7 +30487,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -30074,6 +30501,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30140,7 +30568,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -30154,6 +30582,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30220,7 +30649,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -30230,6 +30659,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30252,7 +30682,7 @@ class MailApi:
             self.reconcile_mail_webhook(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -30266,6 +30696,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30288,7 +30719,7 @@ class MailApi:
             self.reconcile_mail_webhook_with_http_info(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -30302,6 +30733,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30324,7 +30756,7 @@ class MailApi:
             self.reconcile_mail_webhook_without_preload_content(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -30406,6 +30838,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_conversions_request: MailPostExperimentsByExperimentKeyConversionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30475,7 +30908,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -30490,6 +30923,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_conversions_request: MailPostExperimentsByExperimentKeyConversionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30559,7 +30993,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -30574,6 +31008,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_conversions_request: MailPostExperimentsByExperimentKeyConversionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30643,7 +31078,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -30654,6 +31089,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_conversions_request: MailPostExperimentsByExperimentKeyConversionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30677,7 +31113,7 @@ class MailApi:
                 team_id=team_id,
                 experiment_key=experiment_key,
                 mail_post_experiments_by_experiment_key_conversions_request=mail_post_experiments_by_experiment_key_conversions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -30692,6 +31128,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_conversions_request: MailPostExperimentsByExperimentKeyConversionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30715,7 +31152,7 @@ class MailApi:
                 team_id=team_id,
                 experiment_key=experiment_key,
                 mail_post_experiments_by_experiment_key_conversions_request=mail_post_experiments_by_experiment_key_conversions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -30730,6 +31167,7 @@ class MailApi:
         team_id: StrictStr,
         experiment_key: StrictStr,
         mail_post_experiments_by_experiment_key_conversions_request: MailPostExperimentsByExperimentKeyConversionsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30753,7 +31191,7 @@ class MailApi:
                 team_id=team_id,
                 experiment_key=experiment_key,
                 mail_post_experiments_by_experiment_key_conversions_request=mail_post_experiments_by_experiment_key_conversions_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -30851,6 +31289,7 @@ class MailApi:
         team_id: StrictStr,
         pool_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -30920,7 +31359,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -30935,6 +31374,7 @@ class MailApi:
         team_id: StrictStr,
         pool_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31004,7 +31444,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -31019,6 +31459,7 @@ class MailApi:
         team_id: StrictStr,
         pool_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31088,7 +31529,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -31099,6 +31540,7 @@ class MailApi:
         team_id: StrictStr,
         pool_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31122,7 +31564,7 @@ class MailApi:
                 team_id=team_id,
                 pool_id=pool_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -31137,6 +31579,7 @@ class MailApi:
         team_id: StrictStr,
         pool_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31160,7 +31603,7 @@ class MailApi:
                 team_id=team_id,
                 pool_id=pool_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -31175,6 +31618,7 @@ class MailApi:
         team_id: StrictStr,
         pool_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31198,7 +31642,7 @@ class MailApi:
                 team_id=team_id,
                 pool_id=pool_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -31282,6 +31726,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         member_team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31348,7 +31793,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -31362,6 +31807,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         member_team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31428,7 +31874,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -31442,6 +31888,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         member_team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31508,7 +31955,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -31518,6 +31965,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         member_team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31540,7 +31988,7 @@ class MailApi:
             self.remove_mail_portfolio_team(
                 team_id=team_id,
                 member_team_id=member_team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -31554,6 +32002,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         member_team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31576,7 +32025,7 @@ class MailApi:
             self.remove_mail_portfolio_team_with_http_info(
                 team_id=team_id,
                 member_team_id=member_team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -31590,6 +32039,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         member_team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31612,7 +32062,7 @@ class MailApi:
             self.remove_mail_portfolio_team_without_preload_content(
                 team_id=team_id,
                 member_team_id=member_team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -31693,6 +32143,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         delivery_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31759,7 +32210,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -31773,6 +32224,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         delivery_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31839,7 +32291,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -31853,6 +32305,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         delivery_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31919,7 +32372,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -31929,6 +32382,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         delivery_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31951,7 +32405,7 @@ class MailApi:
             self.replay_mail_webhook_delivery(
                 team_id=team_id,
                 delivery_id=delivery_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -31965,6 +32419,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         delivery_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -31987,7 +32442,7 @@ class MailApi:
             self.replay_mail_webhook_delivery_with_http_info(
                 team_id=team_id,
                 delivery_id=delivery_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -32001,6 +32456,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         delivery_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32023,7 +32479,7 @@ class MailApi:
             self.replay_mail_webhook_delivery_without_preload_content(
                 team_id=team_id,
                 delivery_id=delivery_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -32105,6 +32561,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_reply_request: MailPostInboxByMessageIdReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32174,7 +32631,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -32189,6 +32646,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_reply_request: MailPostInboxByMessageIdReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32258,7 +32716,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -32273,6 +32731,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_reply_request: MailPostInboxByMessageIdReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32342,7 +32801,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -32353,6 +32812,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_reply_request: MailPostInboxByMessageIdReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32376,7 +32836,7 @@ class MailApi:
                 team_id=team_id,
                 message_id=message_id,
                 mail_post_inbox_by_message_id_reply_request=mail_post_inbox_by_message_id_reply_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -32391,6 +32851,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_reply_request: MailPostInboxByMessageIdReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32414,7 +32875,7 @@ class MailApi:
                 team_id=team_id,
                 message_id=message_id,
                 mail_post_inbox_by_message_id_reply_request=mail_post_inbox_by_message_id_reply_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -32429,6 +32890,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_reply_request: MailPostInboxByMessageIdReplyRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32452,7 +32914,7 @@ class MailApi:
                 team_id=team_id,
                 message_id=message_id,
                 mail_post_inbox_by_message_id_reply_request=mail_post_inbox_by_message_id_reply_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -32549,6 +33011,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32615,7 +33078,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -32629,6 +33092,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32695,7 +33159,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -32709,6 +33173,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32775,7 +33240,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -32785,6 +33250,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32807,7 +33273,7 @@ class MailApi:
             self.resume_mail_experiment(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -32821,6 +33287,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32843,7 +33310,7 @@ class MailApi:
             self.resume_mail_experiment_with_http_info(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -32857,6 +33324,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         experiment_key: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -32879,7 +33347,7 @@ class MailApi:
             self.resume_mail_experiment_without_preload_content(
                 team_id=team_id,
                 experiment_key=experiment_key,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -32960,6 +33428,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33026,7 +33495,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -33040,6 +33509,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33106,7 +33576,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -33120,6 +33590,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33186,7 +33657,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -33196,6 +33667,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33218,7 +33690,7 @@ class MailApi:
             self.resume_mail_mailbox(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -33232,6 +33704,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33254,7 +33727,7 @@ class MailApi:
             self.resume_mail_mailbox_with_http_info(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -33268,6 +33741,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mailbox_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33290,7 +33764,7 @@ class MailApi:
             self.resume_mail_mailbox_without_preload_content(
                 team_id=team_id,
                 mailbox_id=mailbox_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -33371,6 +33845,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33437,7 +33912,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -33451,6 +33926,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33517,7 +33993,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -33531,6 +34007,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33597,7 +34074,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -33607,6 +34084,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33629,7 +34107,7 @@ class MailApi:
             self.retry_mail_message(
                 team_id=team_id,
                 message_id=message_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -33643,6 +34121,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33665,7 +34144,7 @@ class MailApi:
             self.retry_mail_message_with_http_info(
                 team_id=team_id,
                 message_id=message_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -33679,6 +34158,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         message_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33701,7 +34181,7 @@ class MailApi:
             self.retry_mail_message_without_preload_content(
                 team_id=team_id,
                 message_id=message_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -33782,6 +34262,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33848,7 +34329,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -33862,6 +34343,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -33928,7 +34410,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -33942,6 +34424,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34008,7 +34491,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -34018,6 +34501,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34040,7 +34524,7 @@ class MailApi:
             self.rotate_mail_webhook_secret(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -34054,6 +34538,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34076,7 +34561,7 @@ class MailApi:
             self.rotate_mail_webhook_secret_with_http_info(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -34090,6 +34575,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         subscription_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34112,7 +34598,7 @@ class MailApi:
             self.rotate_mail_webhook_secret_without_preload_content(
                 team_id=team_id,
                 subscription_id=subscription_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -34193,6 +34679,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadences_request: MailPostCadencesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34259,7 +34746,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -34273,6 +34760,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadences_request: MailPostCadencesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34339,7 +34827,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -34353,6 +34841,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadences_request: MailPostCadencesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34419,7 +34908,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -34429,6 +34918,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadences_request: MailPostCadencesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34451,7 +34941,7 @@ class MailApi:
             self.save_mail_cadence(
                 team_id=team_id,
                 mail_post_cadences_request=mail_post_cadences_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -34465,6 +34955,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadences_request: MailPostCadencesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34487,7 +34978,7 @@ class MailApi:
             self.save_mail_cadence_with_http_info(
                 team_id=team_id,
                 mail_post_cadences_request=mail_post_cadences_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -34501,6 +34992,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_cadences_request: MailPostCadencesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34523,7 +35015,7 @@ class MailApi:
             self.save_mail_cadence_without_preload_content(
                 team_id=team_id,
                 mail_post_cadences_request=mail_post_cadences_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -34617,6 +35109,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_reply_automations_request: MailPostReplyAutomationsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34683,7 +35176,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -34697,6 +35190,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_reply_automations_request: MailPostReplyAutomationsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34763,7 +35257,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -34777,6 +35271,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_reply_automations_request: MailPostReplyAutomationsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34843,7 +35338,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -34853,6 +35348,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_reply_automations_request: MailPostReplyAutomationsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34875,7 +35371,7 @@ class MailApi:
             self.save_mail_reply_automation(
                 team_id=team_id,
                 mail_post_reply_automations_request=mail_post_reply_automations_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -34889,6 +35385,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_reply_automations_request: MailPostReplyAutomationsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34911,7 +35408,7 @@ class MailApi:
             self.save_mail_reply_automation_with_http_info(
                 team_id=team_id,
                 mail_post_reply_automations_request=mail_post_reply_automations_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -34925,6 +35422,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_reply_automations_request: MailPostReplyAutomationsRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -34947,7 +35445,7 @@ class MailApi:
             self.save_mail_reply_automation_without_preload_content(
                 team_id=team_id,
                 mail_post_reply_automations_request=mail_post_reply_automations_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -35041,6 +35539,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_templates_request: MailPostTemplatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35107,7 +35606,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -35121,6 +35620,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_templates_request: MailPostTemplatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35187,7 +35687,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -35201,6 +35701,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_templates_request: MailPostTemplatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35267,7 +35768,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -35277,6 +35778,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_templates_request: MailPostTemplatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35299,7 +35801,7 @@ class MailApi:
             self.save_mail_template(
                 team_id=team_id,
                 mail_post_templates_request=mail_post_templates_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -35313,6 +35815,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_templates_request: MailPostTemplatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35335,7 +35838,7 @@ class MailApi:
             self.save_mail_template_with_http_info(
                 team_id=team_id,
                 mail_post_templates_request=mail_post_templates_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -35349,6 +35852,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_templates_request: MailPostTemplatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35371,7 +35875,7 @@ class MailApi:
             self.save_mail_template_without_preload_content(
                 team_id=team_id,
                 mail_post_templates_request=mail_post_templates_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -35465,6 +35969,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_put_crm_states_request: MailPutCrmStatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35531,7 +36036,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -35545,6 +36050,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_put_crm_states_request: MailPutCrmStatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35611,7 +36117,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -35625,6 +36131,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_put_crm_states_request: MailPutCrmStatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35691,7 +36198,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -35701,6 +36208,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_put_crm_states_request: MailPutCrmStatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35723,7 +36231,7 @@ class MailApi:
             self.set_mail_contact_state(
                 team_id=team_id,
                 mail_put_crm_states_request=mail_put_crm_states_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -35737,6 +36245,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_put_crm_states_request: MailPutCrmStatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35759,7 +36268,7 @@ class MailApi:
             self.set_mail_contact_state_with_http_info(
                 team_id=team_id,
                 mail_put_crm_states_request=mail_put_crm_states_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -35773,6 +36282,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_put_crm_states_request: MailPutCrmStatesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35795,7 +36305,7 @@ class MailApi:
             self.set_mail_contact_state_without_preload_content(
                 team_id=team_id,
                 mail_put_crm_states_request=mail_put_crm_states_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -35891,6 +36401,7 @@ class MailApi:
         pool_id: StrictStr,
         mailbox_id: StrictStr,
         mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request: MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -35963,7 +36474,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -35979,6 +36490,7 @@ class MailApi:
         pool_id: StrictStr,
         mailbox_id: StrictStr,
         mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request: MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36051,7 +36563,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -36067,6 +36579,7 @@ class MailApi:
         pool_id: StrictStr,
         mailbox_id: StrictStr,
         mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request: MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36139,7 +36652,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -36151,6 +36664,7 @@ class MailApi:
         pool_id: StrictStr,
         mailbox_id: StrictStr,
         mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request: MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36175,7 +36689,7 @@ class MailApi:
                 pool_id=pool_id,
                 mailbox_id=mailbox_id,
                 mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request=mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -36191,6 +36705,7 @@ class MailApi:
         pool_id: StrictStr,
         mailbox_id: StrictStr,
         mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request: MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36215,7 +36730,7 @@ class MailApi:
                 pool_id=pool_id,
                 mailbox_id=mailbox_id,
                 mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request=mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -36231,6 +36746,7 @@ class MailApi:
         pool_id: StrictStr,
         mailbox_id: StrictStr,
         mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request: MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36255,7 +36771,7 @@ class MailApi:
                 pool_id=pool_id,
                 mailbox_id=mailbox_id,
                 mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request=mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -36356,6 +36872,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_post_webhooks_by_subscription_id_status_request: MailPostWebhooksBySubscriptionIdStatusRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36425,7 +36942,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -36440,6 +36957,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_post_webhooks_by_subscription_id_status_request: MailPostWebhooksBySubscriptionIdStatusRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36509,7 +37027,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -36524,6 +37042,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_post_webhooks_by_subscription_id_status_request: MailPostWebhooksBySubscriptionIdStatusRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36593,7 +37112,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -36604,6 +37123,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_post_webhooks_by_subscription_id_status_request: MailPostWebhooksBySubscriptionIdStatusRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36627,7 +37147,7 @@ class MailApi:
                 team_id=team_id,
                 subscription_id=subscription_id,
                 mail_post_webhooks_by_subscription_id_status_request=mail_post_webhooks_by_subscription_id_status_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -36642,6 +37162,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_post_webhooks_by_subscription_id_status_request: MailPostWebhooksBySubscriptionIdStatusRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36665,7 +37186,7 @@ class MailApi:
                 team_id=team_id,
                 subscription_id=subscription_id,
                 mail_post_webhooks_by_subscription_id_status_request=mail_post_webhooks_by_subscription_id_status_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -36680,6 +37201,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_post_webhooks_by_subscription_id_status_request: MailPostWebhooksBySubscriptionIdStatusRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36703,7 +37225,7 @@ class MailApi:
                 team_id=team_id,
                 subscription_id=subscription_id,
                 mail_post_webhooks_by_subscription_id_status_request=mail_post_webhooks_by_subscription_id_status_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -36800,6 +37322,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_oauth_begin_request: MailPostOauthBeginRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36866,7 +37389,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -36880,6 +37403,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_oauth_begin_request: MailPostOauthBeginRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -36946,7 +37470,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -36960,6 +37484,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_oauth_begin_request: MailPostOauthBeginRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37026,7 +37551,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -37036,6 +37561,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_oauth_begin_request: MailPostOauthBeginRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37058,7 +37584,7 @@ class MailApi:
             self.start_mail_o_auth(
                 team_id=team_id,
                 mail_post_oauth_begin_request=mail_post_oauth_begin_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -37072,6 +37598,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_oauth_begin_request: MailPostOauthBeginRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37094,7 +37621,7 @@ class MailApi:
             self.start_mail_o_auth_with_http_info(
                 team_id=team_id,
                 mail_post_oauth_begin_request=mail_post_oauth_begin_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -37108,6 +37635,7 @@ class MailApi:
         self,
         team_id: StrictStr,
         mail_post_oauth_begin_request: MailPostOauthBeginRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37130,7 +37658,7 @@ class MailApi:
             self.start_mail_o_auth_without_preload_content(
                 team_id=team_id,
                 mail_post_oauth_begin_request=mail_post_oauth_begin_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -37225,6 +37753,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_patch_campaigns_by_campaign_id_request: MailPatchCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37294,7 +37823,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -37309,6 +37838,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_patch_campaigns_by_campaign_id_request: MailPatchCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37378,7 +37908,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -37393,6 +37923,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_patch_campaigns_by_campaign_id_request: MailPatchCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37462,7 +37993,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -37473,6 +38004,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_patch_campaigns_by_campaign_id_request: MailPatchCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37496,7 +38028,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_patch_campaigns_by_campaign_id_request=mail_patch_campaigns_by_campaign_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -37511,6 +38043,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_patch_campaigns_by_campaign_id_request: MailPatchCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37534,7 +38067,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_patch_campaigns_by_campaign_id_request=mail_patch_campaigns_by_campaign_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -37549,6 +38082,7 @@ class MailApi:
         team_id: StrictStr,
         campaign_id: StrictStr,
         mail_patch_campaigns_by_campaign_id_request: MailPatchCampaignsByCampaignIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37572,7 +38106,7 @@ class MailApi:
                 team_id=team_id,
                 campaign_id=campaign_id,
                 mail_patch_campaigns_by_campaign_id_request=mail_patch_campaigns_by_campaign_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -37670,6 +38204,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_request: MailPostInboxByMessageIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37739,7 +38274,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -37754,6 +38289,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_request: MailPostInboxByMessageIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37823,7 +38359,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -37838,6 +38374,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_request: MailPostInboxByMessageIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37907,7 +38444,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -37918,6 +38455,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_request: MailPostInboxByMessageIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37941,7 +38479,7 @@ class MailApi:
                 team_id=team_id,
                 message_id=message_id,
                 mail_post_inbox_by_message_id_request=mail_post_inbox_by_message_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -37956,6 +38494,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_request: MailPostInboxByMessageIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -37979,7 +38518,7 @@ class MailApi:
                 team_id=team_id,
                 message_id=message_id,
                 mail_post_inbox_by_message_id_request=mail_post_inbox_by_message_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -37994,6 +38533,7 @@ class MailApi:
         team_id: StrictStr,
         message_id: StrictStr,
         mail_post_inbox_by_message_id_request: MailPostInboxByMessageIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38017,7 +38557,7 @@ class MailApi:
                 team_id=team_id,
                 message_id=message_id,
                 mail_post_inbox_by_message_id_request=mail_post_inbox_by_message_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -38115,6 +38655,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_patch_webhooks_by_subscription_id_request: MailPatchWebhooksBySubscriptionIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38184,7 +38725,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -38199,6 +38740,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_patch_webhooks_by_subscription_id_request: MailPatchWebhooksBySubscriptionIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38268,7 +38810,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -38283,6 +38825,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_patch_webhooks_by_subscription_id_request: MailPatchWebhooksBySubscriptionIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38352,7 +38895,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -38363,6 +38906,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_patch_webhooks_by_subscription_id_request: MailPatchWebhooksBySubscriptionIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38386,7 +38930,7 @@ class MailApi:
                 team_id=team_id,
                 subscription_id=subscription_id,
                 mail_patch_webhooks_by_subscription_id_request=mail_patch_webhooks_by_subscription_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -38401,6 +38945,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_patch_webhooks_by_subscription_id_request: MailPatchWebhooksBySubscriptionIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38424,7 +38969,7 @@ class MailApi:
                 team_id=team_id,
                 subscription_id=subscription_id,
                 mail_patch_webhooks_by_subscription_id_request=mail_patch_webhooks_by_subscription_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -38439,6 +38984,7 @@ class MailApi:
         team_id: StrictStr,
         subscription_id: StrictStr,
         mail_patch_webhooks_by_subscription_id_request: MailPatchWebhooksBySubscriptionIdRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38462,7 +39008,7 @@ class MailApi:
                 team_id=team_id,
                 subscription_id=subscription_id,
                 mail_patch_webhooks_by_subscription_id_request=mail_patch_webhooks_by_subscription_id_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -38558,6 +39104,7 @@ class MailApi:
     async def verify_mail_tracking_domain(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38621,7 +39168,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -38634,6 +39181,7 @@ class MailApi:
     async def verify_mail_tracking_domain_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38697,7 +39245,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -38710,6 +39258,7 @@ class MailApi:
     async def verify_mail_tracking_domain_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38773,7 +39322,7 @@ class MailApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -38782,6 +39331,7 @@ class MailApi:
     def verify_mail_tracking_domain_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38803,7 +39353,7 @@ class MailApi:
         return run_sync(
             self.verify_mail_tracking_domain(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -38816,6 +39366,7 @@ class MailApi:
     def verify_mail_tracking_domain_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38837,7 +39388,7 @@ class MailApi:
         return run_sync(
             self.verify_mail_tracking_domain_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -38850,6 +39401,7 @@ class MailApi:
     def verify_mail_tracking_domain_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -38871,7 +39423,7 @@ class MailApi:
         return run_sync(
             self.verify_mail_tracking_domain_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

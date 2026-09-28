@@ -21,6 +21,8 @@ import os
 import re
 import tempfile
 import uuid
+from reacon_sdk.http_policy import ReaconResponseDecodeError, is_json, parse_error_body
+from reacon_sdk.sync_helper import run_sync
 
 from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
@@ -78,20 +80,22 @@ class ApiClient:
         configuration=None,
         header_name=None,
         header_value=None,
-        cookie=None
+        cookie=None,
+        *,
+        http_client=None
     ) -> None:
         # use default configuration if none is provided
         if configuration is None:
             configuration = Configuration.get_default()
         self.configuration = configuration
 
-        self.rest_client = rest.RESTClientObject(configuration)
+        self.rest_client = rest.RESTClientObject(configuration, http_client=http_client)
         self.default_headers = {}
         if header_name is not None:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/0.1.0b1/python'
+        self.user_agent = 'OpenAPI-Generator/0.1.0b4/python'
         self.client_side_validation = configuration.client_side_validation
 
     async def __aenter__(self):
@@ -99,6 +103,16 @@ class ApiClient:
 
     async def __aexit__(self, exc_type, exc_value, traceback):
         await self.close()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        self.close_sync()
+
+    def close_sync(self):
+        """Close the owned pool on the same loop as synchronous requests."""
+        return run_sync(self.close())
 
     async def close(self):
         await self.rest_client.close()
@@ -183,7 +197,7 @@ class ApiClient:
 
         # header parameters
         header_params = header_params or {}
-        header_params.update(self.default_headers)
+        header_params = {key.lower(): str(value) if isinstance(value, (int, float)) else value for source in (self.default_headers, header_params) for key, value in source.items()}
         if self.cookie:
             header_params['Cookie'] = self.cookie
         if header_params:
@@ -257,7 +271,8 @@ class ApiClient:
         header_params=None,
         body=None,
         post_params=None,
-        _request_timeout=None
+        _request_timeout=None,
+        _retry=None
     ) -> rest.RESTResponse:
         """Makes the HTTP request (synchronous)
         :param method: Method to call.
@@ -277,7 +292,7 @@ class ApiClient:
                 method, url,
                 headers=header_params,
                 body=body, post_params=post_params,
-                _request_timeout=_request_timeout
+                _request_timeout=_request_timeout, _retry=_retry
             )
 
         except ApiException as e:
@@ -310,6 +325,14 @@ class ApiClient:
             and 'default' in response_types_map:
             response_type = response_types_map['default']
 
+        # Preserve errors even when a server/proxy returns an undocumented body.
+        if not 200 <= response_data.status <= 299:
+            text = response_data.data.decode("utf-8", errors="replace")
+            raise ApiException.from_response(http_resp=response_data, body=text,
+                data=parse_error_body(text, response_data.headers))
+        if response_type not in (None, "str", "bytearray", "bytes", "file") and not is_json(response_data.headers.get("content-type")):
+            raise ReaconResponseDecodeError(response_data, "Expected a JSON response")
+
         # deserialize response data
         response_text = None
         return_data = None
@@ -324,8 +347,11 @@ class ApiClient:
                 if content_type is not None:
                     match = re.search(r"charset=([a-zA-Z\-\d]+)[\s;]?", content_type)
                 encoding = match.group(1) if match else "utf-8"
-                response_text = response_data.data.decode(encoding)
-                return_data = self.deserialize(response_text, response_type, content_type)
+                try:
+                    response_text = response_data.data.decode(encoding)
+                    return_data = self.deserialize(response_text, response_type, content_type)
+                except (ValueError, TypeError, AttributeError, LookupError) as cause:
+                    raise ReaconResponseDecodeError(response_data, "Response does not match the declared format") from cause
         finally:
             if not 200 <= response_data.status <= 299:
                 raise ApiException.from_response(

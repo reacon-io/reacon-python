@@ -12,6 +12,7 @@
 
 from typing import Any, Optional
 from typing_extensions import Self
+from reacon_sdk.http_policy import parse_error_body, error_code
 
 class OpenApiException(Exception):
     """The base exception class for all OpenAPIExceptions"""
@@ -128,6 +129,11 @@ class ApiException(OpenApiException):
                 except Exception:
                     pass
             self.headers = http_resp.headers
+
+        self.response = getattr(http_resp, "response", None)
+        self.request_id = (self.headers or {}).get("x-request-id")
+        self.parsed_body = parse_error_body(self.body, self.headers)
+        self.code = error_code(self.parsed_body)
 
     @classmethod
     def from_response(

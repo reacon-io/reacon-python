@@ -39,6 +39,7 @@ class StatsApi:
     @validate_call
     async def get_stats(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -93,7 +94,7 @@ class StatsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -105,6 +106,7 @@ class StatsApi:
     @validate_call
     async def get_stats_with_http_info(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -159,7 +161,7 @@ class StatsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -171,6 +173,7 @@ class StatsApi:
     @validate_call
     async def get_stats_without_preload_content(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -225,7 +228,7 @@ class StatsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -233,6 +236,7 @@ class StatsApi:
     @validate_call
     def get_stats_sync(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -253,7 +257,7 @@ class StatsApi:
         """ # noqa: E501
         return run_sync(
             self.get_stats(
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -265,6 +269,7 @@ class StatsApi:
     @validate_call
     def get_stats_sync_with_http_info(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -285,7 +290,7 @@ class StatsApi:
         """ # noqa: E501
         return run_sync(
             self.get_stats_with_http_info(
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -297,6 +302,7 @@ class StatsApi:
     @validate_call
     def get_stats_sync_without_preload_content(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -317,7 +323,7 @@ class StatsApi:
         """ # noqa: E501
         return run_sync(
             self.get_stats_without_preload_content(
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

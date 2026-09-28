@@ -231,9 +231,14 @@ conf = reacon_sdk.Configuration(
         date_format: str="%Y-%m-%d",
         *,
         debug: Optional[bool] = None,
+        request_timeout: float = 30.0,
+        safe_retries=None,
     ) -> None:
         """Constructor
         """
+        self.safe_retries = safe_retries
+        self.request_timeout = request_timeout
+        """Total JSON/CSV network deadline in seconds, including body reads."""
         self._base_path = "https://api.reacon.io" if host is None else host
         """Default Base url
         """
@@ -561,7 +566,7 @@ conf = reacon_sdk.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.1.0\n"\
-               "SDK Package Version: 0.1.0b1".\
+               "SDK Package Version: 0.1.0b4".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:

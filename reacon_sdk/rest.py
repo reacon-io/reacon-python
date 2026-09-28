@@ -19,6 +19,7 @@ import ssl
 from typing import Optional, Union
 
 import httpx
+from reacon_sdk.http_policy import request_with_policy, positive_seconds, retry_options
 
 from reacon_sdk.exceptions import ApiException, ApiValueError
 
@@ -53,10 +54,15 @@ class RESTResponse(io.IOBase):
 
 class RESTClientObject:
 
-    def __init__(self, configuration) -> None:
+    def __init__(self, configuration, http_client=None) -> None:
 
         # maxsize is number of requests to host that are allowed in parallel
         self.maxsize = configuration.connection_pool_maxsize
+        self.request_timeout = positive_seconds(configuration.request_timeout)
+        self.safe_retries = retry_options(configuration.safe_retries)
+        if configuration.retries not in (None, 0):
+            raise ValueError("Automatic retries are disabled: GET requests may consume credits")
+        self._owns_http_client = http_client is None
 
         self.ssl_context = ssl.create_default_context(
             cafile=configuration.ssl_ca_cert,
@@ -74,10 +80,10 @@ class RESTClientObject:
         self.proxy = configuration.proxy
         self.proxy_headers = configuration.proxy_headers
 
-        self.pool_manager: Optional[httpx.AsyncClient] = None
+        self.pool_manager: Optional[httpx.AsyncClient] = http_client
 
     async def close(self):
-        if self.pool_manager is not None:
+        if self._owns_http_client and self.pool_manager is not None:
             await self.pool_manager.aclose()
 
     async def request(
@@ -87,7 +93,7 @@ class RESTClientObject:
             headers=None,
             body=None,
             post_params=None,
-            _request_timeout=None):
+            _request_timeout=None, _retry=None):
         """Execute request
 
         :param method: http request method
@@ -120,7 +126,6 @@ class RESTClientObject:
 
         post_params = post_params or {}
         headers = headers or {}
-        timeout = _request_timeout or 5 * 60
 
         if 'Content-Type' not in headers:
             headers['Content-Type'] = 'application/json'
@@ -128,7 +133,6 @@ class RESTClientObject:
         args = {
             "method": method,
             "url": url,
-            "timeout": timeout,
             "headers": headers
         }
 
@@ -180,7 +184,7 @@ class RESTClientObject:
         if self.pool_manager is None:
             self.pool_manager = self._create_pool_manager()
 
-        r = await self.pool_manager.request(**args)
+        r = await request_with_policy(self.pool_manager, args, _request_timeout, self.request_timeout, _retry, self.safe_retries)
         return RESTResponse(r)
 
     def _create_pool_manager(self) -> httpx.AsyncClient:
@@ -197,5 +201,6 @@ class RESTClientObject:
             limits=limits,
             proxy=proxy,
             verify=self.ssl_context,
-            trust_env=True
+            trust_env=True,
+            follow_redirects=False,
         )

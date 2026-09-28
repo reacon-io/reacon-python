@@ -49,6 +49,7 @@ class CompaniesApi:
         website: Optional[StrictStr] = None,
         sort: Optional[StrictStr] = None,
         order: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -127,7 +128,7 @@ class CompaniesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -146,6 +147,7 @@ class CompaniesApi:
         website: Optional[StrictStr] = None,
         sort: Optional[StrictStr] = None,
         order: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -224,7 +226,7 @@ class CompaniesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -243,6 +245,7 @@ class CompaniesApi:
         website: Optional[StrictStr] = None,
         sort: Optional[StrictStr] = None,
         order: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -321,7 +324,7 @@ class CompaniesApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -336,6 +339,7 @@ class CompaniesApi:
         website: Optional[StrictStr] = None,
         sort: Optional[StrictStr] = None,
         order: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -363,7 +367,7 @@ class CompaniesApi:
                 website=website,
                 sort=sort,
                 order=order,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -382,6 +386,7 @@ class CompaniesApi:
         website: Optional[StrictStr] = None,
         sort: Optional[StrictStr] = None,
         order: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -409,7 +414,7 @@ class CompaniesApi:
                 website=website,
                 sort=sort,
                 order=order,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -428,6 +433,7 @@ class CompaniesApi:
         website: Optional[StrictStr] = None,
         sort: Optional[StrictStr] = None,
         order: Optional[StrictStr] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -455,7 +461,7 @@ class CompaniesApi:
                 website=website,
                 sort=sort,
                 order=order,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

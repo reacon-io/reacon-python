@@ -100,6 +100,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_typeform_form_request: BindTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -165,7 +166,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -179,6 +180,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_typeform_form_request: BindTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -244,7 +246,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -258,6 +260,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_typeform_form_request: BindTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -323,7 +326,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -333,6 +336,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_typeform_form_request: BindTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -355,7 +359,7 @@ class IntegrationsApi:
             self.bind_typeform_form(
                 team_id=team_id,
                 bind_typeform_form_request=bind_typeform_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -369,6 +373,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_typeform_form_request: BindTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -391,7 +396,7 @@ class IntegrationsApi:
             self.bind_typeform_form_with_http_info(
                 team_id=team_id,
                 bind_typeform_form_request=bind_typeform_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -405,6 +410,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_typeform_form_request: BindTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -427,7 +433,7 @@ class IntegrationsApi:
             self.bind_typeform_form_without_preload_content(
                 team_id=team_id,
                 bind_typeform_form_request=bind_typeform_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -521,6 +527,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_webflow_form_request: BindWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -586,7 +593,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -600,6 +607,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_webflow_form_request: BindWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -665,7 +673,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -679,6 +687,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_webflow_form_request: BindWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -744,7 +753,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -754,6 +763,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_webflow_form_request: BindWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -776,7 +786,7 @@ class IntegrationsApi:
             self.bind_webflow_form(
                 team_id=team_id,
                 bind_webflow_form_request=bind_webflow_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -790,6 +800,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_webflow_form_request: BindWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -812,7 +823,7 @@ class IntegrationsApi:
             self.bind_webflow_form_with_http_info(
                 team_id=team_id,
                 bind_webflow_form_request=bind_webflow_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -826,6 +837,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         bind_webflow_form_request: BindWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -848,7 +860,7 @@ class IntegrationsApi:
             self.bind_webflow_form_without_preload_content(
                 team_id=team_id,
                 bind_webflow_form_request=bind_webflow_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -942,6 +954,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1007,7 +1020,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1021,6 +1034,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1086,7 +1100,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1100,6 +1114,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1165,7 +1180,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1175,6 +1190,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1197,7 +1213,7 @@ class IntegrationsApi:
             self.cancel_integration_job(
                 team_id=team_id,
                 job_id=job_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1211,6 +1227,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1233,7 +1250,7 @@ class IntegrationsApi:
             self.cancel_integration_job_with_http_info(
                 team_id=team_id,
                 job_id=job_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1247,6 +1264,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1269,7 +1287,7 @@ class IntegrationsApi:
             self.cancel_integration_job_without_preload_content(
                 team_id=team_id,
                 job_id=job_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1351,6 +1369,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_airtable_mapping_request: ConfigureAirtableMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1419,7 +1438,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1434,6 +1453,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_airtable_mapping_request: ConfigureAirtableMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1502,7 +1522,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1517,6 +1537,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_airtable_mapping_request: ConfigureAirtableMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1585,7 +1606,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1596,6 +1617,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_airtable_mapping_request: ConfigureAirtableMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1619,7 +1641,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_airtable_mapping_request=configure_airtable_mapping_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1634,6 +1656,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_airtable_mapping_request: ConfigureAirtableMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1657,7 +1680,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_airtable_mapping_request=configure_airtable_mapping_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1672,6 +1695,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_airtable_mapping_request: ConfigureAirtableMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1695,7 +1719,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_airtable_mapping_request=configure_airtable_mapping_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1792,6 +1816,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_coda_request: ConfigureCodaRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1857,7 +1882,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1871,6 +1896,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_coda_request: ConfigureCodaRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1936,7 +1962,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1950,6 +1976,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_coda_request: ConfigureCodaRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2015,7 +2042,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2025,6 +2052,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_coda_request: ConfigureCodaRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2047,7 +2075,7 @@ class IntegrationsApi:
             self.configure_coda(
                 team_id=team_id,
                 configure_coda_request=configure_coda_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2061,6 +2089,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_coda_request: ConfigureCodaRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2083,7 +2112,7 @@ class IntegrationsApi:
             self.configure_coda_with_http_info(
                 team_id=team_id,
                 configure_coda_request=configure_coda_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2097,6 +2126,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_coda_request: ConfigureCodaRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2119,7 +2149,7 @@ class IntegrationsApi:
             self.configure_coda_without_preload_content(
                 team_id=team_id,
                 configure_coda_request=configure_coda_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2214,6 +2244,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_crm_mapping_request: ConfigureCrmMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2282,7 +2313,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2297,6 +2328,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_crm_mapping_request: ConfigureCrmMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2365,7 +2397,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2380,6 +2412,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_crm_mapping_request: ConfigureCrmMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2448,7 +2481,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2459,6 +2492,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_crm_mapping_request: ConfigureCrmMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2482,7 +2516,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_crm_mapping_request=configure_crm_mapping_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2497,6 +2531,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_crm_mapping_request: ConfigureCrmMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2520,7 +2555,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_crm_mapping_request=configure_crm_mapping_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2535,6 +2570,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_crm_mapping_request: ConfigureCrmMappingRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2558,7 +2594,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_crm_mapping_request=configure_crm_mapping_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2656,6 +2692,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: UUID,
         configure_crm_sync_request: ConfigureCrmSyncRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2724,7 +2761,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2739,6 +2776,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: UUID,
         configure_crm_sync_request: ConfigureCrmSyncRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2807,7 +2845,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2822,6 +2860,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: UUID,
         configure_crm_sync_request: ConfigureCrmSyncRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2890,7 +2929,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2901,6 +2940,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: UUID,
         configure_crm_sync_request: ConfigureCrmSyncRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2924,7 +2964,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_crm_sync_request=configure_crm_sync_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2939,6 +2979,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: UUID,
         configure_crm_sync_request: ConfigureCrmSyncRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2962,7 +3003,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_crm_sync_request=configure_crm_sync_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2977,6 +3018,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: UUID,
         configure_crm_sync_request: ConfigureCrmSyncRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3000,7 +3042,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_crm_sync_request=configure_crm_sync_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3097,6 +3139,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_freshsales_request: ConfigureFreshsalesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3162,7 +3205,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -3176,6 +3219,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_freshsales_request: ConfigureFreshsalesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3241,7 +3285,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -3255,6 +3299,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_freshsales_request: ConfigureFreshsalesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3320,7 +3365,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -3330,6 +3375,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_freshsales_request: ConfigureFreshsalesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3352,7 +3398,7 @@ class IntegrationsApi:
             self.configure_freshsales(
                 team_id=team_id,
                 configure_freshsales_request=configure_freshsales_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3366,6 +3412,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_freshsales_request: ConfigureFreshsalesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3388,7 +3435,7 @@ class IntegrationsApi:
             self.configure_freshsales_with_http_info(
                 team_id=team_id,
                 configure_freshsales_request=configure_freshsales_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3402,6 +3449,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_freshsales_request: ConfigureFreshsalesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3424,7 +3472,7 @@ class IntegrationsApi:
             self.configure_freshsales_without_preload_content(
                 team_id=team_id,
                 configure_freshsales_request=configure_freshsales_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3519,6 +3567,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_notification_routes_request: ConfigureNotificationRoutesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3587,7 +3636,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -3602,6 +3651,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_notification_routes_request: ConfigureNotificationRoutesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3670,7 +3720,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -3685,6 +3735,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_notification_routes_request: ConfigureNotificationRoutesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3753,7 +3804,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -3764,6 +3815,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_notification_routes_request: ConfigureNotificationRoutesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3787,7 +3839,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_notification_routes_request=configure_notification_routes_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3802,6 +3854,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_notification_routes_request: ConfigureNotificationRoutesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3825,7 +3878,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_notification_routes_request=configure_notification_routes_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3840,6 +3893,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_notification_routes_request: ConfigureNotificationRoutesRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3863,7 +3917,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_notification_routes_request=configure_notification_routes_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -3961,6 +4015,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_slack_destination_request: ConfigureSlackDestinationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4029,7 +4084,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4044,6 +4099,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_slack_destination_request: ConfigureSlackDestinationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4112,7 +4168,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4127,6 +4183,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_slack_destination_request: ConfigureSlackDestinationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4195,7 +4252,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -4206,6 +4263,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_slack_destination_request: ConfigureSlackDestinationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4229,7 +4287,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_slack_destination_request=configure_slack_destination_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4244,6 +4302,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_slack_destination_request: ConfigureSlackDestinationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4267,7 +4326,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_slack_destination_request=configure_slack_destination_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4282,6 +4341,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         configure_slack_destination_request: ConfigureSlackDestinationRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4305,7 +4365,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 configure_slack_destination_request=configure_slack_destination_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4402,6 +4462,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_teams_workflow_request: ConfigureTeamsWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4467,7 +4528,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4481,6 +4542,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_teams_workflow_request: ConfigureTeamsWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4546,7 +4608,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4560,6 +4622,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_teams_workflow_request: ConfigureTeamsWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4625,7 +4688,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -4635,6 +4698,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_teams_workflow_request: ConfigureTeamsWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4657,7 +4721,7 @@ class IntegrationsApi:
             self.configure_teams_workflow(
                 team_id=team_id,
                 configure_teams_workflow_request=configure_teams_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4671,6 +4735,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_teams_workflow_request: ConfigureTeamsWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4693,7 +4758,7 @@ class IntegrationsApi:
             self.configure_teams_workflow_with_http_info(
                 team_id=team_id,
                 configure_teams_workflow_request=configure_teams_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4707,6 +4772,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_teams_workflow_request: ConfigureTeamsWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4729,7 +4795,7 @@ class IntegrationsApi:
             self.configure_teams_workflow_without_preload_content(
                 team_id=team_id,
                 configure_teams_workflow_request=configure_teams_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -4823,6 +4889,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_typeform_form_request: ConfigureTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4888,7 +4955,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4902,6 +4969,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_typeform_form_request: ConfigureTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -4967,7 +5035,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -4981,6 +5049,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_typeform_form_request: ConfigureTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5046,7 +5115,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -5056,6 +5125,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_typeform_form_request: ConfigureTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5078,7 +5148,7 @@ class IntegrationsApi:
             self.configure_typeform_form(
                 team_id=team_id,
                 configure_typeform_form_request=configure_typeform_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5092,6 +5162,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_typeform_form_request: ConfigureTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5114,7 +5185,7 @@ class IntegrationsApi:
             self.configure_typeform_form_with_http_info(
                 team_id=team_id,
                 configure_typeform_form_request=configure_typeform_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5128,6 +5199,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_typeform_form_request: ConfigureTypeformFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5150,7 +5222,7 @@ class IntegrationsApi:
             self.configure_typeform_form_without_preload_content(
                 team_id=team_id,
                 configure_typeform_form_request=configure_typeform_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5244,6 +5316,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_warehouse_request: ConfigureWarehouseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5309,7 +5382,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5323,6 +5396,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_warehouse_request: ConfigureWarehouseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5388,7 +5462,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5402,6 +5476,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_warehouse_request: ConfigureWarehouseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5467,7 +5542,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -5477,6 +5552,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_warehouse_request: ConfigureWarehouseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5499,7 +5575,7 @@ class IntegrationsApi:
             self.configure_warehouse(
                 team_id=team_id,
                 configure_warehouse_request=configure_warehouse_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5513,6 +5589,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_warehouse_request: ConfigureWarehouseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5535,7 +5612,7 @@ class IntegrationsApi:
             self.configure_warehouse_with_http_info(
                 team_id=team_id,
                 configure_warehouse_request=configure_warehouse_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5549,6 +5626,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_warehouse_request: ConfigureWarehouseRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5571,7 +5649,7 @@ class IntegrationsApi:
             self.configure_warehouse_without_preload_content(
                 team_id=team_id,
                 configure_warehouse_request=configure_warehouse_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5665,6 +5743,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_webflow_form_request: ConfigureWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5730,7 +5809,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5744,6 +5823,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_webflow_form_request: ConfigureWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5809,7 +5889,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -5823,6 +5903,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_webflow_form_request: ConfigureWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5888,7 +5969,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -5898,6 +5979,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_webflow_form_request: ConfigureWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5920,7 +6002,7 @@ class IntegrationsApi:
             self.configure_webflow_form(
                 team_id=team_id,
                 configure_webflow_form_request=configure_webflow_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5934,6 +6016,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_webflow_form_request: ConfigureWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5956,7 +6039,7 @@ class IntegrationsApi:
             self.configure_webflow_form_with_http_info(
                 team_id=team_id,
                 configure_webflow_form_request=configure_webflow_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -5970,6 +6053,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         configure_webflow_form_request: ConfigureWebflowFormRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -5992,7 +6076,7 @@ class IntegrationsApi:
             self.configure_webflow_form_without_preload_content(
                 team_id=team_id,
                 configure_webflow_form_request=configure_webflow_form_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6086,6 +6170,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         identity_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6150,7 +6235,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -6164,6 +6249,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         identity_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6228,7 +6314,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -6242,6 +6328,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         identity_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6306,7 +6393,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -6316,6 +6403,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         identity_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6338,7 +6426,7 @@ class IntegrationsApi:
             self.disable_mcp_identity(
                 team_id=team_id,
                 identity_id=identity_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6352,6 +6440,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         identity_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6374,7 +6463,7 @@ class IntegrationsApi:
             self.disable_mcp_identity_with_http_info(
                 team_id=team_id,
                 identity_id=identity_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6388,6 +6477,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         identity_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6410,7 +6500,7 @@ class IntegrationsApi:
             self.disable_mcp_identity_without_preload_content(
                 team_id=team_id,
                 identity_id=identity_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6496,6 +6586,7 @@ class IntegrationsApi:
         x_lumenreach_timestamp: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_event_id: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_signature: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6576,7 +6667,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -6595,6 +6686,7 @@ class IntegrationsApi:
         x_lumenreach_timestamp: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_event_id: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_signature: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6675,7 +6767,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -6694,6 +6786,7 @@ class IntegrationsApi:
         x_lumenreach_timestamp: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_event_id: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_signature: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6774,7 +6867,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -6789,6 +6882,7 @@ class IntegrationsApi:
         x_lumenreach_timestamp: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_event_id: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_signature: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6816,7 +6910,7 @@ class IntegrationsApi:
                 x_lumenreach_timestamp=x_lumenreach_timestamp,
                 x_lumenreach_event_id=x_lumenreach_event_id,
                 x_lumenreach_signature=x_lumenreach_signature,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6835,6 +6929,7 @@ class IntegrationsApi:
         x_lumenreach_timestamp: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_event_id: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_signature: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6862,7 +6957,7 @@ class IntegrationsApi:
                 x_lumenreach_timestamp=x_lumenreach_timestamp,
                 x_lumenreach_event_id=x_lumenreach_event_id,
                 x_lumenreach_signature=x_lumenreach_signature,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -6881,6 +6976,7 @@ class IntegrationsApi:
         x_lumenreach_timestamp: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_event_id: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
         x_lumenreach_signature: Annotated[Optional[StrictStr], Field(description="Required together with the other Segment origin headers when origin signing is used.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -6908,7 +7004,7 @@ class IntegrationsApi:
                 x_lumenreach_timestamp=x_lumenreach_timestamp,
                 x_lumenreach_event_id=x_lumenreach_event_id,
                 x_lumenreach_signature=x_lumenreach_signature,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7018,6 +7114,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         base_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=100)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7086,7 +7183,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7101,6 +7198,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         base_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=100)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7169,7 +7267,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7184,6 +7282,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         base_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=100)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7252,7 +7351,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -7263,6 +7362,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         base_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=100)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7286,7 +7386,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 base_id=base_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7301,6 +7401,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         base_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=100)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7324,7 +7425,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 base_id=base_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7339,6 +7440,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         base_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=100)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7362,7 +7464,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 base_id=base_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7449,6 +7551,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         resource_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7517,7 +7620,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7532,6 +7635,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         resource_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7600,7 +7704,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7615,6 +7719,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         resource_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7683,7 +7788,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -7694,6 +7799,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         resource_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7717,7 +7823,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 resource_id=resource_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7732,6 +7838,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         resource_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7755,7 +7862,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 resource_id=resource_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7770,6 +7877,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         resource_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7793,7 +7901,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 resource_id=resource_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -7879,6 +7987,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -7944,7 +8053,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -7958,6 +8067,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8023,7 +8133,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8037,6 +8147,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8102,7 +8213,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -8112,6 +8223,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8134,7 +8246,7 @@ class IntegrationsApi:
             self.get_hub_spot_configuration_options(
                 team_id=team_id,
                 connection_id=connection_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8148,6 +8260,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8170,7 +8283,7 @@ class IntegrationsApi:
             self.get_hub_spot_configuration_options_with_http_info(
                 team_id=team_id,
                 connection_id=connection_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8184,6 +8297,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8206,7 +8320,7 @@ class IntegrationsApi:
             self.get_hub_spot_configuration_options_without_preload_content(
                 team_id=team_id,
                 connection_id=connection_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8287,6 +8401,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8352,7 +8467,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8366,6 +8481,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8431,7 +8547,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8445,6 +8561,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8510,7 +8627,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -8520,6 +8637,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8542,7 +8660,7 @@ class IntegrationsApi:
             self.get_integration_job(
                 team_id=team_id,
                 job_id=job_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8556,6 +8674,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8578,7 +8697,7 @@ class IntegrationsApi:
             self.get_integration_job_with_http_info(
                 team_id=team_id,
                 job_id=job_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8592,6 +8711,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         job_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8614,7 +8734,7 @@ class IntegrationsApi:
             self.get_integration_job_without_preload_content(
                 team_id=team_id,
                 job_id=job_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8695,6 +8815,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_coda_table_request: InspectCodaTableRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8760,7 +8881,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8774,6 +8895,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_coda_table_request: InspectCodaTableRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8839,7 +8961,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -8853,6 +8975,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_coda_table_request: InspectCodaTableRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8918,7 +9041,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -8928,6 +9051,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_coda_table_request: InspectCodaTableRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8950,7 +9074,7 @@ class IntegrationsApi:
             self.inspect_coda_table(
                 team_id=team_id,
                 inspect_coda_table_request=inspect_coda_table_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -8964,6 +9088,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_coda_table_request: InspectCodaTableRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -8986,7 +9111,7 @@ class IntegrationsApi:
             self.inspect_coda_table_with_http_info(
                 team_id=team_id,
                 inspect_coda_table_request=inspect_coda_table_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9000,6 +9125,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_coda_table_request: InspectCodaTableRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9022,7 +9148,7 @@ class IntegrationsApi:
             self.inspect_coda_table_without_preload_content(
                 team_id=team_id,
                 inspect_coda_table_request=inspect_coda_table_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9116,6 +9242,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_excel_workbook_request: InspectExcelWorkbookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9181,7 +9308,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -9195,6 +9322,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_excel_workbook_request: InspectExcelWorkbookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9260,7 +9388,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -9274,6 +9402,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_excel_workbook_request: InspectExcelWorkbookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9339,7 +9468,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -9349,6 +9478,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_excel_workbook_request: InspectExcelWorkbookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9371,7 +9501,7 @@ class IntegrationsApi:
             self.inspect_excel_workbook(
                 team_id=team_id,
                 inspect_excel_workbook_request=inspect_excel_workbook_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9385,6 +9515,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_excel_workbook_request: InspectExcelWorkbookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9407,7 +9538,7 @@ class IntegrationsApi:
             self.inspect_excel_workbook_with_http_info(
                 team_id=team_id,
                 inspect_excel_workbook_request=inspect_excel_workbook_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9421,6 +9552,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_excel_workbook_request: InspectExcelWorkbookRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9443,7 +9575,7 @@ class IntegrationsApi:
             self.inspect_excel_workbook_without_preload_content(
                 team_id=team_id,
                 inspect_excel_workbook_request=inspect_excel_workbook_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9537,6 +9669,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_google_sheet_request: InspectGoogleSheetRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9602,7 +9735,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -9616,6 +9749,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_google_sheet_request: InspectGoogleSheetRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9681,7 +9815,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -9695,6 +9829,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_google_sheet_request: InspectGoogleSheetRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9760,7 +9895,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -9770,6 +9905,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_google_sheet_request: InspectGoogleSheetRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9792,7 +9928,7 @@ class IntegrationsApi:
             self.inspect_google_sheet(
                 team_id=team_id,
                 inspect_google_sheet_request=inspect_google_sheet_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9806,6 +9942,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_google_sheet_request: InspectGoogleSheetRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9828,7 +9965,7 @@ class IntegrationsApi:
             self.inspect_google_sheet_with_http_info(
                 team_id=team_id,
                 inspect_google_sheet_request=inspect_google_sheet_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9842,6 +9979,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         inspect_google_sheet_request: InspectGoogleSheetRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -9864,7 +10002,7 @@ class IntegrationsApi:
             self.inspect_google_sheet_without_preload_content(
                 team_id=team_id,
                 inspect_google_sheet_request=inspect_google_sheet_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -9958,6 +10096,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         link_mcp_identity_request: Optional[LinkMcpIdentityRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10023,7 +10162,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10037,6 +10176,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         link_mcp_identity_request: Optional[LinkMcpIdentityRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10102,7 +10242,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10116,6 +10256,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         link_mcp_identity_request: Optional[LinkMcpIdentityRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10181,7 +10322,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -10191,6 +10332,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         link_mcp_identity_request: Optional[LinkMcpIdentityRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10213,7 +10355,7 @@ class IntegrationsApi:
             self.link_mcp_identity(
                 team_id=team_id,
                 link_mcp_identity_request=link_mcp_identity_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10227,6 +10369,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         link_mcp_identity_request: Optional[LinkMcpIdentityRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10249,7 +10392,7 @@ class IntegrationsApi:
             self.link_mcp_identity_with_http_info(
                 team_id=team_id,
                 link_mcp_identity_request=link_mcp_identity_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10263,6 +10406,7 @@ class IntegrationsApi:
         self,
         team_id: UUID,
         link_mcp_identity_request: Optional[LinkMcpIdentityRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10285,7 +10429,7 @@ class IntegrationsApi:
             self.link_mcp_identity_without_preload_content(
                 team_id=team_id,
                 link_mcp_identity_request=link_mcp_identity_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10379,6 +10523,7 @@ class IntegrationsApi:
     async def list_integration_connections(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10441,7 +10586,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10454,6 +10599,7 @@ class IntegrationsApi:
     async def list_integration_connections_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10516,7 +10662,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10529,6 +10675,7 @@ class IntegrationsApi:
     async def list_integration_connections_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10591,7 +10738,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -10600,6 +10747,7 @@ class IntegrationsApi:
     def list_integration_connections_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10621,7 +10769,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_integration_connections(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10634,6 +10782,7 @@ class IntegrationsApi:
     def list_integration_connections_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10655,7 +10804,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_integration_connections_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10668,6 +10817,7 @@ class IntegrationsApi:
     def list_integration_connections_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10689,7 +10839,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_integration_connections_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -10770,6 +10920,7 @@ class IntegrationsApi:
         status: Optional[StrictStr] = None,
         cursor: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=512)]] = None,
         limit: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10844,7 +10995,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10861,6 +11012,7 @@ class IntegrationsApi:
         status: Optional[StrictStr] = None,
         cursor: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=512)]] = None,
         limit: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -10935,7 +11087,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -10952,6 +11104,7 @@ class IntegrationsApi:
         status: Optional[StrictStr] = None,
         cursor: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=512)]] = None,
         limit: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11026,7 +11179,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -11039,6 +11192,7 @@ class IntegrationsApi:
         status: Optional[StrictStr] = None,
         cursor: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=512)]] = None,
         limit: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11064,7 +11218,7 @@ class IntegrationsApi:
                 status=status,
                 cursor=cursor,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11081,6 +11235,7 @@ class IntegrationsApi:
         status: Optional[StrictStr] = None,
         cursor: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=512)]] = None,
         limit: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11106,7 +11261,7 @@ class IntegrationsApi:
                 status=status,
                 cursor=cursor,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11123,6 +11278,7 @@ class IntegrationsApi:
         status: Optional[StrictStr] = None,
         cursor: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=512)]] = None,
         limit: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11148,7 +11304,7 @@ class IntegrationsApi:
                 status=status,
                 cursor=cursor,
                 limit=limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11244,6 +11400,7 @@ class IntegrationsApi:
     @validate_call
     async def list_integration_providers(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11301,7 +11458,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11313,6 +11470,7 @@ class IntegrationsApi:
     @validate_call
     async def list_integration_providers_with_http_info(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11370,7 +11528,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11382,6 +11540,7 @@ class IntegrationsApi:
     @validate_call
     async def list_integration_providers_without_preload_content(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11439,7 +11598,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -11447,6 +11606,7 @@ class IntegrationsApi:
     @validate_call
     def list_integration_providers_sync(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11467,7 +11627,7 @@ class IntegrationsApi:
         """ # noqa: E501
         return run_sync(
             self.list_integration_providers(
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11479,6 +11639,7 @@ class IntegrationsApi:
     @validate_call
     def list_integration_providers_sync_with_http_info(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11499,7 +11660,7 @@ class IntegrationsApi:
         """ # noqa: E501
         return run_sync(
             self.list_integration_providers_with_http_info(
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11511,6 +11672,7 @@ class IntegrationsApi:
     @validate_call
     def list_integration_providers_sync_without_preload_content(
         self,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11531,7 +11693,7 @@ class IntegrationsApi:
         """ # noqa: E501
         return run_sync(
             self.list_integration_providers_without_preload_content(
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11605,6 +11767,7 @@ class IntegrationsApi:
     async def list_mcp_identities(
         self,
         team_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11665,7 +11828,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11678,6 +11841,7 @@ class IntegrationsApi:
     async def list_mcp_identities_with_http_info(
         self,
         team_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11738,7 +11902,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -11751,6 +11915,7 @@ class IntegrationsApi:
     async def list_mcp_identities_without_preload_content(
         self,
         team_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11811,7 +11976,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -11820,6 +11985,7 @@ class IntegrationsApi:
     def list_mcp_identities_sync(
         self,
         team_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11841,7 +12007,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_mcp_identities(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11854,6 +12020,7 @@ class IntegrationsApi:
     def list_mcp_identities_sync_with_http_info(
         self,
         team_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11875,7 +12042,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_mcp_identities_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11888,6 +12055,7 @@ class IntegrationsApi:
     def list_mcp_identities_sync_without_preload_content(
         self,
         team_id: UUID,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -11909,7 +12077,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_mcp_identities_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -11986,6 +12154,7 @@ class IntegrationsApi:
     async def list_sheet_workflows(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12048,7 +12217,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12061,6 +12230,7 @@ class IntegrationsApi:
     async def list_sheet_workflows_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12123,7 +12293,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12136,6 +12306,7 @@ class IntegrationsApi:
     async def list_sheet_workflows_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12198,7 +12369,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -12207,6 +12378,7 @@ class IntegrationsApi:
     def list_sheet_workflows_sync(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12228,7 +12400,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_sheet_workflows(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12241,6 +12413,7 @@ class IntegrationsApi:
     def list_sheet_workflows_sync_with_http_info(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12262,7 +12435,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_sheet_workflows_with_http_info(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12275,6 +12448,7 @@ class IntegrationsApi:
     def list_sheet_workflows_sync_without_preload_content(
         self,
         team_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12296,7 +12470,7 @@ class IntegrationsApi:
         return run_sync(
             self.list_sheet_workflows_without_preload_content(
                 team_id=team_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12375,6 +12549,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         preview_sheet_workflow_request: Optional[PreviewSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12443,7 +12618,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12458,6 +12633,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         preview_sheet_workflow_request: Optional[PreviewSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12526,7 +12702,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12541,6 +12717,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         preview_sheet_workflow_request: Optional[PreviewSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12609,7 +12786,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -12620,6 +12797,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         preview_sheet_workflow_request: Optional[PreviewSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12643,7 +12821,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 preview_sheet_workflow_request=preview_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12658,6 +12836,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         preview_sheet_workflow_request: Optional[PreviewSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12681,7 +12860,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 preview_sheet_workflow_request=preview_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12696,6 +12875,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         preview_sheet_workflow_request: Optional[PreviewSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12719,7 +12899,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 preview_sheet_workflow_request=preview_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -12817,6 +12997,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_integration_lead_export_request: Optional[QueueIntegrationLeadExportRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12885,7 +13066,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12900,6 +13081,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_integration_lead_export_request: Optional[QueueIntegrationLeadExportRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -12968,7 +13150,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -12983,6 +13165,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_integration_lead_export_request: Optional[QueueIntegrationLeadExportRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13051,7 +13234,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -13062,6 +13245,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_integration_lead_export_request: Optional[QueueIntegrationLeadExportRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13085,7 +13269,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 queue_integration_lead_export_request=queue_integration_lead_export_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13100,6 +13284,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_integration_lead_export_request: Optional[QueueIntegrationLeadExportRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13123,7 +13308,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 queue_integration_lead_export_request=queue_integration_lead_export_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13138,6 +13323,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_integration_lead_export_request: Optional[QueueIntegrationLeadExportRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13161,7 +13347,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 queue_integration_lead_export_request=queue_integration_lead_export_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13259,6 +13445,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_notification_test_request: Optional[QueueNotificationTestRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13327,7 +13514,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13342,6 +13529,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_notification_test_request: Optional[QueueNotificationTestRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13410,7 +13598,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13425,6 +13613,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_notification_test_request: Optional[QueueNotificationTestRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13493,7 +13682,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -13504,6 +13693,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_notification_test_request: Optional[QueueNotificationTestRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13527,7 +13717,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 queue_notification_test_request=queue_notification_test_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13542,6 +13732,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_notification_test_request: Optional[QueueNotificationTestRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13565,7 +13756,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 queue_notification_test_request=queue_notification_test_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13580,6 +13771,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         queue_notification_test_request: Optional[QueueNotificationTestRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13603,7 +13795,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 queue_notification_test_request=queue_notification_test_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13701,6 +13893,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_coda_credential_request: RotateCodaCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13769,7 +13962,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13784,6 +13977,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_coda_credential_request: RotateCodaCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13852,7 +14046,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -13867,6 +14061,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_coda_credential_request: RotateCodaCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13935,7 +14130,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -13946,6 +14141,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_coda_credential_request: RotateCodaCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13969,7 +14165,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 rotate_coda_credential_request=rotate_coda_credential_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -13984,6 +14180,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_coda_credential_request: RotateCodaCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14007,7 +14204,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 rotate_coda_credential_request=rotate_coda_credential_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14022,6 +14219,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_coda_credential_request: RotateCodaCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14045,7 +14243,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 rotate_coda_credential_request=rotate_coda_credential_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14143,6 +14341,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_freshsales_credential_request: RotateFreshsalesCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14211,7 +14410,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14226,6 +14425,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_freshsales_credential_request: RotateFreshsalesCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14294,7 +14494,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14309,6 +14509,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_freshsales_credential_request: RotateFreshsalesCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14377,7 +14578,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -14388,6 +14589,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_freshsales_credential_request: RotateFreshsalesCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14411,7 +14613,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 rotate_freshsales_credential_request=rotate_freshsales_credential_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14426,6 +14628,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_freshsales_credential_request: RotateFreshsalesCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14449,7 +14652,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 rotate_freshsales_credential_request=rotate_freshsales_credential_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14464,6 +14667,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         rotate_freshsales_credential_request: RotateFreshsalesCredentialRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14487,7 +14691,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 rotate_freshsales_credential_request=rotate_freshsales_credential_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14585,6 +14789,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         run_sheet_workflow_request: Optional[RunSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14653,7 +14858,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14668,6 +14873,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         run_sheet_workflow_request: Optional[RunSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14736,7 +14942,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -14751,6 +14957,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         run_sheet_workflow_request: Optional[RunSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14819,7 +15026,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -14830,6 +15037,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         run_sheet_workflow_request: Optional[RunSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14853,7 +15061,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 run_sheet_workflow_request=run_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14868,6 +15076,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         run_sheet_workflow_request: Optional[RunSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14891,7 +15100,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 run_sheet_workflow_request=run_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -14906,6 +15115,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         run_sheet_workflow_request: Optional[RunSheetWorkflowRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14929,7 +15139,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 run_sheet_workflow_request=run_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15026,6 +15236,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         save_sheet_workflow_request: SaveSheetWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15092,7 +15303,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15106,6 +15317,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         save_sheet_workflow_request: SaveSheetWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15172,7 +15384,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15186,6 +15398,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         save_sheet_workflow_request: SaveSheetWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15252,7 +15465,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -15262,6 +15475,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         save_sheet_workflow_request: SaveSheetWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15284,7 +15498,7 @@ class IntegrationsApi:
             self.save_sheet_workflow(
                 team_id=team_id,
                 save_sheet_workflow_request=save_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15298,6 +15512,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         save_sheet_workflow_request: SaveSheetWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15320,7 +15535,7 @@ class IntegrationsApi:
             self.save_sheet_workflow_with_http_info(
                 team_id=team_id,
                 save_sheet_workflow_request=save_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15334,6 +15549,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         save_sheet_workflow_request: SaveSheetWorkflowRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15356,7 +15572,7 @@ class IntegrationsApi:
             self.save_sheet_workflow_without_preload_content(
                 team_id=team_id,
                 save_sheet_workflow_request=save_sheet_workflow_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15450,6 +15666,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_attio_o_auth_request: Optional[StartAttioOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15515,7 +15732,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15529,6 +15746,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_attio_o_auth_request: Optional[StartAttioOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15594,7 +15812,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15608,6 +15826,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_attio_o_auth_request: Optional[StartAttioOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15673,7 +15892,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -15683,6 +15902,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_attio_o_auth_request: Optional[StartAttioOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15705,7 +15925,7 @@ class IntegrationsApi:
             self.start_attio_o_auth(
                 team_id=team_id,
                 start_attio_o_auth_request=start_attio_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15719,6 +15939,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_attio_o_auth_request: Optional[StartAttioOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15741,7 +15962,7 @@ class IntegrationsApi:
             self.start_attio_o_auth_with_http_info(
                 team_id=team_id,
                 start_attio_o_auth_request=start_attio_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15755,6 +15976,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_attio_o_auth_request: Optional[StartAttioOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15777,7 +15999,7 @@ class IntegrationsApi:
             self.start_attio_o_auth_without_preload_content(
                 team_id=team_id,
                 start_attio_o_auth_request=start_attio_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -15871,6 +16093,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_google_sheets_o_auth_request: Optional[StartGoogleSheetsOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -15936,7 +16159,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -15950,6 +16173,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_google_sheets_o_auth_request: Optional[StartGoogleSheetsOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16015,7 +16239,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16029,6 +16253,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_google_sheets_o_auth_request: Optional[StartGoogleSheetsOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16094,7 +16319,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -16104,6 +16329,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_google_sheets_o_auth_request: Optional[StartGoogleSheetsOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16126,7 +16352,7 @@ class IntegrationsApi:
             self.start_google_sheets_o_auth(
                 team_id=team_id,
                 start_google_sheets_o_auth_request=start_google_sheets_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16140,6 +16366,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_google_sheets_o_auth_request: Optional[StartGoogleSheetsOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16162,7 +16389,7 @@ class IntegrationsApi:
             self.start_google_sheets_o_auth_with_http_info(
                 team_id=team_id,
                 start_google_sheets_o_auth_request=start_google_sheets_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16176,6 +16403,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         start_google_sheets_o_auth_request: Optional[StartGoogleSheetsOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16198,7 +16426,7 @@ class IntegrationsApi:
             self.start_google_sheets_o_auth_without_preload_content(
                 team_id=team_id,
                 start_google_sheets_o_auth_request=start_google_sheets_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16293,6 +16521,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         provider: StrictStr,
         start_integration_o_auth_request: Optional[StartIntegrationOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16361,7 +16590,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16376,6 +16605,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         provider: StrictStr,
         start_integration_o_auth_request: Optional[StartIntegrationOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16444,7 +16674,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16459,6 +16689,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         provider: StrictStr,
         start_integration_o_auth_request: Optional[StartIntegrationOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16527,7 +16758,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -16538,6 +16769,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         provider: StrictStr,
         start_integration_o_auth_request: Optional[StartIntegrationOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16561,7 +16793,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 provider=provider,
                 start_integration_o_auth_request=start_integration_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16576,6 +16808,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         provider: StrictStr,
         start_integration_o_auth_request: Optional[StartIntegrationOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16599,7 +16832,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 provider=provider,
                 start_integration_o_auth_request=start_integration_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16614,6 +16847,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         provider: StrictStr,
         start_integration_o_auth_request: Optional[StartIntegrationOAuthRequest] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16637,7 +16871,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 provider=provider,
                 start_integration_o_auth_request=start_integration_o_auth_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -16734,6 +16968,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16799,7 +17034,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16813,6 +17048,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16878,7 +17114,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -16892,6 +17128,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16957,7 +17194,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -16967,6 +17204,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -16989,7 +17227,7 @@ class IntegrationsApi:
             self.test_integration_connection(
                 team_id=team_id,
                 connection_id=connection_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17003,6 +17241,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17025,7 +17264,7 @@ class IntegrationsApi:
             self.test_integration_connection_with_http_info(
                 team_id=team_id,
                 connection_id=connection_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17039,6 +17278,7 @@ class IntegrationsApi:
         self,
         team_id: StrictStr,
         connection_id: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17061,7 +17301,7 @@ class IntegrationsApi:
             self.test_integration_connection_without_preload_content(
                 team_id=team_id,
                 connection_id=connection_id,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17143,6 +17383,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         update_integration_connection_state_request: UpdateIntegrationConnectionStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17211,7 +17452,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -17226,6 +17467,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         update_integration_connection_state_request: UpdateIntegrationConnectionStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17294,7 +17536,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -17309,6 +17551,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         update_integration_connection_state_request: UpdateIntegrationConnectionStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17377,7 +17620,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -17388,6 +17631,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         update_integration_connection_state_request: UpdateIntegrationConnectionStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17411,7 +17655,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 update_integration_connection_state_request=update_integration_connection_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17426,6 +17670,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         update_integration_connection_state_request: UpdateIntegrationConnectionStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17449,7 +17694,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 update_integration_connection_state_request=update_integration_connection_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17464,6 +17709,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         connection_id: StrictStr,
         update_integration_connection_state_request: UpdateIntegrationConnectionStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17487,7 +17733,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 connection_id=connection_id,
                 update_integration_connection_state_request=update_integration_connection_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17585,6 +17831,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         update_sheet_workflow_state_request: UpdateSheetWorkflowStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17653,7 +17900,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -17668,6 +17915,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         update_sheet_workflow_state_request: UpdateSheetWorkflowStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17736,7 +17984,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -17751,6 +17999,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         update_sheet_workflow_state_request: UpdateSheetWorkflowStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17819,7 +18068,7 @@ class IntegrationsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -17830,6 +18079,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         update_sheet_workflow_state_request: UpdateSheetWorkflowStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17853,7 +18103,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 update_sheet_workflow_state_request=update_sheet_workflow_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17868,6 +18118,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         update_sheet_workflow_state_request: UpdateSheetWorkflowStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17891,7 +18142,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 update_sheet_workflow_state_request=update_sheet_workflow_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -17906,6 +18157,7 @@ class IntegrationsApi:
         team_id: StrictStr,
         workflow_id: Annotated[str, Field(min_length=36, strict=True, max_length=36)],
         update_sheet_workflow_state_request: UpdateSheetWorkflowStateRequest,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -17929,7 +18181,7 @@ class IntegrationsApi:
                 team_id=team_id,
                 workflow_id=workflow_id,
                 update_sheet_workflow_state_request=update_sheet_workflow_state_request,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,

@@ -46,6 +46,7 @@ class EmailsApi:
     async def delete_email(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -106,7 +107,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -119,6 +120,7 @@ class EmailsApi:
     async def delete_email_with_http_info(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -179,7 +181,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -192,6 +194,7 @@ class EmailsApi:
     async def delete_email_without_preload_content(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -252,7 +255,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -261,6 +264,7 @@ class EmailsApi:
     def delete_email_sync(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -282,7 +286,7 @@ class EmailsApi:
         return run_sync(
             self.delete_email(
                 email=email,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -295,6 +299,7 @@ class EmailsApi:
     def delete_email_sync_with_http_info(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -316,7 +321,7 @@ class EmailsApi:
         return run_sync(
             self.delete_email_with_http_info(
                 email=email,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -329,6 +334,7 @@ class EmailsApi:
     def delete_email_sync_without_preload_content(
         self,
         email: StrictStr,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -350,7 +356,7 @@ class EmailsApi:
         return run_sync(
             self.delete_email_without_preload_content(
                 email=email,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -431,6 +437,7 @@ class EmailsApi:
         cursor: Optional[StrictStr] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -503,7 +510,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -520,6 +527,7 @@ class EmailsApi:
         cursor: Optional[StrictStr] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -592,7 +600,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -609,6 +617,7 @@ class EmailsApi:
         cursor: Optional[StrictStr] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -681,7 +690,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -694,6 +703,7 @@ class EmailsApi:
         cursor: Optional[StrictStr] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -719,7 +729,7 @@ class EmailsApi:
                 cursor=cursor,
                 x_lr_limit=x_lr_limit,
                 x_lr_cursor=x_lr_cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -736,6 +746,7 @@ class EmailsApi:
         cursor: Optional[StrictStr] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -761,7 +772,7 @@ class EmailsApi:
                 cursor=cursor,
                 x_lr_limit=x_lr_limit,
                 x_lr_cursor=x_lr_cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -778,6 +789,7 @@ class EmailsApi:
         cursor: Optional[StrictStr] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -803,7 +815,7 @@ class EmailsApi:
                 cursor=cursor,
                 x_lr_limit=x_lr_limit,
                 x_lr_cursor=x_lr_cursor,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -903,6 +915,7 @@ class EmailsApi:
         only_if_free: Optional[StrictStr] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Page size; capped by the query limit when both are provided.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -984,7 +997,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1004,6 +1017,7 @@ class EmailsApi:
         only_if_free: Optional[StrictStr] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Page size; capped by the query limit when both are provided.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1085,7 +1099,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1105,6 +1119,7 @@ class EmailsApi:
         only_if_free: Optional[StrictStr] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Page size; capped by the query limit when both are provided.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1186,7 +1201,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1202,6 +1217,7 @@ class EmailsApi:
         only_if_free: Optional[StrictStr] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Page size; capped by the query limit when both are provided.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1230,7 +1246,7 @@ class EmailsApi:
                 only_if_free=only_if_free,
                 x_lr_cursor=x_lr_cursor,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1250,6 +1266,7 @@ class EmailsApi:
         only_if_free: Optional[StrictStr] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Page size; capped by the query limit when both are provided.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1278,7 +1295,7 @@ class EmailsApi:
                 only_if_free=only_if_free,
                 x_lr_cursor=x_lr_cursor,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1298,6 +1315,7 @@ class EmailsApi:
         only_if_free: Optional[StrictStr] = None,
         x_lr_cursor: Annotated[Optional[StrictStr], Field(description="Overrides the query cursor.")] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Page size; capped by the query limit when both are provided.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1326,7 +1344,7 @@ class EmailsApi:
                 only_if_free=only_if_free,
                 x_lr_cursor=x_lr_cursor,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1438,6 +1456,7 @@ class EmailsApi:
         email: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1506,7 +1525,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1521,6 +1540,7 @@ class EmailsApi:
         email: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1589,7 +1609,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1604,6 +1624,7 @@ class EmailsApi:
         email: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1672,7 +1693,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -1683,6 +1704,7 @@ class EmailsApi:
         email: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1706,7 +1728,7 @@ class EmailsApi:
                 email=email,
                 limit=limit,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1721,6 +1743,7 @@ class EmailsApi:
         email: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1744,7 +1767,7 @@ class EmailsApi:
                 email=email,
                 limit=limit,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1759,6 +1782,7 @@ class EmailsApi:
         email: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1782,7 +1806,7 @@ class EmailsApi:
                 email=email,
                 limit=limit,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -1869,6 +1893,7 @@ class EmailsApi:
         id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1937,7 +1962,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -1952,6 +1977,7 @@ class EmailsApi:
         id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2020,7 +2046,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         await response_data.read()
         return self.api_client.response_deserialize(
@@ -2035,6 +2061,7 @@ class EmailsApi:
         id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2103,7 +2130,7 @@ class EmailsApi:
         }
         response_data = await self.api_client.call_api(
             *_param,
-            _request_timeout=_request_timeout
+            _retry=_retry, _request_timeout=_request_timeout
         )
         return response_data.response
 
@@ -2114,6 +2141,7 @@ class EmailsApi:
         id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2137,7 +2165,7 @@ class EmailsApi:
                 id=id,
                 limit=limit,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2152,6 +2180,7 @@ class EmailsApi:
         id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2175,7 +2204,7 @@ class EmailsApi:
                 id=id,
                 limit=limit,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
@@ -2190,6 +2219,7 @@ class EmailsApi:
         id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         x_lr_limit: Annotated[Optional[Annotated[int, Field(le=500, strict=True, ge=1)]], Field(description="Overrides the query limit, then bounded to 1–500.")] = None,
+        _retry: Any = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2213,7 +2243,7 @@ class EmailsApi:
                 id=id,
                 limit=limit,
                 x_lr_limit=x_lr_limit,
-                _request_timeout=_request_timeout,
+                _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
                 _headers=_headers,
