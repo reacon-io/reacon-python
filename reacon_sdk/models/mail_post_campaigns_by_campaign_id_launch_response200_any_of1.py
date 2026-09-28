@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
 from reacon_sdk.models.mail_campaign_draft_record import MailCampaignDraftRecord
-from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_any_of_campaign import MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_campaign import MailPostCampaignsByCampaignIdLaunchResponse200Campaign
 from reacon_sdk.models.mail_sequence_run_record import MailSequenceRunRecord
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,7 +30,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1(BaseModel):
     """
     MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
     """ # noqa: E501
-    campaign: MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+    campaign: MailPostCampaignsByCampaignIdLaunchResponse200Campaign
     draft: MailCampaignDraftRecord
     sequences: List[MailSequenceRunRecord]
     additional_properties: Dict[str, Any] = {}
@@ -107,7 +107,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "campaign": MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.from_dict(obj["campaign"]) if obj.get("campaign") is not None else None,
+            "campaign": MailPostCampaignsByCampaignIdLaunchResponse200Campaign.from_dict(obj["campaign"]) if obj.get("campaign") is not None else None,
             "draft": MailCampaignDraftRecord.from_dict(obj["draft"]) if obj.get("draft") is not None else None,
             "sequences": [MailSequenceRunRecord.from_dict(_item) for _item in obj["sequences"]] if obj.get("sequences") is not None else None
         }

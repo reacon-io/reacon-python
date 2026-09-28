@@ -24,11 +24,11 @@ from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-MAILPOSTCAMPAIGNSBYCAMPAIGNIDLAUNCHRESPONSE200ANYOFCAMPAIGN_ANY_OF_SCHEMAS = ["MailCampaignProgress", "object"]
+MAILPOSTCAMPAIGNSBYCAMPAIGNIDLAUNCHRESPONSE200CAMPAIGN_ANY_OF_SCHEMAS = ["MailCampaignProgress", "object"]
 
-class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign(BaseModel):
+class MailPostCampaignsByCampaignIdLaunchResponse200Campaign(BaseModel):
     """
-    MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+    MailPostCampaignsByCampaignIdLaunchResponse200Campaign
     """
 
     # data type: MailCampaignProgress
@@ -58,7 +58,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        instance = MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign.model_construct()
+        instance = MailPostCampaignsByCampaignIdLaunchResponse200Campaign.model_construct()
         error_messages = []
         # validate data type: MailCampaignProgress
         if not isinstance(v, MailCampaignProgress):
@@ -74,7 +74,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign(BaseModel):
             error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign with anyOf schemas: MailCampaignProgress, object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in MailPostCampaignsByCampaignIdLaunchResponse200Campaign with anyOf schemas: MailCampaignProgress, object. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -105,7 +105,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign with anyOf schemas: MailCampaignProgress, object. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into MailPostCampaignsByCampaignIdLaunchResponse200Campaign with anyOf schemas: MailCampaignProgress, object. Details: " + ", ".join(error_messages))
         else:
             return instance
 
