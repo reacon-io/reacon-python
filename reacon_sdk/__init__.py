@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "0.1.0b4"
+__version__ = "0.2.0b1"
 
 # Define package exports
 __all__ = [
@@ -278,6 +278,7 @@ __all__ = [
     "MailGetPortfolioResponse200",
     "MailGetPortfolioResponse200AnyOf",
     "MailGetPortfolioResponse200AnyOf1",
+    "MailGetPortfolioResponse200Portfolio",
     "MailGetQueueResponse200",
     "MailGetReplyAutomationsResponse200",
     "MailGetSignaturesResponse200",
@@ -360,7 +361,7 @@ __all__ = [
     "MailPostCampaignsByCampaignIdLaunchResponse200",
     "MailPostCampaignsByCampaignIdLaunchResponse200AnyOf",
     "MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1",
-    "MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign",
+    "MailPostCampaignsByCampaignIdLaunchResponse200Campaign",
     "MailPostCampaignsByCampaignIdStateRequest",
     "MailPostCampaignsByCampaignIdStateResponse200",
     "MailPostCampaignsRequest",
@@ -923,6 +924,7 @@ from reacon_sdk.models.mail_get_portfolio_overview_response200 import MailGetPor
 from reacon_sdk.models.mail_get_portfolio_response200 import MailGetPortfolioResponse200 as MailGetPortfolioResponse200
 from reacon_sdk.models.mail_get_portfolio_response200_any_of import MailGetPortfolioResponse200AnyOf as MailGetPortfolioResponse200AnyOf
 from reacon_sdk.models.mail_get_portfolio_response200_any_of1 import MailGetPortfolioResponse200AnyOf1 as MailGetPortfolioResponse200AnyOf1
+from reacon_sdk.models.mail_get_portfolio_response200_portfolio import MailGetPortfolioResponse200Portfolio as MailGetPortfolioResponse200Portfolio
 from reacon_sdk.models.mail_get_queue_response200 import MailGetQueueResponse200 as MailGetQueueResponse200
 from reacon_sdk.models.mail_get_reply_automations_response200 import MailGetReplyAutomationsResponse200 as MailGetReplyAutomationsResponse200
 from reacon_sdk.models.mail_get_signatures_response200 import MailGetSignaturesResponse200 as MailGetSignaturesResponse200
@@ -1005,7 +1007,7 @@ from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_request import 
 from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200 import MailPostCampaignsByCampaignIdLaunchResponse200 as MailPostCampaignsByCampaignIdLaunchResponse200
 from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_any_of import MailPostCampaignsByCampaignIdLaunchResponse200AnyOf as MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
 from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_any_of1 import MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1 as MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
-from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_any_of_campaign import MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign as MailPostCampaignsByCampaignIdLaunchResponse200AnyOfCampaign
+from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_campaign import MailPostCampaignsByCampaignIdLaunchResponse200Campaign as MailPostCampaignsByCampaignIdLaunchResponse200Campaign
 from reacon_sdk.models.mail_post_campaigns_by_campaign_id_state_request import MailPostCampaignsByCampaignIdStateRequest as MailPostCampaignsByCampaignIdStateRequest
 from reacon_sdk.models.mail_post_campaigns_by_campaign_id_state_response200 import MailPostCampaignsByCampaignIdStateResponse200 as MailPostCampaignsByCampaignIdStateResponse200
 from reacon_sdk.models.mail_post_campaigns_request import MailPostCampaignsRequest as MailPostCampaignsRequest
