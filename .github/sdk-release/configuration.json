@@ -3,6 +3,5 @@
   "family": "python",
   "repository": "reacon-io/reacon-python",
   "repositoryId": 1390807788,
-  "visibility": "private",
-  "registryQualification": {}
+  "visibility": "public"
 }
