@@ -139,380 +139,62 @@ class ProductToolRequestInput(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        instance = ProductToolRequestInput.model_construct()
-        error_messages = []
-        # validate data type: ProductDiscoverCompaniesInput
-        if not isinstance(v, ProductDiscoverCompaniesInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductDiscoverCompaniesInput`")
-        else:
-            return v
-
-        # validate data type: ProductDiscoverPeopleInput
-        if not isinstance(v, ProductDiscoverPeopleInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductDiscoverPeopleInput`")
-        else:
-            return v
-
-        # validate data type: ProductDomainFinderInput
-        if not isinstance(v, ProductDomainFinderInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductDomainFinderInput`")
-        else:
-            return v
-
-        # validate data type: ProductEmailCountInput
-        if not isinstance(v, ProductEmailCountInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductEmailCountInput`")
-        else:
-            return v
-
-        # validate data type: ProductPersonEnrichInput
-        if not isinstance(v, ProductPersonEnrichInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductPersonEnrichInput`")
-        else:
-            return v
-
-        # validate data type: object
-        try:
-            instance.anyof_schema_6_validator = v
-            return v
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # validate data type: ProductLeadsListInput
-        if not isinstance(v, ProductLeadsListInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadsListInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadGetInput
-        if not isinstance(v, ProductLeadGetInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadGetInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadCreateInput
-        if not isinstance(v, ProductLeadCreateInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadCreateInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadUpdateInput
-        if not isinstance(v, ProductLeadUpdateInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadUpdateInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadDeleteInput
-        if not isinstance(v, ProductLeadDeleteInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadDeleteInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadBulkDeleteInput
-        if not isinstance(v, ProductLeadBulkDeleteInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadBulkDeleteInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadTagCreateInput
-        if not isinstance(v, ProductLeadTagCreateInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadTagCreateInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadTagAssignInput
-        if not isinstance(v, ProductLeadTagAssignInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadTagAssignInput`")
-        else:
-            return v
-
-        # validate data type: ProductCustomAttributeCreateInput
-        if not isinstance(v, ProductCustomAttributeCreateInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductCustomAttributeCreateInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadListUpdateInput
-        if not isinstance(v, ProductLeadListUpdateInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadListUpdateInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadListDeleteInput
-        if not isinstance(v, ProductLeadListDeleteInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadListDeleteInput`")
-        else:
-            return v
-
-        # validate data type: ProductLeadListAddLeadInput
-        if not isinstance(v, ProductLeadListAddLeadInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductLeadListAddLeadInput`")
-        else:
-            return v
-
-        # validate data type: ProductCompaniesListInput
-        if not isinstance(v, ProductCompaniesListInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductCompaniesListInput`")
-        else:
-            return v
-
-        # validate data type: ProductCompanyTrackInput
-        if not isinstance(v, ProductCompanyTrackInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductCompanyTrackInput`")
-        else:
-            return v
-
-        # validate data type: ProductCompanyUpdateInput
-        if not isinstance(v, ProductCompanyUpdateInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductCompanyUpdateInput`")
-        else:
-            return v
-
-        # validate data type: ProductCompanyDeleteInput
-        if not isinstance(v, ProductCompanyDeleteInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductCompanyDeleteInput`")
-        else:
-            return v
-
-        # validate data type: ProductCompanyListAddInput
-        if not isinstance(v, ProductCompanyListAddInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductCompanyListAddInput`")
-        else:
-            return v
-
-        # validate data type: ProductSequenceRecipientsListInput
-        if not isinstance(v, ProductSequenceRecipientsListInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductSequenceRecipientsListInput`")
-        else:
-            return v
-
-        # validate data type: ProductSequenceRecipientsAddInput
-        if not isinstance(v, ProductSequenceRecipientsAddInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductSequenceRecipientsAddInput`")
-        else:
-            return v
-
-        # validate data type: ProductSequenceRecipientAddInput
-        if not isinstance(v, ProductSequenceRecipientAddInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductSequenceRecipientAddInput`")
-        else:
-            return v
-
-        # validate data type: ProductSequenceRecipientCancelInput
-        if not isinstance(v, ProductSequenceRecipientCancelInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductSequenceRecipientCancelInput`")
-        else:
-            return v
-
-        # validate data type: ProductSequenceStartInput
-        if not isinstance(v, ProductSequenceStartInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductSequenceStartInput`")
-        else:
-            return v
-
-        # validate data type: ProductConnectedAppPushInput
-        if not isinstance(v, ProductConnectedAppPushInput):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductConnectedAppPushInput`")
-        else:
-            return v
-
-        if error_messages:
-            # no match
-            raise ValueError("No match found when setting the actual_instance in ProductToolRequestInput with anyOf schemas: ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput, object. Details: " + ", ".join(error_messages))
-        else:
-            return v
+        value = v
+        if isinstance(value, dict):
+            return cls.from_dict(value).actual_instance
+        if isinstance(value, (ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductPersonEnrichInput, ProductLeadsListInput, ProductLeadGetInput, ProductLeadCreateInput, ProductLeadUpdateInput, ProductLeadDeleteInput, ProductLeadBulkDeleteInput, ProductLeadTagCreateInput, ProductLeadTagAssignInput, ProductCustomAttributeCreateInput, ProductLeadListUpdateInput, ProductLeadListDeleteInput, ProductLeadListAddLeadInput, ProductCompaniesListInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductSequenceRecipientsListInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceStartInput, ProductConnectedAppPushInput,)):
+            return value
+        raise ValueError("Product tool input requires a declared object alternative")
 
     @classmethod
     def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        return cls.from_json(json.dumps(obj))
+        if not isinstance(obj, dict):
+            raise ValueError("Product tool input must be an object")
+        if not obj:
+            return cls.model_construct(actual_instance={})
+        keys = set(obj)
+        errors = []
+        for model, allowed, required in [
+            (ProductDiscoverCompaniesInput, ["industry","limit","location","query"], []),
+            (ProductDiscoverPeopleInput, ["domain","jobTitle","limit","query"], []),
+            (ProductDomainFinderInput, ["company"], ["company"]),
+            (ProductEmailCountInput, ["domain"], ["domain"]),
+            (ProductPersonEnrichInput, ["email"], ["email"]),
+            (ProductLeadsListInput, ["limit","listId","offset"], []),
+            (ProductLeadGetInput, ["leadId"], ["leadId"]),
+            (ProductLeadCreateInput, ["attributes","company","email","firstName","idempotencyKey","lastName","position"], ["email","idempotencyKey"]),
+            (ProductLeadUpdateInput, ["attributes","company","firstName","idempotencyKey","lastName","leadId","position"], ["leadId","idempotencyKey"]),
+            (ProductLeadDeleteInput, ["idempotencyKey","leadId"], ["leadId","idempotencyKey"]),
+            (ProductLeadBulkDeleteInput, ["idempotencyKey","leadIds"], ["leadIds","idempotencyKey"]),
+            (ProductLeadTagCreateInput, ["idempotencyKey","name"], ["name","idempotencyKey"]),
+            (ProductLeadTagAssignInput, ["idempotencyKey","leadId","tagId"], ["leadId","tagId","idempotencyKey"]),
+            (ProductCustomAttributeCreateInput, ["idempotencyKey","key","name"], ["name","key","idempotencyKey"]),
+            (ProductLeadListUpdateInput, ["idempotencyKey","listId","name"], ["listId","name","idempotencyKey"]),
+            (ProductLeadListDeleteInput, ["idempotencyKey","listId"], ["listId","idempotencyKey"]),
+            (ProductLeadListAddLeadInput, ["idempotencyKey","leadId","listId"], ["listId","leadId","idempotencyKey"]),
+            (ProductCompaniesListInput, ["limit","offset"], []),
+            (ProductCompanyTrackInput, ["domain","idempotencyKey","name"], ["domain","idempotencyKey"]),
+            (ProductCompanyUpdateInput, ["companyId","employeeRange","idempotencyKey","industry","name"], ["companyId","idempotencyKey"]),
+            (ProductCompanyDeleteInput, ["companyId","idempotencyKey"], ["companyId","idempotencyKey"]),
+            (ProductCompanyListAddInput, ["companyId","idempotencyKey","listId"], ["listId","companyId","idempotencyKey"]),
+            (ProductSequenceRecipientsListInput, ["sequenceId"], ["sequenceId"]),
+            (ProductSequenceRecipientsAddInput, ["idempotencyKey","recipients","sequenceId"], ["sequenceId","recipients","idempotencyKey"]),
+            (ProductSequenceRecipientAddInput, ["email","idempotencyKey","leadId","sequenceId"], ["sequenceId","email","idempotencyKey"]),
+            (ProductSequenceRecipientCancelInput, ["idempotencyKey","recipientId"], ["recipientId","idempotencyKey"]),
+            (ProductSequenceStartInput, ["idempotencyKey","sequenceId"], ["sequenceId","idempotencyKey"]),
+            (ProductConnectedAppPushInput, ["connectionId","idempotencyKey","leadIds"], ["connectionId","leadIds","idempotencyKey"]),
+        ]:
+            if not keys.issubset(allowed) or not set(required).issubset(keys):
+                continue
+            try:
+                return cls.model_construct(actual_instance=model.from_dict(obj))
+            except (ValidationError, ValueError) as error:
+                errors.append(str(error))
+        raise ValueError("Product tool input does not match a declared object shape: " + "; ".join(errors))
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Returns the object represented by the json string"""
-        instance = cls.model_construct()
-        error_messages = []
-        # anyof_schema_1_validator: Optional[ProductDiscoverCompaniesInput] = None
-        try:
-            instance.actual_instance = ProductDiscoverCompaniesInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_2_validator: Optional[ProductDiscoverPeopleInput] = None
-        try:
-            instance.actual_instance = ProductDiscoverPeopleInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_3_validator: Optional[ProductDomainFinderInput] = None
-        try:
-            instance.actual_instance = ProductDomainFinderInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_4_validator: Optional[ProductEmailCountInput] = None
-        try:
-            instance.actual_instance = ProductEmailCountInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_5_validator: Optional[ProductPersonEnrichInput] = None
-        try:
-            instance.actual_instance = ProductPersonEnrichInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # deserialize data into object
-        try:
-            # validation
-            instance.anyof_schema_6_validator = json.loads(json_str)
-            # assign value to actual_instance
-            instance.actual_instance = instance.anyof_schema_6_validator
-            return instance
-        except (ValidationError, ValueError) as e:
-            error_messages.append(str(e))
-        # anyof_schema_7_validator: Optional[ProductLeadsListInput] = None
-        try:
-            instance.actual_instance = ProductLeadsListInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_8_validator: Optional[ProductLeadGetInput] = None
-        try:
-            instance.actual_instance = ProductLeadGetInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_9_validator: Optional[ProductLeadCreateInput] = None
-        try:
-            instance.actual_instance = ProductLeadCreateInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_10_validator: Optional[ProductLeadUpdateInput] = None
-        try:
-            instance.actual_instance = ProductLeadUpdateInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_11_validator: Optional[ProductLeadDeleteInput] = None
-        try:
-            instance.actual_instance = ProductLeadDeleteInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_12_validator: Optional[ProductLeadBulkDeleteInput] = None
-        try:
-            instance.actual_instance = ProductLeadBulkDeleteInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_13_validator: Optional[ProductLeadTagCreateInput] = None
-        try:
-            instance.actual_instance = ProductLeadTagCreateInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_14_validator: Optional[ProductLeadTagAssignInput] = None
-        try:
-            instance.actual_instance = ProductLeadTagAssignInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_15_validator: Optional[ProductCustomAttributeCreateInput] = None
-        try:
-            instance.actual_instance = ProductCustomAttributeCreateInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_16_validator: Optional[ProductLeadListUpdateInput] = None
-        try:
-            instance.actual_instance = ProductLeadListUpdateInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_17_validator: Optional[ProductLeadListDeleteInput] = None
-        try:
-            instance.actual_instance = ProductLeadListDeleteInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_18_validator: Optional[ProductLeadListAddLeadInput] = None
-        try:
-            instance.actual_instance = ProductLeadListAddLeadInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_19_validator: Optional[ProductCompaniesListInput] = None
-        try:
-            instance.actual_instance = ProductCompaniesListInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_20_validator: Optional[ProductCompanyTrackInput] = None
-        try:
-            instance.actual_instance = ProductCompanyTrackInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_21_validator: Optional[ProductCompanyUpdateInput] = None
-        try:
-            instance.actual_instance = ProductCompanyUpdateInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_22_validator: Optional[ProductCompanyDeleteInput] = None
-        try:
-            instance.actual_instance = ProductCompanyDeleteInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_23_validator: Optional[ProductCompanyListAddInput] = None
-        try:
-            instance.actual_instance = ProductCompanyListAddInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_24_validator: Optional[ProductSequenceRecipientsListInput] = None
-        try:
-            instance.actual_instance = ProductSequenceRecipientsListInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_25_validator: Optional[ProductSequenceRecipientsAddInput] = None
-        try:
-            instance.actual_instance = ProductSequenceRecipientsAddInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_26_validator: Optional[ProductSequenceRecipientAddInput] = None
-        try:
-            instance.actual_instance = ProductSequenceRecipientAddInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_27_validator: Optional[ProductSequenceRecipientCancelInput] = None
-        try:
-            instance.actual_instance = ProductSequenceRecipientCancelInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_28_validator: Optional[ProductSequenceStartInput] = None
-        try:
-            instance.actual_instance = ProductSequenceStartInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_29_validator: Optional[ProductConnectedAppPushInput] = None
-        try:
-            instance.actual_instance = ProductConnectedAppPushInput.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-
-        if error_messages:
-            # no match
-            raise ValueError("No match found when deserializing the JSON string into ProductToolRequestInput with anyOf schemas: ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput, object. Details: " + ", ".join(error_messages))
-        else:
-            return instance
+        return cls.from_dict(json.loads(json_str))
 
     def to_json(self) -> str:
         """Returns the JSON representation of the actual instance"""
