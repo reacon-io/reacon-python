@@ -95,7 +95,7 @@ class ApiClient:
             self.default_headers[header_name] = header_value
         self.cookie = cookie
         # Set default User-Agent.
-        self.user_agent = 'OpenAPI-Generator/0.4.0b2/python'
+        self.user_agent = 'OpenAPI-Generator/0.5.0b1/python'
         self.client_side_validation = configuration.client_side_validation
 
     async def __aenter__(self):
@@ -167,7 +167,6 @@ class ApiClient:
         post_params=None,
         files=None, auth_settings=None,
         collection_formats=None,
-        _host=None,
         _request_auth=None
     ) -> RequestSerialized:
 
@@ -247,11 +246,7 @@ class ApiClient:
             body = self.sanitize_for_serialization(body)
 
         # request url
-        if _host is None or self.configuration.ignore_operation_servers:
-            url = self.configuration.host + resource_path
-        else:
-            # use server/host defined in path or operation instead
-            url = _host + resource_path
+        url = self.configuration.host + resource_path
 
         # query parameters
         if query_params:
