@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Union
 from reacon_sdk.models.mail_operational_analytics_overview_cadence_steps_inner import MailOperationalAnalyticsOverviewCadenceStepsInner
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,10 +29,10 @@ class MailOperationalAnalyticsOverview(BaseModel):
     MailOperationalAnalyticsOverview
     """ # noqa: E501
     cadence_steps: List[MailOperationalAnalyticsOverviewCadenceStepsInner] = Field(alias="cadenceSteps")
-    reply_labels: Dict[str, Any] = Field(alias="replyLabels")
+    reply_labels: Dict[str, Union[StrictFloat, StrictInt]] = Field(alias="replyLabels")
     sample_limited: StrictBool = Field(alias="sampleLimited")
-    stages: Dict[str, Any]
-    task_outcomes: Dict[str, Any] = Field(alias="taskOutcomes")
+    stages: Dict[str, Union[StrictFloat, StrictInt]]
+    task_outcomes: Dict[str, Union[StrictFloat, StrictInt]] = Field(alias="taskOutcomes")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["cadenceSteps", "replyLabels", "sampleLimited", "stages", "taskOutcomes"]
 

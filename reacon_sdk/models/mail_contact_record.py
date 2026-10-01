@@ -29,7 +29,7 @@ class MailContactRecord(BaseModel):
     MailContactRecord
     """ # noqa: E501
     created_at: datetime = Field(alias="createdAt")
-    custom_fields: Dict[str, Any] = Field(alias="customFields")
+    custom_fields: Dict[str, StrictStr] = Field(alias="customFields")
     email: StrictStr
     id: StrictStr
     name: Optional[StrictStr] = None

@@ -44,7 +44,7 @@ class MailMessageRecord(BaseModel):
     lease_expires_at: Optional[datetime] = Field(default=None, alias="leaseExpiresAt")
     lease_owner: Optional[StrictStr] = Field(default=None, alias="leaseOwner")
     mailbox_id: StrictStr = Field(alias="mailboxId")
-    metadata: Dict[str, Any]
+    metadata: Dict[str, StrictStr]
     next_attempt_at: datetime = Field(alias="nextAttemptAt")
     parent_message_id: Optional[StrictStr] = Field(default=None, alias="parentMessageId")
     policy: MailMessagePolicy

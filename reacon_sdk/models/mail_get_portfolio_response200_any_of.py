@@ -20,6 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from reacon_sdk.models.mail_mail_portfolio_suppression import MailMailPortfolioSuppression
+from reacon_sdk.models.mail_mail_portfolio_team import MailMailPortfolioTeam
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,8 +31,8 @@ class MailGetPortfolioResponse200AnyOf(BaseModel):
     MailGetPortfolioResponse200AnyOf
     """ # noqa: E501
     portfolio: Optional[Dict[str, Any]]
-    suppressions: Annotated[List[Dict[str, Any]], Field(min_length=0, max_length=0)]
-    teams: Annotated[List[Dict[str, Any]], Field(min_length=0, max_length=0)]
+    suppressions: Annotated[List[MailMailPortfolioSuppression], Field(min_length=0, max_length=0)]
+    teams: Annotated[List[MailMailPortfolioTeam], Field(min_length=0, max_length=0)]
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["portfolio", "suppressions", "teams"]
 
@@ -76,6 +78,18 @@ class MailGetPortfolioResponse200AnyOf(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in suppressions (list)
+        _items = []
+        if self.suppressions:
+            for _item_suppressions in self.suppressions:
+                _items.append(_item_suppressions.to_dict() if _item_suppressions is not None else None)
+            _dict['suppressions'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in teams (list)
+        _items = []
+        if self.teams:
+            for _item_teams in self.teams:
+                _items.append(_item_teams.to_dict() if _item_teams is not None else None)
+            _dict['teams'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -99,8 +113,8 @@ class MailGetPortfolioResponse200AnyOf(BaseModel):
 
         _data = {
             "portfolio": obj.get("portfolio"),
-            "suppressions": obj.get("suppressions"),
-            "teams": obj.get("teams")
+            "suppressions": [MailMailPortfolioSuppression.from_dict(_item) for _item in obj["suppressions"]] if obj.get("suppressions") is not None else None,
+            "teams": [MailMailPortfolioTeam.from_dict(_item) for _item in obj["teams"]] if obj.get("teams") is not None else None
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties
