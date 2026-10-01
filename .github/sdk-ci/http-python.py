@@ -1,3 +1,8 @@
+from pathlib import Path
+import sys
+_fixture_root = next(p for p in [Path(__file__).resolve().parent, Path(__file__).resolve().parent.parent, Path('/sdk/conformance'), Path('/')] if (p/'fixed-origin'/'httpx_fixture.py').exists())
+sys.path.insert(0, str(_fixture_root/'fixed-origin'))
+from httpx_fixture import route_api, route_http
 """Fault tests of installed generated methods, using real loopback HTTP sockets."""
 import asyncio
 import ast
@@ -136,7 +141,7 @@ class HttpTests(unittest.IsolatedAsyncioTestCase):
                 await client.close()
 
     def client(self, scenario="success", timeout=1.0, http_client=None, safe_retries=None):
-        result = ApiClient(Configuration(host=base, api_key={"ApiKey": "synthetic-key"}, request_timeout=timeout, safe_retries=safe_retries), http_client=http_client)
+        result = route_api(ApiClient(Configuration(api_key={"ApiKey": "synthetic-key"}, request_timeout=timeout, safe_retries=safe_retries), http_client=http_client), base)
         result.set_default_header("x-test-scenario", scenario)
         self.clients.append(result)
         return result
@@ -237,7 +242,8 @@ class HttpTests(unittest.IsolatedAsyncioTestCase):
                 code = '''import os,signal,threading,json,time,urllib.request
 from reacon_sdk import ApiClient,Configuration
 from reacon_sdk.api.domains_api import DomainsApi
-client=ApiClient(Configuration(host=os.environ['TEST_URL'],request_timeout=3.0))
+from httpx_fixture import route_api
+client=route_api(ApiClient(Configuration(request_timeout=3.0)), os.environ['TEST_URL'])
 client.set_default_header('x-test-scenario',os.environ['TEST_SCENARIO'])
 timer=threading.Timer(0.15,lambda:os.kill(os.getpid(),signal.SIGINT));timer.start()
 try:
@@ -255,7 +261,7 @@ try:
 finally:
  timer.cancel();client.close_sync()
 '''
-                result = await asyncio.to_thread(subprocess.run, [sys.executable, "-c", code], env={**os.environ, "TEST_URL": base, "TEST_SCENARIO": scenario, "TEST_CLOSED_BEFORE": str(closed_before)}, capture_output=True, text=True, timeout=8)
+                result = await asyncio.to_thread(subprocess.run, [sys.executable, "-c", code], env={**os.environ, "PYTHONPATH": str(_fixture_root/'fixed-origin'), "TEST_URL": base, "TEST_SCENARIO": scenario, "TEST_CLOSED_BEFORE": str(closed_before)}, capture_output=True, text=True, timeout=8)
                 self.assertEqual(result.returncode, 0, result.stderr)
 
     async def test_cancel_before_dispatch_or_sync_loop_guard(self):
@@ -288,6 +294,16 @@ finally:
             else:
                 await borrowed.aclose()
 
+    async def test_service_origin_is_readonly_and_has_no_constructor_override(self):
+        with self.assertRaises(TypeError):
+            Configuration(host="https://other.invalid")
+        config = Configuration()
+        self.assertEqual(config.host, "https://api.reacon.io")
+        with self.assertRaises(AttributeError):
+            config.host = "https://other.invalid"
+        with self.assertRaises(TypeError):
+            reacon_sdk.AsyncReacon("synthetic", base_url="https://other.invalid")
+
     async def test_configuration_rejects_invalid_deadlines_and_unsafe_retry_setting(self):
         for value in (0, -1, float("inf"), float("nan"), True):
             with self.assertRaises(ValueError):
@@ -304,7 +320,7 @@ finally:
 
     async def test_async_facade_shares_the_json_deadline(self):
         # This async-only facade is tested in both package installation variants.
-        async with reacon_sdk.AsyncReacon("synthetic-key", base_url=base, request_timeout=0.08) as facade:
+        async with route_http(httpx.AsyncClient(), base) as http, reacon_sdk.AsyncReacon("synthetic-key", http_client=http, request_timeout=0.08) as facade:
             with self.assertRaises(reacon_sdk.ReaconRequestTimeoutError):
                 await facade.domains.get_domain_counts("example.invalid", _headers={"x-test-scenario": "trickle-body"})
             self.assertEqual((await facade.domains.get_domain_counts("example.invalid")).total, 3)
@@ -320,8 +336,8 @@ finally:
         self.assertTrue(pool.is_closed)
 
     async def test_deadline_includes_waiting_for_pool_slot(self):
-        configuration = Configuration(host=base, connection_pool_maxsize=1, request_timeout=1.0)
-        client = ApiClient(configuration)
+        configuration = Configuration(connection_pool_maxsize=1, request_timeout=1.0)
+        client = route_api(ApiClient(configuration), base)
         self.clients.append(client)
         client.set_default_header("x-test-scenario", "hang-headers")
         before = len(observations)

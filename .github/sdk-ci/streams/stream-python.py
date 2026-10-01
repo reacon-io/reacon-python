@@ -1,3 +1,8 @@
+from pathlib import Path
+import sys
+_fixture_root = next(p for p in [Path(__file__).resolve().parent, Path(__file__).resolve().parent.parent, Path('/sdk/conformance'), Path('/')] if (p/'fixed-origin'/'httpx_fixture.py').exists())
+sys.path.insert(0, str(_fixture_root/'fixed-origin'))
+from httpx_fixture import route_api, route_http
 import asyncio
 import os
 import httpx
@@ -5,7 +10,7 @@ from reacon_sdk import AsyncReacon, ReaconProtocolError, ReaconTimeoutError, Rea
 
 async def main():
     url = os.environ['REACON_TEST_URL']
-    async with AsyncReacon('synthetic-python', base_url=url) as client, AsyncReacon('isolated-python', base_url=url) as isolated:
+    async with route_http(httpx.AsyncClient(), url) as http, route_http(httpx.AsyncClient(), url) as other, AsyncReacon('synthetic-python', http_client=http) as client, AsyncReacon('isolated-python', http_client=other) as isolated:
         client.stream_verification('never@example.test')  # no request until context entry
         async def collect(scenario, owner=client, **options):
             async with owner.stream_verification(f'{scenario}@example.test', only_if_free='true', **options) as stream:

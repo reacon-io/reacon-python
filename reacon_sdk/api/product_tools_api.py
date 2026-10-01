@@ -455,7 +455,6 @@ class ProductToolsApi:
             files=_files,
             auth_settings=_auth_settings,
             collection_formats=_collection_formats,
-            _host=_host,
             _request_auth=_request_auth
         )
 

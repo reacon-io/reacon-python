@@ -202,7 +202,6 @@ conf = reacon_sdk.Configuration(
 
     def __init__(
         self,
-        host: Optional[str]=None,
         api_key: Optional[Dict[str, str]]=None,
         api_key_prefix: Optional[Dict[str, str]]=None,
         username: Optional[str]=None,
@@ -239,10 +238,10 @@ conf = reacon_sdk.Configuration(
         self.safe_retries = safe_retries
         self.request_timeout = request_timeout
         """Total JSON/CSV network deadline in seconds, including body reads."""
-        self._base_path = "https://api.reacon.io" if host is None else host
+        self._base_path = "https://api.reacon.io"
         """Default Base url
         """
-        self.server_index = 0 if server_index is None and host is None else server_index
+        self.server_index = 0 if server_index is None else server_index
         self.server_operation_index = server_operation_index or {}
         """Default server index
         """
@@ -566,7 +565,7 @@ conf = reacon_sdk.Configuration(
                "OS: {env}\n"\
                "Python Version: {pyversion}\n"\
                "Version of the API: 0.1.0\n"\
-               "SDK Package Version: 0.4.0b2".\
+               "SDK Package Version: 0.5.0b1".\
                format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self) -> List[HostSetting]:
@@ -581,58 +580,13 @@ conf = reacon_sdk.Configuration(
             }
         ]
 
-    def get_host_from_settings(
-        self,
-        index: Optional[int],
-        variables: Optional[ServerVariablesT]=None,
-        servers: Optional[List[HostSetting]]=None,
-    ) -> str:
-        """Gets host URL based on the index and variables
-        :param index: array index of the host settings
-        :param variables: hash of variable and the corresponding value
-        :param servers: an array of host settings or None
-        :return: URL based on host settings
-        """
-        if index is None:
-            return self._base_path
-
-        variables = {} if variables is None else variables
-        servers = self.get_host_settings() if servers is None else servers
-
-        try:
-            server = servers[index]
-        except IndexError:
-            raise ValueError(
-                "Invalid index {0} when selecting the host settings. "
-                "Must be less than {1}".format(index, len(servers)))
-
-        url = server['url']
-
-        # go through variables and replace placeholders
-        for variable_name, variable in server.get('variables', {}).items():
-            used_value = variables.get(
-                variable_name, variable['default_value'])
-
-            if 'enum_values' in variable \
-                    and variable['enum_values'] \
-                    and used_value not in variable['enum_values']:
-                raise ValueError(
-                    "The variable `{0}` in the host URL has invalid value "
-                    "{1}. Must be {2}.".format(
-                        variable_name, variables[variable_name],
-                        variable['enum_values']))
-
-            url = url.replace("{" + variable_name + "}", used_value)
-
-        return url
+    def get_host_from_settings(self, index, variables=None, servers=None):
+        if servers is not None:
+            raise ValueError('The Reacon API URL is fixed.')
+        return "https://api.reacon.io"
 
     @property
     def host(self) -> str:
         """Return generated host."""
         return self.get_host_from_settings(self.server_index, variables=self.server_variables)
 
-    @host.setter
-    def host(self, value: str) -> None:
-        """Fix base path."""
-        self._base_path = value
-        self.server_index = None
