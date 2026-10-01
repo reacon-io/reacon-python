@@ -13,122 +13,112 @@
 
 
 from __future__ import annotations
-from inspect import getfullargspec
-import json
 import pprint
 import re  # noqa: F401
-from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
-from typing import Optional
-from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_any_of import MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
-from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_any_of1 import MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
-from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
-from typing_extensions import Literal, Self
-from pydantic import Field
+import json
 
-MAILPOSTCAMPAIGNSBYCAMPAIGNIDLAUNCHRESPONSE200_ANY_OF_SCHEMAS = ["MailPostCampaignsByCampaignIdLaunchResponse200AnyOf", "MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1"]
+from pydantic import BaseModel, ConfigDict
+from typing import Any, ClassVar, Dict, List
+from reacon_sdk.models.mail_campaign_draft_record import MailCampaignDraftRecord
+from reacon_sdk.models.mail_campaign_progress import MailCampaignProgress
+from reacon_sdk.models.mail_sequence_run_record import MailSequenceRunRecord
+from typing import Optional, Set
+from typing_extensions import Self
+from pydantic_core import to_jsonable_python
 
 class MailPostCampaignsByCampaignIdLaunchResponse200(BaseModel):
     """
     MailPostCampaignsByCampaignIdLaunchResponse200
-    """
+    """ # noqa: E501
+    campaign: Optional[MailCampaignProgress]
+    draft: MailCampaignDraftRecord
+    sequences: List[MailSequenceRunRecord]
+    additional_properties: Dict[str, Any] = {}
+    __properties: ClassVar[List[str]] = ["campaign", "draft", "sequences"]
 
-    # data type: MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
-    anyof_schema_1_validator: Optional[MailPostCampaignsByCampaignIdLaunchResponse200AnyOf] = None
-    # data type: MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
-    anyof_schema_2_validator: Optional[MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1] = None
-    if TYPE_CHECKING:
-        actual_instance: Optional[Union[MailPostCampaignsByCampaignIdLaunchResponse200AnyOf, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1]] = None
-    else:
-        actual_instance: Any = None
-    any_of_schemas: Set[str] = { "MailPostCampaignsByCampaignIdLaunchResponse200AnyOf", "MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1" }
+    model_config = ConfigDict(
+        validate_by_name=True,
+        validate_by_alias=True,
+        validate_assignment=True,
+        protected_namespaces=(),
+    )
 
-    model_config = {
-        "validate_assignment": True,
-        "protected_namespaces": (),
-    }
-
-    def __init__(self, *args, **kwargs) -> None:
-        if args:
-            if len(args) > 1:
-                raise ValueError("If a position argument is used, only 1 is allowed to set `actual_instance`")
-            if kwargs:
-                raise ValueError("If a position argument is used, keyword arguments cannot be used.")
-            super().__init__(actual_instance=args[0])
-        else:
-            super().__init__(**kwargs)
-
-    @field_validator('actual_instance')
-    def actual_instance_must_validate_anyof(cls, v):
-        instance = MailPostCampaignsByCampaignIdLaunchResponse200.model_construct()
-        error_messages = []
-        # validate data type: MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
-        if not isinstance(v, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `MailPostCampaignsByCampaignIdLaunchResponse200AnyOf`")
-        else:
-            return v
-
-        # validate data type: MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1
-        if not isinstance(v, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1):
-            error_messages.append(f"Error! Input type `{type(v)}` is not `MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1`")
-        else:
-            return v
-
-        if error_messages:
-            # no match
-            raise ValueError("No match found when setting the actual_instance in MailPostCampaignsByCampaignIdLaunchResponse200 with anyOf schemas: MailPostCampaignsByCampaignIdLaunchResponse200AnyOf, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1. Details: " + ", ".join(error_messages))
-        else:
-            return v
-
-    @classmethod
-    def from_dict(cls, obj: Dict[str, Any]) -> Self:
-        return cls.from_json(json.dumps(obj))
-
-    @classmethod
-    def from_json(cls, json_str: str) -> Self:
-        """Returns the object represented by the json string"""
-        instance = cls.model_construct()
-        error_messages = []
-        # anyof_schema_1_validator: Optional[MailPostCampaignsByCampaignIdLaunchResponse200AnyOf] = None
-        try:
-            instance.actual_instance = MailPostCampaignsByCampaignIdLaunchResponse200AnyOf.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-        # anyof_schema_2_validator: Optional[MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1] = None
-        try:
-            instance.actual_instance = MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1.from_json(json_str)
-            return instance
-        except (ValidationError, ValueError) as e:
-             error_messages.append(str(e))
-
-        if error_messages:
-            # no match
-            raise ValueError("No match found when deserializing the JSON string into MailPostCampaignsByCampaignIdLaunchResponse200 with anyOf schemas: MailPostCampaignsByCampaignIdLaunchResponse200AnyOf, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1. Details: " + ", ".join(error_messages))
-        else:
-            return instance
-
-    def to_json(self) -> str:
-        """Returns the JSON representation of the actual instance"""
-        if self.actual_instance is None:
-            return "null"
-
-        if hasattr(self.actual_instance, "to_json") and callable(self.actual_instance.to_json):
-            return self.actual_instance.to_json()
-        else:
-            return json.dumps(self.actual_instance)
-
-    def to_dict(self) -> Optional[Union[Dict[str, Any], MailPostCampaignsByCampaignIdLaunchResponse200AnyOf, MailPostCampaignsByCampaignIdLaunchResponse200AnyOf1]]:
-        """Returns the dict representation of the actual instance"""
-        if self.actual_instance is None:
-            return None
-
-        if hasattr(self.actual_instance, "to_dict") and callable(self.actual_instance.to_dict):
-            return self.actual_instance.to_dict()
-        else:
-            return self.actual_instance
 
     def to_str(self) -> str:
-        """Returns the string representation of the actual instance"""
-        return pprint.pformat(self.model_dump())
+        """Returns the string representation of the model using alias"""
+        return pprint.pformat(self.model_dump(by_alias=True))
+
+    def to_json(self) -> str:
+        """Returns the JSON representation of the model using alias"""
+        return json.dumps(to_jsonable_python(self.to_dict()))
+
+    @classmethod
+    def from_json(cls, json_str: str) -> Optional[Self]:
+        """Create an instance of MailPostCampaignsByCampaignIdLaunchResponse200 from a JSON string"""
+        return cls.from_dict(json.loads(json_str))
+
+    def to_dict(self) -> Dict[str, Any]:
+        """Return the dictionary representation of the model using alias.
+
+        This has the following differences from calling pydantic's
+        `self.model_dump(by_alias=True)`:
+
+        * `None` is only added to the output dict for nullable fields that
+          were set at model initialization. Other fields with value `None`
+          are ignored.
+        * Fields in `self.additional_properties` are added to the output dict.
+        """
+        excluded_fields: Set[str] = set([
+            "additional_properties",
+        ])
+
+        _dict = self.model_dump(
+            by_alias=True,
+            exclude=excluded_fields,
+            exclude_none=True,
+            exclude_unset=True,
+        )
+        # override the default output from pydantic by calling `to_dict()` of campaign
+        if self.campaign:
+            _dict['campaign'] = self.campaign.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of draft
+        if self.draft:
+            _dict['draft'] = self.draft.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in sequences (list)
+        _items = []
+        if self.sequences:
+            for _item_sequences in self.sequences:
+                _items.append(_item_sequences.to_dict() if _item_sequences is not None else None)
+            _dict['sequences'] = _items
+        # puts key-value pairs in additional_properties in the top level
+        if self.additional_properties is not None:
+            for _key, _value in self.additional_properties.items():
+                _dict[_key] = _value
+
+        if self.campaign is None and "campaign" in self.model_fields_set:
+            _dict['campaign'] = None
+        return _dict
+
+    @classmethod
+    def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
+        """Create an instance of MailPostCampaignsByCampaignIdLaunchResponse200 from a dict"""
+        if obj is None:
+            return None
+
+        if not isinstance(obj, dict):
+            return cls.model_validate(obj)
+
+        _data = {
+            "campaign": MailCampaignProgress.from_dict(obj["campaign"]) if obj.get("campaign") is not None else None,
+            "draft": MailCampaignDraftRecord.from_dict(obj["draft"]) if obj.get("draft") is not None else None,
+            "sequences": [MailSequenceRunRecord.from_dict(_item) for _item in obj["sequences"]] if obj.get("sequences") is not None else None
+        }
+        _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
+        # store additional fields in additional_properties
+        for _key in obj.keys():
+            if _key not in cls.__properties:
+                _obj.additional_properties[_key] = obj.get(_key)
+
+        return _obj
 
 

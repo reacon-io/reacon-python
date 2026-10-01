@@ -17,24 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
-from reacon_sdk.models.mail_campaign_draft_record import MailCampaignDraftRecord
-from reacon_sdk.models.mail_post_campaigns_by_campaign_id_launch_response200_campaign import MailPostCampaignsByCampaignIdLaunchResponse200Campaign
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf(BaseModel):
+class MailImapCursor(BaseModel):
     """
-    MailPostCampaignsByCampaignIdLaunchResponse200AnyOf
+    MailImapCursor
     """ # noqa: E501
-    campaign: MailPostCampaignsByCampaignIdLaunchResponse200Campaign
-    draft: MailCampaignDraftRecord
-    sequences: Annotated[List[Dict[str, Any]], Field(min_length=0, max_length=0)]
+    last_uid: Union[StrictFloat, StrictInt] = Field(alias="lastUid")
+    mailbox_path: StrictStr = Field(alias="mailboxPath")
+    uid_validity: StrictStr = Field(alias="uidValidity")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["campaign", "draft", "sequences"]
+    __properties: ClassVar[List[str]] = ["lastUid", "mailboxPath", "uidValidity"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -54,7 +51,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of MailPostCampaignsByCampaignIdLaunchResponse200AnyOf from a JSON string"""
+        """Create an instance of MailImapCursor from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,12 +75,6 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of campaign
-        if self.campaign:
-            _dict['campaign'] = self.campaign.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of draft
-        if self.draft:
-            _dict['draft'] = self.draft.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -93,7 +84,7 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of MailPostCampaignsByCampaignIdLaunchResponse200AnyOf from a dict"""
+        """Create an instance of MailImapCursor from a dict"""
         if obj is None:
             return None
 
@@ -101,9 +92,9 @@ class MailPostCampaignsByCampaignIdLaunchResponse200AnyOf(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "campaign": MailPostCampaignsByCampaignIdLaunchResponse200Campaign.from_dict(obj["campaign"]) if obj.get("campaign") is not None else None,
-            "draft": MailCampaignDraftRecord.from_dict(obj["draft"]) if obj.get("draft") is not None else None,
-            "sequences": obj.get("sequences")
+            "lastUid": obj.get("lastUid"),
+            "mailboxPath": obj.get("mailboxPath"),
+            "uidValidity": obj.get("uidValidity")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

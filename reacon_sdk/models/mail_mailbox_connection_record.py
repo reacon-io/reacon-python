@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from reacon_sdk.models.mail_imap_cursor import MailImapCursor
 from reacon_sdk.models.mail_stored_imap_settings import MailStoredImapSettings
 from reacon_sdk.models.mail_stored_smtp_settings import MailStoredSmtpSettings
 from typing import Optional, Set
@@ -32,7 +33,7 @@ class MailMailboxConnectionRecord(BaseModel):
     """ # noqa: E501
     created_at: datetime = Field(alias="createdAt")
     credential_id: Optional[StrictStr] = Field(default=None, alias="credentialId")
-    cursors: Dict[str, Any]
+    cursors: Dict[str, MailImapCursor]
     imap: Optional[MailStoredImapSettings] = None
     integration_connection_id: StrictStr = Field(alias="integrationConnectionId")
     last_error_code: Optional[StrictStr] = Field(default=None, alias="lastErrorCode")
@@ -91,6 +92,12 @@ class MailMailboxConnectionRecord(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each value in cursors (dict)
+        _field_dict = {}
+        if self.cursors:
+            for _key_cursors in self.cursors:
+                _field_dict[_key_cursors] = self.cursors[_key_cursors].to_dict() if self.cursors[_key_cursors] is not None else None
+            _dict['cursors'] = _field_dict
         # override the default output from pydantic by calling `to_dict()` of imap
         if self.imap:
             _dict['imap'] = self.imap.to_dict()
@@ -116,7 +123,12 @@ class MailMailboxConnectionRecord(BaseModel):
         _data = {
             "createdAt": obj.get("createdAt"),
             "credentialId": obj.get("credentialId"),
-            "cursors": obj.get("cursors"),
+            "cursors": dict(
+                (_k, MailImapCursor.from_dict(_v))
+                for _k, _v in obj["cursors"].items()
+            )
+            if obj.get("cursors") is not None
+            else None,
             "imap": MailStoredImapSettings.from_dict(obj["imap"]) if obj.get("imap") is not None else None,
             "integrationConnectionId": obj.get("integrationConnectionId"),
             "lastErrorCode": obj.get("lastErrorCode"),
