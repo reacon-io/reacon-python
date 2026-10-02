@@ -1,6 +1,6 @@
 [project]
 name = "reacon_sdk"
-version = "2.0.0b1"
+version = "2.0.1b1"
 description = "Reacon API"
 authors = [
   {name = "Reacon",email = "achazal@reacon.io"},
