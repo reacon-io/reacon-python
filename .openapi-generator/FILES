@@ -33,6 +33,7 @@ reacon_sdk/models/airtable_mapping_options_response_options_tables_inner.py
 reacon_sdk/models/airtable_mapping_options_response_options_tables_inner_fields_inner.py
 reacon_sdk/models/api_error.py
 reacon_sdk/models/api_key_identity.py
+reacon_sdk/models/api_validation_issue.py
 reacon_sdk/models/automation_hook_created.py
 reacon_sdk/models/batch_verification_error.py
 reacon_sdk/models/batch_verification_item.py

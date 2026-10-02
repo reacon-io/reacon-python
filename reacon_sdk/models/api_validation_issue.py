@@ -17,29 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional, Union
-from reacon_sdk.models.api_validation_issue import ApiValidationIssue
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class ApiError(BaseModel):
+class ApiValidationIssue(BaseModel):
     """
-    ApiError
+    Validation issue details. code identifies the validation rule and message explains the failure. Additional rule-specific properties, including the field path, are preserved.
     """ # noqa: E501
     code: Optional[StrictStr] = None
-    details: Optional[StrictStr] = None
-    error: StrictStr
-    issues: Optional[List[ApiValidationIssue]] = None
     message: Optional[StrictStr] = None
-    remaining_credits: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="remainingCredits")
-    request_id: Optional[StrictStr] = Field(default=None, alias="requestId")
-    status_code: Optional[StrictInt] = Field(default=None, alias="statusCode")
-    updated_at: Optional[datetime] = Field(default=None, alias="updatedAt")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["code", "details", "error", "issues", "message", "remainingCredits", "requestId", "statusCode", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["code", "message"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -59,7 +50,7 @@ class ApiError(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ApiError from a JSON string"""
+        """Create an instance of ApiValidationIssue from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,12 +74,6 @@ class ApiError(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in issues (list)
-        _items = []
-        if self.issues:
-            for _item_issues in self.issues:
-                _items.append(_item_issues.to_dict() if _item_issues is not None else None)
-            _dict['issues'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -98,7 +83,7 @@ class ApiError(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ApiError from a dict"""
+        """Create an instance of ApiValidationIssue from a dict"""
         if obj is None:
             return None
 
@@ -107,14 +92,7 @@ class ApiError(BaseModel):
 
         _data = {
             "code": obj.get("code"),
-            "details": obj.get("details"),
-            "error": obj.get("error"),
-            "issues": [ApiValidationIssue.from_dict(_item) for _item in obj["issues"]] if obj.get("issues") is not None else None,
-            "message": obj.get("message"),
-            "remainingCredits": obj.get("remainingCredits"),
-            "requestId": obj.get("requestId"),
-            "statusCode": obj.get("statusCode"),
-            "updatedAt": obj.get("updatedAt")
+            "message": obj.get("message")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

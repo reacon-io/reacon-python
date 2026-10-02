@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "1.0.0b1"
+__version__ = "2.0.0b1"
 
 # Define package exports
 __all__ = [
@@ -47,6 +47,7 @@ __all__ = [
     "AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner",
     "ApiError",
     "ApiKeyIdentity",
+    "ApiValidationIssue",
     "AutomationHookCreated",
     "BatchVerificationError",
     "BatchVerificationItem",
@@ -692,6 +693,7 @@ from reacon_sdk.models.airtable_mapping_options_response_options_tables_inner im
 from reacon_sdk.models.airtable_mapping_options_response_options_tables_inner_fields_inner import AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner as AirtableMappingOptionsResponseOptionsTablesInnerFieldsInner
 from reacon_sdk.models.api_error import ApiError as ApiError
 from reacon_sdk.models.api_key_identity import ApiKeyIdentity as ApiKeyIdentity
+from reacon_sdk.models.api_validation_issue import ApiValidationIssue as ApiValidationIssue
 from reacon_sdk.models.automation_hook_created import AutomationHookCreated as AutomationHookCreated
 from reacon_sdk.models.batch_verification_error import BatchVerificationError as BatchVerificationError
 from reacon_sdk.models.batch_verification_item import BatchVerificationItem as BatchVerificationItem
