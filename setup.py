@@ -19,7 +19,7 @@ from setuptools import setup, find_packages  # noqa: H301
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
 NAME = "reacon-sdk"
-VERSION = "2.0.8b1"
+VERSION = "2.0.9b1"
 PYTHON_REQUIRES = ">= 3.10"
 REQUIRES = [
     "httpx-sse == 0.4.3",
