@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from reacon_sdk.models.mail_mail_portfolio import MailMailPortfolio
+from reacon_sdk.models.mail_mail_portfolio_suppression import MailMailPortfolioSuppression
 from reacon_sdk.models.mail_mail_portfolio_team import MailMailPortfolioTeam
 from typing import Optional, Set
 from typing_extensions import Self
@@ -31,7 +32,7 @@ class MailPostPortfolioResponse200(BaseModel):
     MailPostPortfolioResponse200
     """ # noqa: E501
     portfolio: MailMailPortfolio
-    suppressions: Annotated[List[Dict[str, Any]], Field(min_length=0, max_length=0)]
+    suppressions: Annotated[List[MailMailPortfolioSuppression], Field(min_length=0, max_length=0)]
     teams: List[MailMailPortfolioTeam]
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["portfolio", "suppressions", "teams"]
@@ -81,6 +82,12 @@ class MailPostPortfolioResponse200(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of portfolio
         if self.portfolio:
             _dict['portfolio'] = self.portfolio.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in suppressions (list)
+        _items = []
+        if self.suppressions:
+            for _item_suppressions in self.suppressions:
+                _items.append(_item_suppressions.to_dict() if _item_suppressions is not None else None)
+            _dict['suppressions'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in teams (list)
         _items = []
         if self.teams:
@@ -105,7 +112,7 @@ class MailPostPortfolioResponse200(BaseModel):
 
         _data = {
             "portfolio": MailMailPortfolio.from_dict(obj["portfolio"]) if obj.get("portfolio") is not None else None,
-            "suppressions": obj.get("suppressions"),
+            "suppressions": [MailMailPortfolioSuppression.from_dict(_item) for _item in obj["suppressions"]] if obj.get("suppressions") is not None else None,
             "teams": [MailMailPortfolioTeam.from_dict(_item) for _item in obj["teams"]] if obj.get("teams") is not None else None
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})

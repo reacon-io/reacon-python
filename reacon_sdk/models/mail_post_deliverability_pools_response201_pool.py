@@ -21,6 +21,7 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
+from reacon_sdk.models.mail_mailbox_pool_member import MailMailboxPoolMember
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,7 +32,7 @@ class MailPostDeliverabilityPoolsResponse201Pool(BaseModel):
     """ # noqa: E501
     created_at: datetime = Field(alias="createdAt")
     id: StrictStr
-    members: Annotated[List[Dict[str, Any]], Field(min_length=0, max_length=0)]
+    members: Annotated[List[MailMailboxPoolMember], Field(min_length=0, max_length=0)]
     name: StrictStr
     strategy: StrictStr
     tenant_id: StrictStr = Field(alias="tenantId")
@@ -81,6 +82,12 @@ class MailPostDeliverabilityPoolsResponse201Pool(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in members (list)
+        _items = []
+        if self.members:
+            for _item_members in self.members:
+                _items.append(_item_members.to_dict() if _item_members is not None else None)
+            _dict['members'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -100,7 +107,7 @@ class MailPostDeliverabilityPoolsResponse201Pool(BaseModel):
         _data = {
             "createdAt": obj.get("createdAt"),
             "id": obj.get("id"),
-            "members": obj.get("members"),
+            "members": [MailMailboxPoolMember.from_dict(_item) for _item in obj["members"]] if obj.get("members") is not None else None,
             "name": obj.get("name"),
             "strategy": obj.get("strategy"),
             "tenantId": obj.get("tenantId"),
