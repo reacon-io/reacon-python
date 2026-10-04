@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -27,11 +28,12 @@ class PublicStats(BaseModel):
     """
     PublicStats
     """ # noqa: E501
+    api_protocol_version: Optional[Annotated[int, Field(strict=True, ge=1)]] = Field(default=None, description="Wire protocol major version, independent of SDK and actions-package versions.", alias="apiProtocolVersion")
     emails: StrictInt
     mentions: StrictInt
     version: StrictStr
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["emails", "mentions", "version"]
+    __properties: ClassVar[List[str]] = ["apiProtocolVersion", "emails", "mentions", "version"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -92,6 +94,7 @@ class PublicStats(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
+            "apiProtocolVersion": obj.get("apiProtocolVersion"),
             "emails": obj.get("emails"),
             "mentions": obj.get("mentions"),
             "version": obj.get("version")
