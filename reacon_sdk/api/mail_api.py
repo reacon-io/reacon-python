@@ -25748,6 +25748,9 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
+        status: Optional[StrictStr] = None,
+        sequence_id: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         _retry: Any = None,
         _request_timeout: Union[
             None,
@@ -25772,6 +25775,12 @@ class MailApi:
         :type limit: int
         :param cursor:
         :type cursor: str
+        :param query:
+        :type query: str
+        :param status:
+        :type status: str
+        :param sequence_id:
+        :type sequence_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25798,6 +25807,9 @@ class MailApi:
             team_id=team_id,
             limit=limit,
             cursor=cursor,
+            query=query,
+            status=status,
+            sequence_id=sequence_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25833,6 +25845,9 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
+        status: Optional[StrictStr] = None,
+        sequence_id: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         _retry: Any = None,
         _request_timeout: Union[
             None,
@@ -25857,6 +25872,12 @@ class MailApi:
         :type limit: int
         :param cursor:
         :type cursor: str
+        :param query:
+        :type query: str
+        :param status:
+        :type status: str
+        :param sequence_id:
+        :type sequence_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25883,6 +25904,9 @@ class MailApi:
             team_id=team_id,
             limit=limit,
             cursor=cursor,
+            query=query,
+            status=status,
+            sequence_id=sequence_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25918,6 +25942,9 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
+        status: Optional[StrictStr] = None,
+        sequence_id: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         _retry: Any = None,
         _request_timeout: Union[
             None,
@@ -25942,6 +25969,12 @@ class MailApi:
         :type limit: int
         :param cursor:
         :type cursor: str
+        :param query:
+        :type query: str
+        :param status:
+        :type status: str
+        :param sequence_id:
+        :type sequence_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -25968,6 +26001,9 @@ class MailApi:
             team_id=team_id,
             limit=limit,
             cursor=cursor,
+            query=query,
+            status=status,
+            sequence_id=sequence_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -25999,6 +26035,9 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
+        status: Optional[StrictStr] = None,
+        sequence_id: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         _retry: Any = None,
         _request_timeout: Union[
             None,
@@ -26023,6 +26062,9 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
+                query=query,
+                status=status,
+                sequence_id=sequence_id,
                 _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
@@ -26038,6 +26080,9 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
+        status: Optional[StrictStr] = None,
+        sequence_id: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         _retry: Any = None,
         _request_timeout: Union[
             None,
@@ -26062,6 +26107,9 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
+                query=query,
+                status=status,
+                sequence_id=sequence_id,
                 _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
@@ -26077,6 +26125,9 @@ class MailApi:
         team_id: StrictStr,
         limit: Optional[Annotated[int, Field(le=500, strict=True, ge=1)]] = None,
         cursor: Optional[StrictStr] = None,
+        query: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
+        status: Optional[StrictStr] = None,
+        sequence_id: Optional[Annotated[str, Field(strict=True, max_length=200)]] = None,
         _retry: Any = None,
         _request_timeout: Union[
             None,
@@ -26101,6 +26152,9 @@ class MailApi:
                 team_id=team_id,
                 limit=limit,
                 cursor=cursor,
+                query=query,
+                status=status,
+                sequence_id=sequence_id,
                 _retry=_retry, _request_timeout=_request_timeout,
                 _request_auth=_request_auth,
                 _content_type=_content_type,
@@ -26115,6 +26169,9 @@ class MailApi:
         team_id,
         limit,
         cursor,
+        query,
+        status,
+        sequence_id,
         _request_auth,
         _content_type,
         _headers,
@@ -26146,6 +26203,18 @@ class MailApi:
         if cursor is not None:
             
             _query_params.append(('cursor', cursor))
+            
+        if query is not None:
+            
+            _query_params.append(('query', query))
+            
+        if status is not None:
+            
+            _query_params.append(('status', status))
+            
+        if sequence_id is not None:
+            
+            _query_params.append(('sequenceId', sequence_id))
             
         # process the header parameters
         # process the form parameters

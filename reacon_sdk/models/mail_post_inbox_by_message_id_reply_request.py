@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field
-from typing import Any, ClassVar, Dict
+from typing import Any, ClassVar, Dict, Optional
 from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,8 +29,9 @@ class MailPostInboxByMessageIdReplyRequest(BaseModel):
     MailPostInboxByMessageIdReplyRequest
     """ # noqa: E501
     client_request_id: Annotated[str, Field(min_length=8, strict=True, max_length=200)] = Field(alias="clientRequestId")
+    draft_revision: Optional[Annotated[int, Field(strict=True, gt=0)]] = Field(default=None, alias="draftRevision")
     text: Annotated[str, Field(min_length=1, strict=True, max_length=200000)]
-    __properties: ClassVar[List[str]] = ["clientRequestId", "text"]
+    __properties: ClassVar[List[str]] = ["clientRequestId", "draftRevision", "text"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -85,6 +86,7 @@ class MailPostInboxByMessageIdReplyRequest(BaseModel):
 
         _data = {
             "clientRequestId": obj.get("clientRequestId"),
+            "draftRevision": obj.get("draftRevision"),
             "text": obj.get("text")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})

@@ -17,26 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
-from uuid import UUID
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class ProductSequence(BaseModel):
+class MailEmailAssetReference(BaseModel):
     """
-    ProductSequence
+    MailEmailAssetReference
     """ # noqa: E501
-    created_at: datetime = Field(alias="createdAt")
-    id: UUID
-    name: StrictStr
-    recipient_count: StrictInt = Field(alias="recipientCount")
-    status: StrictStr
-    updated_at: datetime = Field(alias="updatedAt")
+    asset_id: StrictStr = Field(alias="assetId")
+    cid: Optional[StrictStr] = None
+    disposition: StrictStr
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["createdAt", "id", "name", "recipientCount", "status", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["assetId", "cid", "disposition"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -56,7 +51,7 @@ class ProductSequence(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProductSequence from a JSON string"""
+        """Create an instance of MailEmailAssetReference from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +84,7 @@ class ProductSequence(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProductSequence from a dict"""
+        """Create an instance of MailEmailAssetReference from a dict"""
         if obj is None:
             return None
 
@@ -97,12 +92,9 @@ class ProductSequence(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "createdAt": obj.get("createdAt"),
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "recipientCount": obj.get("recipientCount"),
-            "status": obj.get("status"),
-            "updatedAt": obj.get("updatedAt")
+            "assetId": obj.get("assetId"),
+            "cid": obj.get("cid"),
+            "disposition": obj.get("disposition")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

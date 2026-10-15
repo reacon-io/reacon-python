@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -29,8 +29,10 @@ class ProductSavedSearchesListOutput(BaseModel):
     ProductSavedSearchesListOutput
     """ # noqa: E501
     items: Annotated[List[Dict[str, Any]], Field(max_length=0)] = Field(description="Currently always empty.")
+    reason: StrictStr
+    supported: StrictBool
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["items"]
+    __properties: ClassVar[List[str]] = ["items", "reason", "supported"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -91,7 +93,9 @@ class ProductSavedSearchesListOutput(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "items": obj.get("items")
+            "items": obj.get("items"),
+            "reason": obj.get("reason"),
+            "supported": obj.get("supported")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

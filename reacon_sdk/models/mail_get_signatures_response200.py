@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from reacon_sdk.models.mail_signature_candidate import MailSignatureCandidate
+from reacon_sdk.models.mail_get_signatures_response200_candidates_inner import MailGetSignaturesResponse200CandidatesInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,7 +28,7 @@ class MailGetSignaturesResponse200(BaseModel):
     """
     MailGetSignaturesResponse200
     """ # noqa: E501
-    candidates: List[MailSignatureCandidate]
+    candidates: List[MailGetSignaturesResponse200CandidatesInner]
     next_cursor: Optional[StrictStr] = Field(default=None, alias="nextCursor")
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["candidates", "nextCursor"]
@@ -98,7 +98,7 @@ class MailGetSignaturesResponse200(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "candidates": [MailSignatureCandidate.from_dict(_item) for _item in obj["candidates"]] if obj.get("candidates") is not None else None,
+            "candidates": [MailGetSignaturesResponse200CandidatesInner.from_dict(_item) for _item in obj["candidates"]] if obj.get("candidates") is not None else None,
             "nextCursor": obj.get("nextCursor")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})

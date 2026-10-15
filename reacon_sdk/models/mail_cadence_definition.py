@@ -22,6 +22,8 @@ from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, Stric
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from reacon_sdk.models.mail_cadence_node import MailCadenceNode
 from reacon_sdk.models.mail_cadence_stop_conditions import MailCadenceStopConditions
+from reacon_sdk.models.mail_email_sequence_delivery_settings import MailEmailSequenceDeliverySettings
+from reacon_sdk.models.mail_email_sequence_recipient_override import MailEmailSequenceRecipientOverride
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,8 +32,13 @@ class MailCadenceDefinition(BaseModel):
     """
     MailCadenceDefinition
     """ # noqa: E501
+    authoring_revision: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="authoringRevision")
     created_at: datetime = Field(alias="createdAt")
     created_by_actor_id: StrictStr = Field(alias="createdByActorId")
+    email_delivery: Optional[MailEmailSequenceDeliverySettings] = Field(default=None, alias="emailDelivery")
+    email_excluded_contact_ids: Optional[List[StrictStr]] = Field(default=None, alias="emailExcludedContactIds")
+    email_recipient_overrides: Optional[List[MailEmailSequenceRecipientOverride]] = Field(default=None, alias="emailRecipientOverrides")
+    email_render_seed: Optional[StrictStr] = Field(default=None, alias="emailRenderSeed")
     id: StrictStr
     name: StrictStr
     nodes: List[MailCadenceNode]
@@ -40,7 +47,7 @@ class MailCadenceDefinition(BaseModel):
     tenant_id: StrictStr = Field(alias="tenantId")
     version: Union[StrictFloat, StrictInt]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["createdAt", "createdByActorId", "id", "name", "nodes", "status", "stopConditions", "tenantId", "version"]
+    __properties: ClassVar[List[str]] = ["authoringRevision", "createdAt", "createdByActorId", "emailDelivery", "emailExcludedContactIds", "emailRecipientOverrides", "emailRenderSeed", "id", "name", "nodes", "status", "stopConditions", "tenantId", "version"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -84,6 +91,15 @@ class MailCadenceDefinition(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of email_delivery
+        if self.email_delivery:
+            _dict['emailDelivery'] = self.email_delivery.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in email_recipient_overrides (list)
+        _items = []
+        if self.email_recipient_overrides:
+            for _item_email_recipient_overrides in self.email_recipient_overrides:
+                _items.append(_item_email_recipient_overrides.to_dict() if _item_email_recipient_overrides is not None else None)
+            _dict['emailRecipientOverrides'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in nodes (list)
         _items = []
         if self.nodes:
@@ -110,8 +126,13 @@ class MailCadenceDefinition(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
+            "authoringRevision": obj.get("authoringRevision"),
             "createdAt": obj.get("createdAt"),
             "createdByActorId": obj.get("createdByActorId"),
+            "emailDelivery": MailEmailSequenceDeliverySettings.from_dict(obj["emailDelivery"]) if obj.get("emailDelivery") is not None else None,
+            "emailExcludedContactIds": obj.get("emailExcludedContactIds"),
+            "emailRecipientOverrides": [MailEmailSequenceRecipientOverride.from_dict(_item) for _item in obj["emailRecipientOverrides"]] if obj.get("emailRecipientOverrides") is not None else None,
+            "emailRenderSeed": obj.get("emailRenderSeed"),
             "id": obj.get("id"),
             "name": obj.get("name"),
             "nodes": [MailCadenceNode.from_dict(_item) for _item in obj["nodes"]] if obj.get("nodes") is not None else None,

@@ -54,6 +54,17 @@ from reacon_sdk.models.product_lead_tags_list_execution import ProductLeadTagsLi
 from reacon_sdk.models.product_lead_update_execution import ProductLeadUpdateExecution
 from reacon_sdk.models.product_lead_upsert_execution import ProductLeadUpsertExecution
 from reacon_sdk.models.product_leads_list_execution import ProductLeadsListExecution
+from reacon_sdk.models.product_mail_sequence_add_ab_execution import ProductMailSequenceAddAbExecution
+from reacon_sdk.models.product_mail_sequence_add_audience_execution import ProductMailSequenceAddAudienceExecution
+from reacon_sdk.models.product_mail_sequence_campaigns_list_execution import ProductMailSequenceCampaignsListExecution
+from reacon_sdk.models.product_mail_sequence_draft_save_execution import ProductMailSequenceDraftSaveExecution
+from reacon_sdk.models.product_mail_sequence_drafts_list_execution import ProductMailSequenceDraftsListExecution
+from reacon_sdk.models.product_mail_sequence_launch_execution import ProductMailSequenceLaunchExecution
+from reacon_sdk.models.product_mail_sequence_publish_execution import ProductMailSequencePublishExecution
+from reacon_sdk.models.product_mail_sequence_readiness_execution import ProductMailSequenceReadinessExecution
+from reacon_sdk.models.product_mail_sequence_recipients_list_execution import ProductMailSequenceRecipientsListExecution
+from reacon_sdk.models.product_mail_sequence_results_execution import ProductMailSequenceResultsExecution
+from reacon_sdk.models.product_mail_sequence_state_execution import ProductMailSequenceStateExecution
 from reacon_sdk.models.product_person_enrich_execution import ProductPersonEnrichExecution
 from reacon_sdk.models.product_saved_searches_list_execution import ProductSavedSearchesListExecution
 from reacon_sdk.models.product_sequence_recipient_add_execution import ProductSequenceRecipientAddExecution
@@ -69,7 +80,7 @@ from pydantic import StrictStr, Field
 from typing import Union, List, Set, Optional, Dict
 from typing_extensions import Literal, Self
 
-PRODUCTTOOLEXECUTION_ONE_OF_SCHEMAS = ["ProductAccountInfoExecution", "ProductCombinedEnrichExecution", "ProductCompaniesListExecution", "ProductCompanyDeleteExecution", "ProductCompanyEnrichExecution", "ProductCompanyListAddExecution", "ProductCompanyListCreateExecution", "ProductCompanyListRemoveExecution", "ProductCompanyListsListExecution", "ProductCompanyTrackExecution", "ProductCompanyUpdateExecution", "ProductConnectedAppPushExecution", "ProductConnectedAppsExecution", "ProductCustomAttributeCreateExecution", "ProductCustomAttributesListExecution", "ProductDiscoverCompaniesExecution", "ProductDiscoverPeopleExecution", "ProductDomainFinderExecution", "ProductEmailCountExecution", "ProductLeadBulkDeleteExecution", "ProductLeadCreateExecution", "ProductLeadDeleteExecution", "ProductLeadEnrichExecution", "ProductLeadGetExecution", "ProductLeadListAddLeadExecution", "ProductLeadListCreateExecution", "ProductLeadListDeleteExecution", "ProductLeadListRemoveLeadExecution", "ProductLeadListUpdateExecution", "ProductLeadListsListExecution", "ProductLeadTagAssignExecution", "ProductLeadTagCreateExecution", "ProductLeadTagRemoveExecution", "ProductLeadTagsListExecution", "ProductLeadUpdateExecution", "ProductLeadUpsertExecution", "ProductLeadsListExecution", "ProductPersonEnrichExecution", "ProductSavedSearchesListExecution", "ProductSequenceRecipientAddExecution", "ProductSequenceRecipientCancelExecution", "ProductSequenceRecipientsAddExecution", "ProductSequenceRecipientsListExecution", "ProductSequenceStartExecution", "ProductSequencesListExecution", "ProductTeamMembersExecution", "ProductUsageExecution", "ProductUsageHistoryExecution"]
+PRODUCTTOOLEXECUTION_ONE_OF_SCHEMAS = ["ProductAccountInfoExecution", "ProductCombinedEnrichExecution", "ProductCompaniesListExecution", "ProductCompanyDeleteExecution", "ProductCompanyEnrichExecution", "ProductCompanyListAddExecution", "ProductCompanyListCreateExecution", "ProductCompanyListRemoveExecution", "ProductCompanyListsListExecution", "ProductCompanyTrackExecution", "ProductCompanyUpdateExecution", "ProductConnectedAppPushExecution", "ProductConnectedAppsExecution", "ProductCustomAttributeCreateExecution", "ProductCustomAttributesListExecution", "ProductDiscoverCompaniesExecution", "ProductDiscoverPeopleExecution", "ProductDomainFinderExecution", "ProductEmailCountExecution", "ProductLeadBulkDeleteExecution", "ProductLeadCreateExecution", "ProductLeadDeleteExecution", "ProductLeadEnrichExecution", "ProductLeadGetExecution", "ProductLeadListAddLeadExecution", "ProductLeadListCreateExecution", "ProductLeadListDeleteExecution", "ProductLeadListRemoveLeadExecution", "ProductLeadListUpdateExecution", "ProductLeadListsListExecution", "ProductLeadTagAssignExecution", "ProductLeadTagCreateExecution", "ProductLeadTagRemoveExecution", "ProductLeadTagsListExecution", "ProductLeadUpdateExecution", "ProductLeadUpsertExecution", "ProductLeadsListExecution", "ProductMailSequenceAddAbExecution", "ProductMailSequenceAddAudienceExecution", "ProductMailSequenceCampaignsListExecution", "ProductMailSequenceDraftSaveExecution", "ProductMailSequenceDraftsListExecution", "ProductMailSequenceLaunchExecution", "ProductMailSequencePublishExecution", "ProductMailSequenceReadinessExecution", "ProductMailSequenceRecipientsListExecution", "ProductMailSequenceResultsExecution", "ProductMailSequenceStateExecution", "ProductPersonEnrichExecution", "ProductSavedSearchesListExecution", "ProductSequenceRecipientAddExecution", "ProductSequenceRecipientCancelExecution", "ProductSequenceRecipientsAddExecution", "ProductSequenceRecipientsListExecution", "ProductSequenceStartExecution", "ProductSequencesListExecution", "ProductTeamMembersExecution", "ProductUsageExecution", "ProductUsageHistoryExecution"]
 
 class ProductToolExecution(BaseModel):
     """
@@ -159,20 +170,42 @@ class ProductToolExecution(BaseModel):
     oneof_schema_41_validator: Optional[ProductSequenceRecipientCancelExecution] = None
     # data type: ProductSequenceStartExecution
     oneof_schema_42_validator: Optional[ProductSequenceStartExecution] = None
+    # data type: ProductMailSequenceDraftsListExecution
+    oneof_schema_43_validator: Optional[ProductMailSequenceDraftsListExecution] = None
+    # data type: ProductMailSequenceDraftSaveExecution
+    oneof_schema_44_validator: Optional[ProductMailSequenceDraftSaveExecution] = None
+    # data type: ProductMailSequenceAddAudienceExecution
+    oneof_schema_45_validator: Optional[ProductMailSequenceAddAudienceExecution] = None
+    # data type: ProductMailSequenceReadinessExecution
+    oneof_schema_46_validator: Optional[ProductMailSequenceReadinessExecution] = None
+    # data type: ProductMailSequencePublishExecution
+    oneof_schema_47_validator: Optional[ProductMailSequencePublishExecution] = None
+    # data type: ProductMailSequenceLaunchExecution
+    oneof_schema_48_validator: Optional[ProductMailSequenceLaunchExecution] = None
+    # data type: ProductMailSequenceCampaignsListExecution
+    oneof_schema_49_validator: Optional[ProductMailSequenceCampaignsListExecution] = None
+    # data type: ProductMailSequenceRecipientsListExecution
+    oneof_schema_50_validator: Optional[ProductMailSequenceRecipientsListExecution] = None
+    # data type: ProductMailSequenceAddAbExecution
+    oneof_schema_51_validator: Optional[ProductMailSequenceAddAbExecution] = None
+    # data type: ProductMailSequenceStateExecution
+    oneof_schema_52_validator: Optional[ProductMailSequenceStateExecution] = None
+    # data type: ProductMailSequenceResultsExecution
+    oneof_schema_53_validator: Optional[ProductMailSequenceResultsExecution] = None
     # data type: ProductAccountInfoExecution
-    oneof_schema_43_validator: Optional[ProductAccountInfoExecution] = None
+    oneof_schema_54_validator: Optional[ProductAccountInfoExecution] = None
     # data type: ProductUsageExecution
-    oneof_schema_44_validator: Optional[ProductUsageExecution] = None
+    oneof_schema_55_validator: Optional[ProductUsageExecution] = None
     # data type: ProductUsageHistoryExecution
-    oneof_schema_45_validator: Optional[ProductUsageHistoryExecution] = None
+    oneof_schema_56_validator: Optional[ProductUsageHistoryExecution] = None
     # data type: ProductTeamMembersExecution
-    oneof_schema_46_validator: Optional[ProductTeamMembersExecution] = None
+    oneof_schema_57_validator: Optional[ProductTeamMembersExecution] = None
     # data type: ProductConnectedAppsExecution
-    oneof_schema_47_validator: Optional[ProductConnectedAppsExecution] = None
+    oneof_schema_58_validator: Optional[ProductConnectedAppsExecution] = None
     # data type: ProductConnectedAppPushExecution
-    oneof_schema_48_validator: Optional[ProductConnectedAppPushExecution] = None
-    actual_instance: Optional[Union[ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution]] = None
-    one_of_schemas: Set[str] = { "ProductAccountInfoExecution", "ProductCombinedEnrichExecution", "ProductCompaniesListExecution", "ProductCompanyDeleteExecution", "ProductCompanyEnrichExecution", "ProductCompanyListAddExecution", "ProductCompanyListCreateExecution", "ProductCompanyListRemoveExecution", "ProductCompanyListsListExecution", "ProductCompanyTrackExecution", "ProductCompanyUpdateExecution", "ProductConnectedAppPushExecution", "ProductConnectedAppsExecution", "ProductCustomAttributeCreateExecution", "ProductCustomAttributesListExecution", "ProductDiscoverCompaniesExecution", "ProductDiscoverPeopleExecution", "ProductDomainFinderExecution", "ProductEmailCountExecution", "ProductLeadBulkDeleteExecution", "ProductLeadCreateExecution", "ProductLeadDeleteExecution", "ProductLeadEnrichExecution", "ProductLeadGetExecution", "ProductLeadListAddLeadExecution", "ProductLeadListCreateExecution", "ProductLeadListDeleteExecution", "ProductLeadListRemoveLeadExecution", "ProductLeadListUpdateExecution", "ProductLeadListsListExecution", "ProductLeadTagAssignExecution", "ProductLeadTagCreateExecution", "ProductLeadTagRemoveExecution", "ProductLeadTagsListExecution", "ProductLeadUpdateExecution", "ProductLeadUpsertExecution", "ProductLeadsListExecution", "ProductPersonEnrichExecution", "ProductSavedSearchesListExecution", "ProductSequenceRecipientAddExecution", "ProductSequenceRecipientCancelExecution", "ProductSequenceRecipientsAddExecution", "ProductSequenceRecipientsListExecution", "ProductSequenceStartExecution", "ProductSequencesListExecution", "ProductTeamMembersExecution", "ProductUsageExecution", "ProductUsageHistoryExecution" }
+    oneof_schema_59_validator: Optional[ProductConnectedAppPushExecution] = None
+    actual_instance: Optional[Union[ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution]] = None
+    one_of_schemas: Set[str] = { "ProductAccountInfoExecution", "ProductCombinedEnrichExecution", "ProductCompaniesListExecution", "ProductCompanyDeleteExecution", "ProductCompanyEnrichExecution", "ProductCompanyListAddExecution", "ProductCompanyListCreateExecution", "ProductCompanyListRemoveExecution", "ProductCompanyListsListExecution", "ProductCompanyTrackExecution", "ProductCompanyUpdateExecution", "ProductConnectedAppPushExecution", "ProductConnectedAppsExecution", "ProductCustomAttributeCreateExecution", "ProductCustomAttributesListExecution", "ProductDiscoverCompaniesExecution", "ProductDiscoverPeopleExecution", "ProductDomainFinderExecution", "ProductEmailCountExecution", "ProductLeadBulkDeleteExecution", "ProductLeadCreateExecution", "ProductLeadDeleteExecution", "ProductLeadEnrichExecution", "ProductLeadGetExecution", "ProductLeadListAddLeadExecution", "ProductLeadListCreateExecution", "ProductLeadListDeleteExecution", "ProductLeadListRemoveLeadExecution", "ProductLeadListUpdateExecution", "ProductLeadListsListExecution", "ProductLeadTagAssignExecution", "ProductLeadTagCreateExecution", "ProductLeadTagRemoveExecution", "ProductLeadTagsListExecution", "ProductLeadUpdateExecution", "ProductLeadUpsertExecution", "ProductLeadsListExecution", "ProductMailSequenceAddAbExecution", "ProductMailSequenceAddAudienceExecution", "ProductMailSequenceCampaignsListExecution", "ProductMailSequenceDraftSaveExecution", "ProductMailSequenceDraftsListExecution", "ProductMailSequenceLaunchExecution", "ProductMailSequencePublishExecution", "ProductMailSequenceReadinessExecution", "ProductMailSequenceRecipientsListExecution", "ProductMailSequenceResultsExecution", "ProductMailSequenceStateExecution", "ProductPersonEnrichExecution", "ProductSavedSearchesListExecution", "ProductSequenceRecipientAddExecution", "ProductSequenceRecipientCancelExecution", "ProductSequenceRecipientsAddExecution", "ProductSequenceRecipientsListExecution", "ProductSequenceStartExecution", "ProductSequencesListExecution", "ProductTeamMembersExecution", "ProductUsageExecution", "ProductUsageHistoryExecution" }
 
     model_config = ConfigDict(
         validate_assignment=True,
@@ -408,6 +441,61 @@ class ProductToolExecution(BaseModel):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ProductSequenceStartExecution`")
         else:
             match += 1
+        # validate data type: ProductMailSequenceDraftsListExecution
+        if not isinstance(v, ProductMailSequenceDraftsListExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceDraftsListExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceDraftSaveExecution
+        if not isinstance(v, ProductMailSequenceDraftSaveExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceDraftSaveExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceAddAudienceExecution
+        if not isinstance(v, ProductMailSequenceAddAudienceExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceAddAudienceExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceReadinessExecution
+        if not isinstance(v, ProductMailSequenceReadinessExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceReadinessExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequencePublishExecution
+        if not isinstance(v, ProductMailSequencePublishExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequencePublishExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceLaunchExecution
+        if not isinstance(v, ProductMailSequenceLaunchExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceLaunchExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceCampaignsListExecution
+        if not isinstance(v, ProductMailSequenceCampaignsListExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceCampaignsListExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceRecipientsListExecution
+        if not isinstance(v, ProductMailSequenceRecipientsListExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceRecipientsListExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceAddAbExecution
+        if not isinstance(v, ProductMailSequenceAddAbExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceAddAbExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceStateExecution
+        if not isinstance(v, ProductMailSequenceStateExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceStateExecution`")
+        else:
+            match += 1
+        # validate data type: ProductMailSequenceResultsExecution
+        if not isinstance(v, ProductMailSequenceResultsExecution):
+            error_messages.append(f"Error! Input type `{type(v)}` is not `ProductMailSequenceResultsExecution`")
+        else:
+            match += 1
         # validate data type: ProductAccountInfoExecution
         if not isinstance(v, ProductAccountInfoExecution):
             error_messages.append(f"Error! Input type `{type(v)}` is not `ProductAccountInfoExecution`")
@@ -440,10 +528,10 @@ class ProductToolExecution(BaseModel):
             match += 1
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when setting `actual_instance` in ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when setting `actual_instance` in ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when setting `actual_instance` in ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting `actual_instance` in ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -710,6 +798,72 @@ class ProductToolExecution(BaseModel):
             match += 1
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceDraftsListExecution
+        try:
+            instance.actual_instance = ProductMailSequenceDraftsListExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceDraftSaveExecution
+        try:
+            instance.actual_instance = ProductMailSequenceDraftSaveExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceAddAudienceExecution
+        try:
+            instance.actual_instance = ProductMailSequenceAddAudienceExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceReadinessExecution
+        try:
+            instance.actual_instance = ProductMailSequenceReadinessExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequencePublishExecution
+        try:
+            instance.actual_instance = ProductMailSequencePublishExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceLaunchExecution
+        try:
+            instance.actual_instance = ProductMailSequenceLaunchExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceCampaignsListExecution
+        try:
+            instance.actual_instance = ProductMailSequenceCampaignsListExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceRecipientsListExecution
+        try:
+            instance.actual_instance = ProductMailSequenceRecipientsListExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceAddAbExecution
+        try:
+            instance.actual_instance = ProductMailSequenceAddAbExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceStateExecution
+        try:
+            instance.actual_instance = ProductMailSequenceStateExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
+        # deserialize data into ProductMailSequenceResultsExecution
+        try:
+            instance.actual_instance = ProductMailSequenceResultsExecution.from_json(json_str)
+            match += 1
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
         # deserialize data into ProductAccountInfoExecution
         try:
             instance.actual_instance = ProductAccountInfoExecution.from_json(json_str)
@@ -749,10 +903,10 @@ class ProductToolExecution(BaseModel):
 
         if match > 1:
             # more than 1 match
-            raise ValueError("Multiple matches found when deserializing the JSON string into ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. Details: " + ", ".join(error_messages))
+            raise ValueError("Multiple matches found when deserializing the JSON string into ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. Details: " + ", ".join(error_messages))
         elif match == 0:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ProductToolExecution with oneOf schemas: ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -766,7 +920,7 @@ class ProductToolExecution(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], ProductAccountInfoExecution, ProductCombinedEnrichExecution, ProductCompaniesListExecution, ProductCompanyDeleteExecution, ProductCompanyEnrichExecution, ProductCompanyListAddExecution, ProductCompanyListCreateExecution, ProductCompanyListRemoveExecution, ProductCompanyListsListExecution, ProductCompanyTrackExecution, ProductCompanyUpdateExecution, ProductConnectedAppPushExecution, ProductConnectedAppsExecution, ProductCustomAttributeCreateExecution, ProductCustomAttributesListExecution, ProductDiscoverCompaniesExecution, ProductDiscoverPeopleExecution, ProductDomainFinderExecution, ProductEmailCountExecution, ProductLeadBulkDeleteExecution, ProductLeadCreateExecution, ProductLeadDeleteExecution, ProductLeadEnrichExecution, ProductLeadGetExecution, ProductLeadListAddLeadExecution, ProductLeadListCreateExecution, ProductLeadListDeleteExecution, ProductLeadListRemoveLeadExecution, ProductLeadListUpdateExecution, ProductLeadListsListExecution, ProductLeadTagAssignExecution, ProductLeadTagCreateExecution, ProductLeadTagRemoveExecution, ProductLeadTagsListExecution, ProductLeadUpdateExecution, ProductLeadUpsertExecution, ProductLeadsListExecution, ProductMailSequenceAddAbExecution, ProductMailSequenceAddAudienceExecution, ProductMailSequenceCampaignsListExecution, ProductMailSequenceDraftSaveExecution, ProductMailSequenceDraftsListExecution, ProductMailSequenceLaunchExecution, ProductMailSequencePublishExecution, ProductMailSequenceReadinessExecution, ProductMailSequenceRecipientsListExecution, ProductMailSequenceResultsExecution, ProductMailSequenceStateExecution, ProductPersonEnrichExecution, ProductSavedSearchesListExecution, ProductSequenceRecipientAddExecution, ProductSequenceRecipientCancelExecution, ProductSequenceRecipientsAddExecution, ProductSequenceRecipientsListExecution, ProductSequenceStartExecution, ProductSequencesListExecution, ProductTeamMembersExecution, ProductUsageExecution, ProductUsageHistoryExecution]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

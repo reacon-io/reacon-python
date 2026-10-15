@@ -31,13 +31,14 @@ class MailCadenceNodeAnyOf1(BaseModel):
     id: StrictStr
     name: StrictStr
     channel: StrictStr
+    email_thread: Optional[StrictStr] = Field(default=None, alias="emailThread")
     experiment: Optional[MailCadenceMessageExperiment] = None
     kind: StrictStr
     next_node_id: StrictStr = Field(alias="nextNodeId")
     template_id: StrictStr = Field(alias="templateId")
     template_version: Union[StrictFloat, StrictInt] = Field(alias="templateVersion")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "name", "channel", "experiment", "kind", "nextNodeId", "templateId", "templateVersion"]
+    __properties: ClassVar[List[str]] = ["id", "name", "channel", "emailThread", "experiment", "kind", "nextNodeId", "templateId", "templateVersion"]
 
     @field_validator('kind')
     def kind_validate_enum(cls, value):
@@ -111,6 +112,7 @@ class MailCadenceNodeAnyOf1(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "channel": obj.get("channel"),
+            "emailThread": obj.get("emailThread"),
             "experiment": MailCadenceMessageExperiment.from_dict(obj["experiment"]) if obj.get("experiment") is not None else None,
             "kind": obj.get("kind"),
             "nextNodeId": obj.get("nextNodeId"),

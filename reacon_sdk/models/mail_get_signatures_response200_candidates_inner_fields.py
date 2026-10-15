@@ -20,21 +20,21 @@ import json
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from reacon_sdk.models.mail_evidence_field import MailEvidenceField
-from reacon_sdk.models.mail_signature_candidate_fields_phones_inner import MailSignatureCandidateFieldsPhonesInner
+from reacon_sdk.models.mail_get_signatures_response200_candidates_inner_fields_phones_inner import MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class MailSignatureCandidateFields(BaseModel):
+class MailGetSignaturesResponse200CandidatesInnerFields(BaseModel):
     """
-    MailSignatureCandidateFields
+    MailGetSignaturesResponse200CandidatesInnerFields
     """ # noqa: E501
     address: Optional[MailEvidenceField] = None
     company: Optional[MailEvidenceField] = None
     emails: List[MailEvidenceField]
     job_title: Optional[MailEvidenceField] = Field(default=None, alias="jobTitle")
     person_name: Optional[MailEvidenceField] = Field(default=None, alias="personName")
-    phones: List[MailSignatureCandidateFieldsPhonesInner]
+    phones: List[MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner]
     social_profiles: List[MailEvidenceField] = Field(alias="socialProfiles")
     websites: List[MailEvidenceField]
     additional_properties: Dict[str, Any] = {}
@@ -58,7 +58,7 @@ class MailSignatureCandidateFields(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of MailSignatureCandidateFields from a JSON string"""
+        """Create an instance of MailGetSignaturesResponse200CandidatesInnerFields from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -127,7 +127,7 @@ class MailSignatureCandidateFields(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of MailSignatureCandidateFields from a dict"""
+        """Create an instance of MailGetSignaturesResponse200CandidatesInnerFields from a dict"""
         if obj is None:
             return None
 
@@ -140,7 +140,7 @@ class MailSignatureCandidateFields(BaseModel):
             "emails": [MailEvidenceField.from_dict(_item) for _item in obj["emails"]] if obj.get("emails") is not None else None,
             "jobTitle": MailEvidenceField.from_dict(obj["jobTitle"]) if obj.get("jobTitle") is not None else None,
             "personName": MailEvidenceField.from_dict(obj["personName"]) if obj.get("personName") is not None else None,
-            "phones": [MailSignatureCandidateFieldsPhonesInner.from_dict(_item) for _item in obj["phones"]] if obj.get("phones") is not None else None,
+            "phones": [MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner.from_dict(_item) for _item in obj["phones"]] if obj.get("phones") is not None else None,
             "socialProfiles": [MailEvidenceField.from_dict(_item) for _item in obj["socialProfiles"]] if obj.get("socialProfiles") is not None else None,
             "websites": [MailEvidenceField.from_dict(_item) for _item in obj["websites"]] if obj.get("websites") is not None else None
         }

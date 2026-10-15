@@ -18,8 +18,9 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from reacon_sdk.models.mail_cadence_enrollment_variable_gap import MailCadenceEnrollmentVariableGap
+from reacon_sdk.models.mail_recipient_eligibility_summary import MailRecipientEligibilitySummary
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -31,12 +32,13 @@ class MailPostCadenceRunsPreflightResponse200(BaseModel):
     audience_count: Union[StrictFloat, StrictInt] = Field(alias="audienceCount")
     cadence_id: StrictStr = Field(alias="cadenceId")
     cadence_version: Union[StrictFloat, StrictInt] = Field(alias="cadenceVersion")
+    eligibility: Optional[MailRecipientEligibilitySummary] = None
     missing_variables: List[MailCadenceEnrollmentVariableGap] = Field(alias="missingVariables")
     ready: StrictBool
     required_variables: List[StrictStr] = Field(alias="requiredVariables")
     sender_count: Union[StrictFloat, StrictInt] = Field(alias="senderCount")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["audienceCount", "cadenceId", "cadenceVersion", "missingVariables", "ready", "requiredVariables", "senderCount"]
+    __properties: ClassVar[List[str]] = ["audienceCount", "cadenceId", "cadenceVersion", "eligibility", "missingVariables", "ready", "requiredVariables", "senderCount"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -80,6 +82,9 @@ class MailPostCadenceRunsPreflightResponse200(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of eligibility
+        if self.eligibility:
+            _dict['eligibility'] = self.eligibility.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each item in missing_variables (list)
         _items = []
         if self.missing_variables:
@@ -106,6 +111,7 @@ class MailPostCadenceRunsPreflightResponse200(BaseModel):
             "audienceCount": obj.get("audienceCount"),
             "cadenceId": obj.get("cadenceId"),
             "cadenceVersion": obj.get("cadenceVersion"),
+            "eligibility": MailRecipientEligibilitySummary.from_dict(obj["eligibility"]) if obj.get("eligibility") is not None else None,
             "missingVariables": [MailCadenceEnrollmentVariableGap.from_dict(_item) for _item in obj["missingVariables"]] if obj.get("missingVariables") is not None else None,
             "ready": obj.get("ready"),
             "requiredVariables": obj.get("requiredVariables"),

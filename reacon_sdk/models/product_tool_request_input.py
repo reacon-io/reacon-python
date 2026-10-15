@@ -41,6 +41,14 @@ from reacon_sdk.models.product_lead_tag_assign_input import ProductLeadTagAssign
 from reacon_sdk.models.product_lead_tag_create_input import ProductLeadTagCreateInput
 from reacon_sdk.models.product_lead_update_input import ProductLeadUpdateInput
 from reacon_sdk.models.product_leads_list_input import ProductLeadsListInput
+from reacon_sdk.models.product_mail_sequence_add_ab_input import ProductMailSequenceAddAbInput
+from reacon_sdk.models.product_mail_sequence_add_audience_input import ProductMailSequenceAddAudienceInput
+from reacon_sdk.models.product_mail_sequence_draft_save_input import ProductMailSequenceDraftSaveInput
+from reacon_sdk.models.product_mail_sequence_publish_input import ProductMailSequencePublishInput
+from reacon_sdk.models.product_mail_sequence_readiness_input import ProductMailSequenceReadinessInput
+from reacon_sdk.models.product_mail_sequence_recipients_list_input import ProductMailSequenceRecipientsListInput
+from reacon_sdk.models.product_mail_sequence_results_input import ProductMailSequenceResultsInput
+from reacon_sdk.models.product_mail_sequence_state_input import ProductMailSequenceStateInput
 from reacon_sdk.models.product_person_enrich_input import ProductPersonEnrichInput
 from reacon_sdk.models.product_sequence_recipient_add_input import ProductSequenceRecipientAddInput
 from reacon_sdk.models.product_sequence_recipient_cancel_input import ProductSequenceRecipientCancelInput
@@ -51,7 +59,7 @@ from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-PRODUCTTOOLREQUESTINPUT_ANY_OF_SCHEMAS = ["ProductCompaniesListInput", "ProductCompanyDeleteInput", "ProductCompanyListAddInput", "ProductCompanyTrackInput", "ProductCompanyUpdateInput", "ProductConnectedAppPushInput", "ProductCustomAttributeCreateInput", "ProductDiscoverCompaniesInput", "ProductDiscoverPeopleInput", "ProductDomainFinderInput", "ProductEmailCountInput", "ProductLeadBulkDeleteInput", "ProductLeadCreateInput", "ProductLeadDeleteInput", "ProductLeadGetInput", "ProductLeadListAddLeadInput", "ProductLeadListDeleteInput", "ProductLeadListUpdateInput", "ProductLeadTagAssignInput", "ProductLeadTagCreateInput", "ProductLeadUpdateInput", "ProductLeadsListInput", "ProductPersonEnrichInput", "ProductSequenceRecipientAddInput", "ProductSequenceRecipientCancelInput", "ProductSequenceRecipientsAddInput", "ProductSequenceRecipientsListInput", "ProductSequenceStartInput", "object"]
+PRODUCTTOOLREQUESTINPUT_ANY_OF_SCHEMAS = ["ProductCompaniesListInput", "ProductCompanyDeleteInput", "ProductCompanyListAddInput", "ProductCompanyTrackInput", "ProductCompanyUpdateInput", "ProductConnectedAppPushInput", "ProductCustomAttributeCreateInput", "ProductDiscoverCompaniesInput", "ProductDiscoverPeopleInput", "ProductDomainFinderInput", "ProductEmailCountInput", "ProductLeadBulkDeleteInput", "ProductLeadCreateInput", "ProductLeadDeleteInput", "ProductLeadGetInput", "ProductLeadListAddLeadInput", "ProductLeadListDeleteInput", "ProductLeadListUpdateInput", "ProductLeadTagAssignInput", "ProductLeadTagCreateInput", "ProductLeadUpdateInput", "ProductLeadsListInput", "ProductMailSequenceAddAbInput", "ProductMailSequenceAddAudienceInput", "ProductMailSequenceDraftSaveInput", "ProductMailSequencePublishInput", "ProductMailSequenceReadinessInput", "ProductMailSequenceRecipientsListInput", "ProductMailSequenceResultsInput", "ProductMailSequenceStateInput", "ProductPersonEnrichInput", "ProductSequenceRecipientAddInput", "ProductSequenceRecipientCancelInput", "ProductSequenceRecipientsAddInput", "ProductSequenceRecipientsListInput", "ProductSequenceStartInput", "object"]
 
 class ProductToolRequestInput(BaseModel):
     """
@@ -114,13 +122,29 @@ class ProductToolRequestInput(BaseModel):
     anyof_schema_27_validator: Optional[ProductSequenceRecipientCancelInput] = None
     # data type: ProductSequenceStartInput
     anyof_schema_28_validator: Optional[ProductSequenceStartInput] = None
+    # data type: ProductMailSequenceDraftSaveInput
+    anyof_schema_29_validator: Optional[ProductMailSequenceDraftSaveInput] = None
+    # data type: ProductMailSequenceAddAudienceInput
+    anyof_schema_30_validator: Optional[ProductMailSequenceAddAudienceInput] = None
+    # data type: ProductMailSequenceReadinessInput
+    anyof_schema_31_validator: Optional[ProductMailSequenceReadinessInput] = None
+    # data type: ProductMailSequencePublishInput
+    anyof_schema_32_validator: Optional[ProductMailSequencePublishInput] = None
+    # data type: ProductMailSequenceRecipientsListInput
+    anyof_schema_33_validator: Optional[ProductMailSequenceRecipientsListInput] = None
+    # data type: ProductMailSequenceAddAbInput
+    anyof_schema_34_validator: Optional[ProductMailSequenceAddAbInput] = None
+    # data type: ProductMailSequenceStateInput
+    anyof_schema_35_validator: Optional[ProductMailSequenceStateInput] = None
+    # data type: ProductMailSequenceResultsInput
+    anyof_schema_36_validator: Optional[ProductMailSequenceResultsInput] = None
     # data type: ProductConnectedAppPushInput
-    anyof_schema_29_validator: Optional[ProductConnectedAppPushInput] = None
+    anyof_schema_37_validator: Optional[ProductConnectedAppPushInput] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput, object]] = None
+        actual_instance: Optional[Union[ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceDraftSaveInput, ProductMailSequencePublishInput, ProductMailSequenceReadinessInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceResultsInput, ProductMailSequenceStateInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput, object]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "ProductCompaniesListInput", "ProductCompanyDeleteInput", "ProductCompanyListAddInput", "ProductCompanyTrackInput", "ProductCompanyUpdateInput", "ProductConnectedAppPushInput", "ProductCustomAttributeCreateInput", "ProductDiscoverCompaniesInput", "ProductDiscoverPeopleInput", "ProductDomainFinderInput", "ProductEmailCountInput", "ProductLeadBulkDeleteInput", "ProductLeadCreateInput", "ProductLeadDeleteInput", "ProductLeadGetInput", "ProductLeadListAddLeadInput", "ProductLeadListDeleteInput", "ProductLeadListUpdateInput", "ProductLeadTagAssignInput", "ProductLeadTagCreateInput", "ProductLeadUpdateInput", "ProductLeadsListInput", "ProductPersonEnrichInput", "ProductSequenceRecipientAddInput", "ProductSequenceRecipientCancelInput", "ProductSequenceRecipientsAddInput", "ProductSequenceRecipientsListInput", "ProductSequenceStartInput", "object" }
+    any_of_schemas: Set[str] = { "ProductCompaniesListInput", "ProductCompanyDeleteInput", "ProductCompanyListAddInput", "ProductCompanyTrackInput", "ProductCompanyUpdateInput", "ProductConnectedAppPushInput", "ProductCustomAttributeCreateInput", "ProductDiscoverCompaniesInput", "ProductDiscoverPeopleInput", "ProductDomainFinderInput", "ProductEmailCountInput", "ProductLeadBulkDeleteInput", "ProductLeadCreateInput", "ProductLeadDeleteInput", "ProductLeadGetInput", "ProductLeadListAddLeadInput", "ProductLeadListDeleteInput", "ProductLeadListUpdateInput", "ProductLeadTagAssignInput", "ProductLeadTagCreateInput", "ProductLeadUpdateInput", "ProductLeadsListInput", "ProductMailSequenceAddAbInput", "ProductMailSequenceAddAudienceInput", "ProductMailSequenceDraftSaveInput", "ProductMailSequencePublishInput", "ProductMailSequenceReadinessInput", "ProductMailSequenceRecipientsListInput", "ProductMailSequenceResultsInput", "ProductMailSequenceStateInput", "ProductPersonEnrichInput", "ProductSequenceRecipientAddInput", "ProductSequenceRecipientCancelInput", "ProductSequenceRecipientsAddInput", "ProductSequenceRecipientsListInput", "ProductSequenceStartInput", "object" }
 
     model_config = {
         "validate_assignment": True,
@@ -142,7 +166,7 @@ class ProductToolRequestInput(BaseModel):
         value = v
         if isinstance(value, dict):
             return cls.from_dict(value).actual_instance
-        if isinstance(value, (ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductPersonEnrichInput, ProductLeadsListInput, ProductLeadGetInput, ProductLeadCreateInput, ProductLeadUpdateInput, ProductLeadDeleteInput, ProductLeadBulkDeleteInput, ProductLeadTagCreateInput, ProductLeadTagAssignInput, ProductCustomAttributeCreateInput, ProductLeadListUpdateInput, ProductLeadListDeleteInput, ProductLeadListAddLeadInput, ProductCompaniesListInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductSequenceRecipientsListInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceStartInput, ProductConnectedAppPushInput,)):
+        if isinstance(value, (ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductPersonEnrichInput, ProductLeadsListInput, ProductLeadGetInput, ProductLeadCreateInput, ProductLeadUpdateInput, ProductLeadDeleteInput, ProductLeadBulkDeleteInput, ProductLeadTagCreateInput, ProductLeadTagAssignInput, ProductCustomAttributeCreateInput, ProductLeadListUpdateInput, ProductLeadListDeleteInput, ProductLeadListAddLeadInput, ProductCompaniesListInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductSequenceRecipientsListInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceStartInput, ProductMailSequenceDraftSaveInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceReadinessInput, ProductMailSequencePublishInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceStateInput, ProductMailSequenceResultsInput, ProductConnectedAppPushInput,)):
             return value
         raise ValueError("Product tool input requires a declared object alternative")
 
@@ -177,11 +201,19 @@ class ProductToolRequestInput(BaseModel):
             (ProductCompanyUpdateInput, ["companyId","employeeRange","idempotencyKey","industry","name"], ["companyId","idempotencyKey"]),
             (ProductCompanyDeleteInput, ["companyId","idempotencyKey"], ["companyId","idempotencyKey"]),
             (ProductCompanyListAddInput, ["companyId","idempotencyKey","listId"], ["listId","companyId","idempotencyKey"]),
-            (ProductSequenceRecipientsListInput, ["sequenceId"], ["sequenceId"]),
+            (ProductSequenceRecipientsListInput, ["limit","offset","sequenceId"], ["sequenceId"]),
             (ProductSequenceRecipientsAddInput, ["idempotencyKey","recipients","sequenceId"], ["sequenceId","recipients","idempotencyKey"]),
             (ProductSequenceRecipientAddInput, ["email","idempotencyKey","leadId","sequenceId"], ["sequenceId","email","idempotencyKey"]),
             (ProductSequenceRecipientCancelInput, ["idempotencyKey","recipientId"], ["recipientId","idempotencyKey"]),
-            (ProductSequenceStartInput, ["idempotencyKey","sequenceId"], ["sequenceId","idempotencyKey"]),
+            (ProductSequenceStartInput, ["audienceListId","cadenceId","cadenceVersion","enrollmentMode","idempotencyKey","mailboxId","mailboxPoolId","name","scheduledAt"], ["name","cadenceId","cadenceVersion","audienceListId","idempotencyKey"]),
+            (ProductMailSequenceDraftSaveInput, ["content","expectedRevision","id","idempotencyKey","status"], ["id","expectedRevision","status","content","idempotencyKey"]),
+            (ProductMailSequenceAddAudienceInput, ["audienceListId","campaignId","expectedVersion","idempotencyKey"], ["campaignId","expectedVersion","audienceListId","idempotencyKey"]),
+            (ProductMailSequenceReadinessInput, ["draftId","expectedRevision"], ["draftId","expectedRevision"]),
+            (ProductMailSequencePublishInput, ["draftId","expectedRevision","idempotencyKey"], ["draftId","expectedRevision","idempotencyKey"]),
+            (ProductMailSequenceRecipientsListInput, ["campaignId","limit","offset"], ["campaignId"]),
+            (ProductMailSequenceAddAbInput, ["aWeight","campaignId","expectedVersion","idempotencyKey","stepId","variantB"], ["campaignId","expectedVersion","stepId","variantB","aWeight","idempotencyKey"]),
+            (ProductMailSequenceStateInput, ["action","campaignId","expectedVersion","idempotencyKey"], ["campaignId","expectedVersion","action","idempotencyKey"]),
+            (ProductMailSequenceResultsInput, ["campaignId"], ["campaignId"]),
             (ProductConnectedAppPushInput, ["connectionId","idempotencyKey","leadIds"], ["connectionId","leadIds","idempotencyKey"]),
         ]:
             if not keys.issubset(allowed) or not set(required).issubset(keys):
@@ -206,7 +238,7 @@ class ProductToolRequestInput(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput, object]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], ProductCompaniesListInput, ProductCompanyDeleteInput, ProductCompanyListAddInput, ProductCompanyTrackInput, ProductCompanyUpdateInput, ProductConnectedAppPushInput, ProductCustomAttributeCreateInput, ProductDiscoverCompaniesInput, ProductDiscoverPeopleInput, ProductDomainFinderInput, ProductEmailCountInput, ProductLeadBulkDeleteInput, ProductLeadCreateInput, ProductLeadDeleteInput, ProductLeadGetInput, ProductLeadListAddLeadInput, ProductLeadListDeleteInput, ProductLeadListUpdateInput, ProductLeadTagAssignInput, ProductLeadTagCreateInput, ProductLeadUpdateInput, ProductLeadsListInput, ProductMailSequenceAddAbInput, ProductMailSequenceAddAudienceInput, ProductMailSequenceDraftSaveInput, ProductMailSequencePublishInput, ProductMailSequenceReadinessInput, ProductMailSequenceRecipientsListInput, ProductMailSequenceResultsInput, ProductMailSequenceStateInput, ProductPersonEnrichInput, ProductSequenceRecipientAddInput, ProductSequenceRecipientCancelInput, ProductSequenceRecipientsAddInput, ProductSequenceRecipientsListInput, ProductSequenceStartInput, object]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None

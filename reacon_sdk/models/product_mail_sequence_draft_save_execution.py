@@ -17,20 +17,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from reacon_sdk.models.product_dated_recipient import ProductDatedRecipient
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class ProductSequenceRecipientsListOutput(BaseModel):
+class ProductMailSequenceDraftSaveExecution(BaseModel):
     """
-    ProductSequenceRecipientsListOutput
+    ProductMailSequenceDraftSaveExecution
     """ # noqa: E501
-    items: List[ProductDatedRecipient]
+    execution_id: UUID = Field(alias="executionId")
+    output: Dict[str, Any] = Field(description="Response body of the Mail API operation POST /v1/teams/{teamId}/mail/sequence-drafts, returned unchanged.")
+    replay: StrictBool
+    tool: StrictStr
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["items"]
+    __properties: ClassVar[List[str]] = ["executionId", "output", "replay", "tool"]
+
+    @field_validator('tool')
+    def tool_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['mail_sequence_draft_save']):
+            raise ValueError("must be one of enum values ('mail_sequence_draft_save')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -50,7 +60,7 @@ class ProductSequenceRecipientsListOutput(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProductSequenceRecipientsListOutput from a JSON string"""
+        """Create an instance of ProductMailSequenceDraftSaveExecution from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,12 +84,6 @@ class ProductSequenceRecipientsListOutput(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
-        _items = []
-        if self.items:
-            for _item_items in self.items:
-                _items.append(_item_items.to_dict() if _item_items is not None else None)
-            _dict['items'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -89,7 +93,7 @@ class ProductSequenceRecipientsListOutput(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProductSequenceRecipientsListOutput from a dict"""
+        """Create an instance of ProductMailSequenceDraftSaveExecution from a dict"""
         if obj is None:
             return None
 
@@ -97,7 +101,10 @@ class ProductSequenceRecipientsListOutput(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "items": [ProductDatedRecipient.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
+            "executionId": obj.get("executionId"),
+            "output": obj.get("output"),
+            "replay": obj.get("replay"),
+            "tool": obj.get("tool")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

@@ -30,6 +30,7 @@ class MailCadenceCampaignRecord(BaseModel):
     """ # noqa: E501
     activated_at: Optional[datetime] = Field(default=None, alias="activatedAt")
     actor_id: StrictStr = Field(alias="actorId")
+    archived_at: Optional[datetime] = Field(default=None, alias="archivedAt")
     attempt_count: Union[StrictFloat, StrictInt] = Field(alias="attemptCount")
     audience_count: Union[StrictFloat, StrictInt] = Field(alias="audienceCount")
     audience_list_id: StrictStr = Field(alias="audienceListId")
@@ -58,7 +59,7 @@ class MailCadenceCampaignRecord(BaseModel):
     validated_count: Union[StrictFloat, StrictInt] = Field(alias="validatedCount")
     version: Union[StrictFloat, StrictInt]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["activatedAt", "actorId", "attemptCount", "audienceCount", "audienceListId", "cadenceId", "cadenceVersion", "completedAt", "createdAt", "enrolledCount", "enrollmentMode", "failedCount", "id", "idempotencyKey", "invalidCount", "lastError", "leaseExpiresAt", "leaseOwner", "mailboxId", "mailboxPoolId", "name", "nextAttemptAt", "scheduledAt", "skippedCount", "status", "tenantId", "updatedAt", "validatedCount", "version"]
+    __properties: ClassVar[List[str]] = ["activatedAt", "actorId", "archivedAt", "attemptCount", "audienceCount", "audienceListId", "cadenceId", "cadenceVersion", "completedAt", "createdAt", "enrolledCount", "enrollmentMode", "failedCount", "id", "idempotencyKey", "invalidCount", "lastError", "leaseExpiresAt", "leaseOwner", "mailboxId", "mailboxPoolId", "name", "nextAttemptAt", "scheduledAt", "skippedCount", "status", "tenantId", "updatedAt", "validatedCount", "version"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -121,6 +122,7 @@ class MailCadenceCampaignRecord(BaseModel):
         _data = {
             "activatedAt": obj.get("activatedAt"),
             "actorId": obj.get("actorId"),
+            "archivedAt": obj.get("archivedAt"),
             "attemptCount": obj.get("attemptCount"),
             "audienceCount": obj.get("audienceCount"),
             "audienceListId": obj.get("audienceListId"),

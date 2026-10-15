@@ -14,7 +14,7 @@
 """  # noqa: E501
 
 
-__version__ = "4.0.0b1"
+__version__ = "6.0.0b1"
 
 # Define package exports
 __all__ = [
@@ -218,6 +218,7 @@ __all__ = [
     "MailContactCrmState",
     "MailContactListSummaryRecord",
     "MailContactRecord",
+    "MailContactRecordVerification",
     "MailConversationEntry",
     "MailConversationEntryFrom",
     "MailConversationEntryLastError",
@@ -237,6 +238,9 @@ __all__ = [
     "MailDeleteWebhooksBySubscriptionIdResponse200",
     "MailDomainHealthCheck",
     "MailDomainHealthReport",
+    "MailEmailAssetReference",
+    "MailEmailSequenceDeliverySettings",
+    "MailEmailSequenceRecipientOverride",
     "MailEvidenceField",
     "MailExperimentDecisionRecord",
     "MailExperimentDefinitionRecord",
@@ -284,6 +288,9 @@ __all__ = [
     "MailGetQueueResponse200",
     "MailGetReplyAutomationsResponse200",
     "MailGetSignaturesResponse200",
+    "MailGetSignaturesResponse200CandidatesInner",
+    "MailGetSignaturesResponse200CandidatesInnerFields",
+    "MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner",
     "MailGetSuppressionsResponse200",
     "MailGetTemplatesResponse200",
     "MailGetTrackingDomainResponse200",
@@ -293,6 +300,8 @@ __all__ = [
     "MailImapCursor",
     "MailInboxMessageRecord",
     "MailMailAddress",
+    "MailMailAttachmentReference",
+    "MailMailExecutionWorkerStatus",
     "MailMailPortfolio",
     "MailMailPortfolioOverviewRow",
     "MailMailPortfolioSuppression",
@@ -343,6 +352,7 @@ __all__ = [
     "MailPostCadencesByCadenceIdCopyRequest",
     "MailPostCadencesByCadenceIdCopyResponse200",
     "MailPostCadencesRequest",
+    "MailPostCadencesRequestEmailRecipientOverridesInner",
     "MailPostCadencesRequestNodesInner",
     "MailPostCadencesRequestNodesInnerAnyOf",
     "MailPostCadencesRequestNodesInnerAnyOf1",
@@ -453,16 +463,18 @@ __all__ = [
     "MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200",
     "MailQueueSnapshot",
     "MailQuotaRule",
+    "MailRecipientEligibilitySummary",
+    "MailRecipientEligibilitySummaryExclusions",
+    "MailRecipientEligibilitySummaryVerification",
+    "MailRecipientEngagement",
     "MailRenderedMessage",
     "MailReplyAutomationRule",
     "MailReplyAutomationRuleActions",
     "MailReplyAutomationRuleActionsTask",
     "MailReplyClassificationResult",
     "MailSendingWindow",
+    "MailSequenceRecipientEngagement",
     "MailSequenceRunRecord",
-    "MailSignatureCandidate",
-    "MailSignatureCandidateFields",
-    "MailSignatureCandidateFieldsPhonesInner",
     "MailStoredImapSettings",
     "MailStoredSmtpSettings",
     "MailSuppressionRecord",
@@ -522,7 +534,6 @@ __all__ = [
     "ProductCustomAttributeCreateInput",
     "ProductCustomAttributesListExecution",
     "ProductCustomAttributesListOutput",
-    "ProductDatedRecipient",
     "ProductDiscoverCompaniesExecution",
     "ProductDiscoverCompaniesInput",
     "ProductDiscoverCompaniesOutput",
@@ -582,6 +593,27 @@ __all__ = [
     "ProductLeadsListExecution",
     "ProductLeadsListInput",
     "ProductLeadsListOutput",
+    "ProductMailSequenceAddAbExecution",
+    "ProductMailSequenceAddAbInput",
+    "ProductMailSequenceAddAbInputVariantB",
+    "ProductMailSequenceAddAudienceExecution",
+    "ProductMailSequenceAddAudienceInput",
+    "ProductMailSequenceCampaignsListExecution",
+    "ProductMailSequenceDraftSaveExecution",
+    "ProductMailSequenceDraftSaveInput",
+    "ProductMailSequenceDraftsListExecution",
+    "ProductMailSequenceLaunchExecution",
+    "ProductMailSequenceLaunchInput",
+    "ProductMailSequencePublishExecution",
+    "ProductMailSequencePublishInput",
+    "ProductMailSequenceReadinessExecution",
+    "ProductMailSequenceReadinessInput",
+    "ProductMailSequenceRecipientsListExecution",
+    "ProductMailSequenceRecipientsListInput",
+    "ProductMailSequenceResultsExecution",
+    "ProductMailSequenceResultsInput",
+    "ProductMailSequenceStateExecution",
+    "ProductMailSequenceStateInput",
     "ProductNamedResource",
     "ProductPerson",
     "ProductPersonEnrichExecution",
@@ -590,7 +622,6 @@ __all__ = [
     "ProductRecipient",
     "ProductSavedSearchesListExecution",
     "ProductSavedSearchesListOutput",
-    "ProductSequence",
     "ProductSequenceRecipientAddExecution",
     "ProductSequenceRecipientAddInput",
     "ProductSequenceRecipientAddOutput",
@@ -602,10 +633,8 @@ __all__ = [
     "ProductSequenceRecipientsAddOutput",
     "ProductSequenceRecipientsListExecution",
     "ProductSequenceRecipientsListInput",
-    "ProductSequenceRecipientsListOutput",
     "ProductSequenceStartExecution",
     "ProductSequenceStartInput",
-    "ProductSequenceStartOutput",
     "ProductSequencesListExecution",
     "ProductSequencesListOutput",
     "ProductTeamMember",
@@ -864,6 +893,7 @@ from reacon_sdk.models.mail_campaign_progress_message_counts import MailCampaign
 from reacon_sdk.models.mail_contact_crm_state import MailContactCrmState as MailContactCrmState
 from reacon_sdk.models.mail_contact_list_summary_record import MailContactListSummaryRecord as MailContactListSummaryRecord
 from reacon_sdk.models.mail_contact_record import MailContactRecord as MailContactRecord
+from reacon_sdk.models.mail_contact_record_verification import MailContactRecordVerification as MailContactRecordVerification
 from reacon_sdk.models.mail_conversation_entry import MailConversationEntry as MailConversationEntry
 from reacon_sdk.models.mail_conversation_entry_from import MailConversationEntryFrom as MailConversationEntryFrom
 from reacon_sdk.models.mail_conversation_entry_last_error import MailConversationEntryLastError as MailConversationEntryLastError
@@ -883,6 +913,9 @@ from reacon_sdk.models.mail_delete_tracking_domain_response200 import MailDelete
 from reacon_sdk.models.mail_delete_webhooks_by_subscription_id_response200 import MailDeleteWebhooksBySubscriptionIdResponse200 as MailDeleteWebhooksBySubscriptionIdResponse200
 from reacon_sdk.models.mail_domain_health_check import MailDomainHealthCheck as MailDomainHealthCheck
 from reacon_sdk.models.mail_domain_health_report import MailDomainHealthReport as MailDomainHealthReport
+from reacon_sdk.models.mail_email_asset_reference import MailEmailAssetReference as MailEmailAssetReference
+from reacon_sdk.models.mail_email_sequence_delivery_settings import MailEmailSequenceDeliverySettings as MailEmailSequenceDeliverySettings
+from reacon_sdk.models.mail_email_sequence_recipient_override import MailEmailSequenceRecipientOverride as MailEmailSequenceRecipientOverride
 from reacon_sdk.models.mail_evidence_field import MailEvidenceField as MailEvidenceField
 from reacon_sdk.models.mail_experiment_decision_record import MailExperimentDecisionRecord as MailExperimentDecisionRecord
 from reacon_sdk.models.mail_experiment_definition_record import MailExperimentDefinitionRecord as MailExperimentDefinitionRecord
@@ -930,6 +963,9 @@ from reacon_sdk.models.mail_get_portfolio_response200_portfolio import MailGetPo
 from reacon_sdk.models.mail_get_queue_response200 import MailGetQueueResponse200 as MailGetQueueResponse200
 from reacon_sdk.models.mail_get_reply_automations_response200 import MailGetReplyAutomationsResponse200 as MailGetReplyAutomationsResponse200
 from reacon_sdk.models.mail_get_signatures_response200 import MailGetSignaturesResponse200 as MailGetSignaturesResponse200
+from reacon_sdk.models.mail_get_signatures_response200_candidates_inner import MailGetSignaturesResponse200CandidatesInner as MailGetSignaturesResponse200CandidatesInner
+from reacon_sdk.models.mail_get_signatures_response200_candidates_inner_fields import MailGetSignaturesResponse200CandidatesInnerFields as MailGetSignaturesResponse200CandidatesInnerFields
+from reacon_sdk.models.mail_get_signatures_response200_candidates_inner_fields_phones_inner import MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner as MailGetSignaturesResponse200CandidatesInnerFieldsPhonesInner
 from reacon_sdk.models.mail_get_suppressions_response200 import MailGetSuppressionsResponse200 as MailGetSuppressionsResponse200
 from reacon_sdk.models.mail_get_templates_response200 import MailGetTemplatesResponse200 as MailGetTemplatesResponse200
 from reacon_sdk.models.mail_get_tracking_domain_response200 import MailGetTrackingDomainResponse200 as MailGetTrackingDomainResponse200
@@ -939,6 +975,8 @@ from reacon_sdk.models.mail_get_webhooks_response200_subscriptions_inner import 
 from reacon_sdk.models.mail_imap_cursor import MailImapCursor as MailImapCursor
 from reacon_sdk.models.mail_inbox_message_record import MailInboxMessageRecord as MailInboxMessageRecord
 from reacon_sdk.models.mail_mail_address import MailMailAddress as MailMailAddress
+from reacon_sdk.models.mail_mail_attachment_reference import MailMailAttachmentReference as MailMailAttachmentReference
+from reacon_sdk.models.mail_mail_execution_worker_status import MailMailExecutionWorkerStatus as MailMailExecutionWorkerStatus
 from reacon_sdk.models.mail_mail_portfolio import MailMailPortfolio as MailMailPortfolio
 from reacon_sdk.models.mail_mail_portfolio_overview_row import MailMailPortfolioOverviewRow as MailMailPortfolioOverviewRow
 from reacon_sdk.models.mail_mail_portfolio_suppression import MailMailPortfolioSuppression as MailMailPortfolioSuppression
@@ -989,6 +1027,7 @@ from reacon_sdk.models.mail_post_cadence_runs_response200 import MailPostCadence
 from reacon_sdk.models.mail_post_cadences_by_cadence_id_copy_request import MailPostCadencesByCadenceIdCopyRequest as MailPostCadencesByCadenceIdCopyRequest
 from reacon_sdk.models.mail_post_cadences_by_cadence_id_copy_response200 import MailPostCadencesByCadenceIdCopyResponse200 as MailPostCadencesByCadenceIdCopyResponse200
 from reacon_sdk.models.mail_post_cadences_request import MailPostCadencesRequest as MailPostCadencesRequest
+from reacon_sdk.models.mail_post_cadences_request_email_recipient_overrides_inner import MailPostCadencesRequestEmailRecipientOverridesInner as MailPostCadencesRequestEmailRecipientOverridesInner
 from reacon_sdk.models.mail_post_cadences_request_nodes_inner import MailPostCadencesRequestNodesInner as MailPostCadencesRequestNodesInner
 from reacon_sdk.models.mail_post_cadences_request_nodes_inner_any_of import MailPostCadencesRequestNodesInnerAnyOf as MailPostCadencesRequestNodesInnerAnyOf
 from reacon_sdk.models.mail_post_cadences_request_nodes_inner_any_of1 import MailPostCadencesRequestNodesInnerAnyOf1 as MailPostCadencesRequestNodesInnerAnyOf1
@@ -1099,16 +1138,18 @@ from reacon_sdk.models.mail_put_deliverability_pools_by_pool_id_members_by_mailb
 from reacon_sdk.models.mail_put_deliverability_pools_by_pool_id_members_by_mailbox_id_response200 import MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200 as MailPutDeliverabilityPoolsByPoolIdMembersByMailboxIdResponse200
 from reacon_sdk.models.mail_queue_snapshot import MailQueueSnapshot as MailQueueSnapshot
 from reacon_sdk.models.mail_quota_rule import MailQuotaRule as MailQuotaRule
+from reacon_sdk.models.mail_recipient_eligibility_summary import MailRecipientEligibilitySummary as MailRecipientEligibilitySummary
+from reacon_sdk.models.mail_recipient_eligibility_summary_exclusions import MailRecipientEligibilitySummaryExclusions as MailRecipientEligibilitySummaryExclusions
+from reacon_sdk.models.mail_recipient_eligibility_summary_verification import MailRecipientEligibilitySummaryVerification as MailRecipientEligibilitySummaryVerification
+from reacon_sdk.models.mail_recipient_engagement import MailRecipientEngagement as MailRecipientEngagement
 from reacon_sdk.models.mail_rendered_message import MailRenderedMessage as MailRenderedMessage
 from reacon_sdk.models.mail_reply_automation_rule import MailReplyAutomationRule as MailReplyAutomationRule
 from reacon_sdk.models.mail_reply_automation_rule_actions import MailReplyAutomationRuleActions as MailReplyAutomationRuleActions
 from reacon_sdk.models.mail_reply_automation_rule_actions_task import MailReplyAutomationRuleActionsTask as MailReplyAutomationRuleActionsTask
 from reacon_sdk.models.mail_reply_classification_result import MailReplyClassificationResult as MailReplyClassificationResult
 from reacon_sdk.models.mail_sending_window import MailSendingWindow as MailSendingWindow
+from reacon_sdk.models.mail_sequence_recipient_engagement import MailSequenceRecipientEngagement as MailSequenceRecipientEngagement
 from reacon_sdk.models.mail_sequence_run_record import MailSequenceRunRecord as MailSequenceRunRecord
-from reacon_sdk.models.mail_signature_candidate import MailSignatureCandidate as MailSignatureCandidate
-from reacon_sdk.models.mail_signature_candidate_fields import MailSignatureCandidateFields as MailSignatureCandidateFields
-from reacon_sdk.models.mail_signature_candidate_fields_phones_inner import MailSignatureCandidateFieldsPhonesInner as MailSignatureCandidateFieldsPhonesInner
 from reacon_sdk.models.mail_stored_imap_settings import MailStoredImapSettings as MailStoredImapSettings
 from reacon_sdk.models.mail_stored_smtp_settings import MailStoredSmtpSettings as MailStoredSmtpSettings
 from reacon_sdk.models.mail_suppression_record import MailSuppressionRecord as MailSuppressionRecord
@@ -1168,7 +1209,6 @@ from reacon_sdk.models.product_custom_attribute_create_execution import ProductC
 from reacon_sdk.models.product_custom_attribute_create_input import ProductCustomAttributeCreateInput as ProductCustomAttributeCreateInput
 from reacon_sdk.models.product_custom_attributes_list_execution import ProductCustomAttributesListExecution as ProductCustomAttributesListExecution
 from reacon_sdk.models.product_custom_attributes_list_output import ProductCustomAttributesListOutput as ProductCustomAttributesListOutput
-from reacon_sdk.models.product_dated_recipient import ProductDatedRecipient as ProductDatedRecipient
 from reacon_sdk.models.product_discover_companies_execution import ProductDiscoverCompaniesExecution as ProductDiscoverCompaniesExecution
 from reacon_sdk.models.product_discover_companies_input import ProductDiscoverCompaniesInput as ProductDiscoverCompaniesInput
 from reacon_sdk.models.product_discover_companies_output import ProductDiscoverCompaniesOutput as ProductDiscoverCompaniesOutput
@@ -1228,6 +1268,27 @@ from reacon_sdk.models.product_lead_with_attributes import ProductLeadWithAttrib
 from reacon_sdk.models.product_leads_list_execution import ProductLeadsListExecution as ProductLeadsListExecution
 from reacon_sdk.models.product_leads_list_input import ProductLeadsListInput as ProductLeadsListInput
 from reacon_sdk.models.product_leads_list_output import ProductLeadsListOutput as ProductLeadsListOutput
+from reacon_sdk.models.product_mail_sequence_add_ab_execution import ProductMailSequenceAddAbExecution as ProductMailSequenceAddAbExecution
+from reacon_sdk.models.product_mail_sequence_add_ab_input import ProductMailSequenceAddAbInput as ProductMailSequenceAddAbInput
+from reacon_sdk.models.product_mail_sequence_add_ab_input_variant_b import ProductMailSequenceAddAbInputVariantB as ProductMailSequenceAddAbInputVariantB
+from reacon_sdk.models.product_mail_sequence_add_audience_execution import ProductMailSequenceAddAudienceExecution as ProductMailSequenceAddAudienceExecution
+from reacon_sdk.models.product_mail_sequence_add_audience_input import ProductMailSequenceAddAudienceInput as ProductMailSequenceAddAudienceInput
+from reacon_sdk.models.product_mail_sequence_campaigns_list_execution import ProductMailSequenceCampaignsListExecution as ProductMailSequenceCampaignsListExecution
+from reacon_sdk.models.product_mail_sequence_draft_save_execution import ProductMailSequenceDraftSaveExecution as ProductMailSequenceDraftSaveExecution
+from reacon_sdk.models.product_mail_sequence_draft_save_input import ProductMailSequenceDraftSaveInput as ProductMailSequenceDraftSaveInput
+from reacon_sdk.models.product_mail_sequence_drafts_list_execution import ProductMailSequenceDraftsListExecution as ProductMailSequenceDraftsListExecution
+from reacon_sdk.models.product_mail_sequence_launch_execution import ProductMailSequenceLaunchExecution as ProductMailSequenceLaunchExecution
+from reacon_sdk.models.product_mail_sequence_launch_input import ProductMailSequenceLaunchInput as ProductMailSequenceLaunchInput
+from reacon_sdk.models.product_mail_sequence_publish_execution import ProductMailSequencePublishExecution as ProductMailSequencePublishExecution
+from reacon_sdk.models.product_mail_sequence_publish_input import ProductMailSequencePublishInput as ProductMailSequencePublishInput
+from reacon_sdk.models.product_mail_sequence_readiness_execution import ProductMailSequenceReadinessExecution as ProductMailSequenceReadinessExecution
+from reacon_sdk.models.product_mail_sequence_readiness_input import ProductMailSequenceReadinessInput as ProductMailSequenceReadinessInput
+from reacon_sdk.models.product_mail_sequence_recipients_list_execution import ProductMailSequenceRecipientsListExecution as ProductMailSequenceRecipientsListExecution
+from reacon_sdk.models.product_mail_sequence_recipients_list_input import ProductMailSequenceRecipientsListInput as ProductMailSequenceRecipientsListInput
+from reacon_sdk.models.product_mail_sequence_results_execution import ProductMailSequenceResultsExecution as ProductMailSequenceResultsExecution
+from reacon_sdk.models.product_mail_sequence_results_input import ProductMailSequenceResultsInput as ProductMailSequenceResultsInput
+from reacon_sdk.models.product_mail_sequence_state_execution import ProductMailSequenceStateExecution as ProductMailSequenceStateExecution
+from reacon_sdk.models.product_mail_sequence_state_input import ProductMailSequenceStateInput as ProductMailSequenceStateInput
 from reacon_sdk.models.product_named_resource import ProductNamedResource as ProductNamedResource
 from reacon_sdk.models.product_person import ProductPerson as ProductPerson
 from reacon_sdk.models.product_person_enrich_execution import ProductPersonEnrichExecution as ProductPersonEnrichExecution
@@ -1236,7 +1297,6 @@ from reacon_sdk.models.product_person_summary import ProductPersonSummary as Pro
 from reacon_sdk.models.product_recipient import ProductRecipient as ProductRecipient
 from reacon_sdk.models.product_saved_searches_list_execution import ProductSavedSearchesListExecution as ProductSavedSearchesListExecution
 from reacon_sdk.models.product_saved_searches_list_output import ProductSavedSearchesListOutput as ProductSavedSearchesListOutput
-from reacon_sdk.models.product_sequence import ProductSequence as ProductSequence
 from reacon_sdk.models.product_sequence_recipient_add_execution import ProductSequenceRecipientAddExecution as ProductSequenceRecipientAddExecution
 from reacon_sdk.models.product_sequence_recipient_add_input import ProductSequenceRecipientAddInput as ProductSequenceRecipientAddInput
 from reacon_sdk.models.product_sequence_recipient_add_output import ProductSequenceRecipientAddOutput as ProductSequenceRecipientAddOutput
@@ -1248,10 +1308,8 @@ from reacon_sdk.models.product_sequence_recipients_add_input_recipients_inner im
 from reacon_sdk.models.product_sequence_recipients_add_output import ProductSequenceRecipientsAddOutput as ProductSequenceRecipientsAddOutput
 from reacon_sdk.models.product_sequence_recipients_list_execution import ProductSequenceRecipientsListExecution as ProductSequenceRecipientsListExecution
 from reacon_sdk.models.product_sequence_recipients_list_input import ProductSequenceRecipientsListInput as ProductSequenceRecipientsListInput
-from reacon_sdk.models.product_sequence_recipients_list_output import ProductSequenceRecipientsListOutput as ProductSequenceRecipientsListOutput
 from reacon_sdk.models.product_sequence_start_execution import ProductSequenceStartExecution as ProductSequenceStartExecution
 from reacon_sdk.models.product_sequence_start_input import ProductSequenceStartInput as ProductSequenceStartInput
-from reacon_sdk.models.product_sequence_start_output import ProductSequenceStartOutput as ProductSequenceStartOutput
 from reacon_sdk.models.product_sequences_list_execution import ProductSequencesListExecution as ProductSequencesListExecution
 from reacon_sdk.models.product_sequences_list_output import ProductSequencesListOutput as ProductSequencesListOutput
 from reacon_sdk.models.product_team_member import ProductTeamMember as ProductTeamMember

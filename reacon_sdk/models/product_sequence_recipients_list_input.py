@@ -18,8 +18,8 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict
-from uuid import UUID
+from typing import Any, ClassVar, Dict, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,14 +28,16 @@ class ProductSequenceRecipientsListInput(BaseModel):
     """
     ProductSequenceRecipientsListInput
     """ # noqa: E501
-    sequence_id: UUID = Field(alias="sequenceId")
-    __properties: ClassVar[List[str]] = ["sequenceId"]
+    limit: Optional[Annotated[int, Field(le=100, strict=True, ge=1)]] = 25
+    offset: Optional[Annotated[int, Field(le=10000, strict=True, ge=0)]] = 0
+    sequence_id: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(alias="sequenceId")
+    __properties: ClassVar[List[str]] = ["limit", "offset", "sequenceId"]
 
     @field_validator('sequence_id', mode="before")
     def sequence_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$", value):
-            raise ValueError(r"must validate the regular expression /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/")
+        if isinstance(value, str) and not re.match(r"^[a-zA-Z0-9_-]+$", value):
+            raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9_-]+$/")
         return value
 
     model_config = ConfigDict(
@@ -90,6 +92,8 @@ class ProductSequenceRecipientsListInput(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
+            "limit": obj.get("limit") if obj.get("limit") is not None else 25,
+            "offset": obj.get("offset") if obj.get("offset") is not None else 0,
             "sequenceId": obj.get("sequenceId")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})

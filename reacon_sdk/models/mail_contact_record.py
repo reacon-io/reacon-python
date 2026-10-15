@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from reacon_sdk.models.mail_contact_record_verification import MailContactRecordVerification
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -35,8 +36,9 @@ class MailContactRecord(BaseModel):
     name: Optional[StrictStr] = None
     tenant_id: StrictStr = Field(alias="tenantId")
     updated_at: datetime = Field(alias="updatedAt")
+    verification: Optional[MailContactRecordVerification] = None
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["createdAt", "customFields", "email", "id", "name", "tenantId", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["createdAt", "customFields", "email", "id", "name", "tenantId", "updatedAt", "verification"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -80,6 +82,9 @@ class MailContactRecord(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of verification
+        if self.verification:
+            _dict['verification'] = self.verification.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -103,7 +108,8 @@ class MailContactRecord(BaseModel):
             "id": obj.get("id"),
             "name": obj.get("name"),
             "tenantId": obj.get("tenantId"),
-            "updatedAt": obj.get("updatedAt")
+            "updatedAt": obj.get("updatedAt"),
+            "verification": MailContactRecordVerification.from_dict(obj["verification"]) if obj.get("verification") is not None else None
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

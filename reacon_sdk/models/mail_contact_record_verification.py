@@ -17,25 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
-from reacon_sdk.models.mail_phone_number_value import MailPhoneNumberValue
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class MailSignatureCandidateFieldsPhonesInner(BaseModel):
+class MailContactRecordVerification(BaseModel):
     """
-    MailSignatureCandidateFieldsPhonesInner
+    MailContactRecordVerification
     """ # noqa: E501
-    confidence: Union[StrictFloat, StrictInt]
-    method: StrictStr
-    normalized_value: MailPhoneNumberValue = Field(alias="normalizedValue")
-    source_end: Union[StrictFloat, StrictInt] = Field(alias="sourceEnd")
-    source_start: Union[StrictFloat, StrictInt] = Field(alias="sourceStart")
-    value: MailPhoneNumberValue
+    last_verified_at: Optional[datetime] = Field(alias="lastVerifiedAt")
+    status: Optional[StrictStr]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["confidence", "method", "normalizedValue", "sourceEnd", "sourceStart", "value"]
+    __properties: ClassVar[List[str]] = ["lastVerifiedAt", "status"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -55,7 +51,7 @@ class MailSignatureCandidateFieldsPhonesInner(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of MailSignatureCandidateFieldsPhonesInner from a JSON string"""
+        """Create an instance of MailContactRecordVerification from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,22 +75,26 @@ class MailSignatureCandidateFieldsPhonesInner(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of normalized_value
-        if self.normalized_value:
-            _dict['normalizedValue'] = self.normalized_value.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of value
-        if self.value:
-            _dict['value'] = self.value.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
+        # set to None if last_verified_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_verified_at is None and "last_verified_at" in self.model_fields_set:
+            _dict['lastVerifiedAt'] = None
+
+        # set to None if status (nullable) is None
+        # and model_fields_set contains the field
+        if self.status is None and "status" in self.model_fields_set:
+            _dict['status'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of MailSignatureCandidateFieldsPhonesInner from a dict"""
+        """Create an instance of MailContactRecordVerification from a dict"""
         if obj is None:
             return None
 
@@ -102,12 +102,8 @@ class MailSignatureCandidateFieldsPhonesInner(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "confidence": obj.get("confidence"),
-            "method": obj.get("method"),
-            "normalizedValue": MailPhoneNumberValue.from_dict(obj["normalizedValue"]) if obj.get("normalizedValue") is not None else None,
-            "sourceEnd": obj.get("sourceEnd"),
-            "sourceStart": obj.get("sourceStart"),
-            "value": MailPhoneNumberValue.from_dict(obj["value"]) if obj.get("value") is not None else None
+            "lastVerifiedAt": obj.get("lastVerifiedAt"),
+            "status": obj.get("status")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

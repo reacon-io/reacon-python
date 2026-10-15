@@ -17,10 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
-from typing import Any, ClassVar, Dict
+from datetime import datetime
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, Optional
 from typing_extensions import Annotated
-from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,15 +29,59 @@ class ProductSequenceStartInput(BaseModel):
     """
     ProductSequenceStartInput
     """ # noqa: E501
+    audience_list_id: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(alias="audienceListId")
+    cadence_id: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(alias="cadenceId")
+    cadence_version: Annotated[int, Field(le=9007199254740991, strict=True, gt=0)] = Field(alias="cadenceVersion")
+    enrollment_mode: Optional[StrictStr] = Field(default='new_only', alias="enrollmentMode")
     idempotency_key: Annotated[str, Field(min_length=16, strict=True, max_length=200)] = Field(alias="idempotencyKey")
-    sequence_id: UUID = Field(alias="sequenceId")
-    __properties: ClassVar[List[str]] = ["idempotencyKey", "sequenceId"]
+    mailbox_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, alias="mailboxId")
+    mailbox_pool_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, alias="mailboxPoolId")
+    name: StrictStr = Field(description="The server applies trim before validating {\"type\":\"string\",\"minLength\":1,\"maxLength\":200}.")
+    scheduled_at: Optional[datetime] = Field(default=None, alias="scheduledAt")
+    __properties: ClassVar[List[str]] = ["audienceListId", "cadenceId", "cadenceVersion", "enrollmentMode", "idempotencyKey", "mailboxId", "mailboxPoolId", "name", "scheduledAt"]
 
-    @field_validator('sequence_id', mode="before")
-    def sequence_id_validate_regular_expression(cls, value):
+    @field_validator('audience_list_id', mode="before")
+    def audience_list_id_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if isinstance(value, str) and not re.match(r"^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$", value):
-            raise ValueError(r"must validate the regular expression /^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$/")
+        if isinstance(value, str) and not re.match(r"^[a-zA-Z0-9_-]+$", value):
+            raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9_-]+$/")
+        return value
+
+    @field_validator('cadence_id', mode="before")
+    def cadence_id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if isinstance(value, str) and not re.match(r"^[a-zA-Z0-9_-]+$", value):
+            raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9_-]+$/")
+        return value
+
+    @field_validator('enrollment_mode')
+    def enrollment_mode_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['new_only', 'reenroll']):
+            raise ValueError("must be one of enum values ('new_only', 'reenroll')")
+        return value
+
+    @field_validator('mailbox_id', mode="before")
+    def mailbox_id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[a-zA-Z0-9_-]+$", value):
+            raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9_-]+$/")
+        return value
+
+    @field_validator('mailbox_pool_id', mode="before")
+    def mailbox_pool_id_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if value is None:
+            return value
+
+        if isinstance(value, str) and not re.match(r"^[a-zA-Z0-9_-]+$", value):
+            raise ValueError(r"must validate the regular expression /^[a-zA-Z0-9_-]+$/")
         return value
 
     model_config = ConfigDict(
@@ -92,8 +136,15 @@ class ProductSequenceStartInput(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
+            "audienceListId": obj.get("audienceListId"),
+            "cadenceId": obj.get("cadenceId"),
+            "cadenceVersion": obj.get("cadenceVersion"),
+            "enrollmentMode": obj.get("enrollmentMode") if obj.get("enrollmentMode") is not None else 'new_only',
             "idempotencyKey": obj.get("idempotencyKey"),
-            "sequenceId": obj.get("sequenceId")
+            "mailboxId": obj.get("mailboxId"),
+            "mailboxPoolId": obj.get("mailboxPoolId"),
+            "name": obj.get("name"),
+            "scheduledAt": obj.get("scheduledAt")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         return _obj

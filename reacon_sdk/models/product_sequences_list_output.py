@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
-from reacon_sdk.models.product_sequence import ProductSequence
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -28,9 +27,20 @@ class ProductSequencesListOutput(BaseModel):
     """
     ProductSequencesListOutput
     """ # noqa: E501
-    items: List[ProductSequence]
+    cadences: List[Dict[str, Any]]
+    campaigns: List[Dict[str, Any]]
+    drafts: List[Dict[str, Any]]
+    items: List[Dict[str, Any]]
+    source: StrictStr
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["items"]
+    __properties: ClassVar[List[str]] = ["cadences", "campaigns", "drafts", "items", "source"]
+
+    @field_validator('source')
+    def source_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['canonical_mail']):
+            raise ValueError("must be one of enum values ('canonical_mail')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -74,12 +84,6 @@ class ProductSequencesListOutput(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
-        _items = []
-        if self.items:
-            for _item_items in self.items:
-                _items.append(_item_items.to_dict() if _item_items is not None else None)
-            _dict['items'] = _items
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -97,7 +101,11 @@ class ProductSequencesListOutput(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "items": [ProductSequence.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
+            "cadences": obj.get("cadences"),
+            "campaigns": obj.get("campaigns"),
+            "drafts": obj.get("drafts"),
+            "items": obj.get("items"),
+            "source": obj.get("source")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

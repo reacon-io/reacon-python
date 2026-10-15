@@ -17,22 +17,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class ProductSequenceStartOutput(BaseModel):
+class ProductMailSequenceAddAudienceExecution(BaseModel):
     """
-    ProductSequenceStartOutput
+    ProductMailSequenceAddAudienceExecution
     """ # noqa: E501
-    id: UUID
-    name: StrictStr
-    status: StrictStr
+    execution_id: UUID = Field(alias="executionId")
+    output: Dict[str, Any] = Field(description="Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage, returned unchanged.")
+    replay: StrictBool
+    tool: StrictStr
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["id", "name", "status"]
+    __properties: ClassVar[List[str]] = ["executionId", "output", "replay", "tool"]
+
+    @field_validator('tool')
+    def tool_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['mail_sequence_add_audience']):
+            raise ValueError("must be one of enum values ('mail_sequence_add_audience')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -52,7 +60,7 @@ class ProductSequenceStartOutput(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProductSequenceStartOutput from a JSON string"""
+        """Create an instance of ProductMailSequenceAddAudienceExecution from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -85,7 +93,7 @@ class ProductSequenceStartOutput(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProductSequenceStartOutput from a dict"""
+        """Create an instance of ProductMailSequenceAddAudienceExecution from a dict"""
         if obj is None:
             return None
 
@@ -93,9 +101,10 @@ class ProductSequenceStartOutput(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "id": obj.get("id"),
-            "name": obj.get("name"),
-            "status": obj.get("status")
+            "executionId": obj.get("executionId"),
+            "output": obj.get("output"),
+            "replay": obj.get("replay"),
+            "tool": obj.get("tool")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

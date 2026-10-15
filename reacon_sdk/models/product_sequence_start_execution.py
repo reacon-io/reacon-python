@@ -20,7 +20,6 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from uuid import UUID
-from reacon_sdk.models.product_sequence_start_output import ProductSequenceStartOutput
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -30,7 +29,7 @@ class ProductSequenceStartExecution(BaseModel):
     ProductSequenceStartExecution
     """ # noqa: E501
     execution_id: UUID = Field(alias="executionId")
-    output: ProductSequenceStartOutput
+    output: Dict[str, Any] = Field(description="Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns, returned unchanged.")
     replay: StrictBool
     tool: StrictStr
     additional_properties: Dict[str, Any] = {}
@@ -85,9 +84,6 @@ class ProductSequenceStartExecution(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of output
-        if self.output:
-            _dict['output'] = self.output.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -106,7 +102,7 @@ class ProductSequenceStartExecution(BaseModel):
 
         _data = {
             "executionId": obj.get("executionId"),
-            "output": ProductSequenceStartOutput.from_dict(obj["output"]) if obj.get("output") is not None else None,
+            "output": obj.get("output"),
             "replay": obj.get("replay"),
             "tool": obj.get("tool")
         }

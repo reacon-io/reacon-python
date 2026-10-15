@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
+from reacon_sdk.models.mail_email_asset_reference import MailEmailAssetReference
 from reacon_sdk.models.mail_message_template_version_whatsapp_approval import MailMessageTemplateVersionWhatsappApproval
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,6 +30,7 @@ class MailMessageTemplateVersion(BaseModel):
     """
     MailMessageTemplateVersion
     """ # noqa: E501
+    attachments: Optional[List[MailEmailAssetReference]] = None
     body: StrictStr
     channel: StrictStr
     created_at: datetime = Field(alias="createdAt")
@@ -42,7 +44,7 @@ class MailMessageTemplateVersion(BaseModel):
     version: Union[StrictFloat, StrictInt]
     whatsapp_approval: Optional[MailMessageTemplateVersionWhatsappApproval] = Field(default=None, alias="whatsappApproval")
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["body", "channel", "createdAt", "createdByActorId", "id", "name", "status", "subject", "tenantId", "variables", "version", "whatsappApproval"]
+    __properties: ClassVar[List[str]] = ["attachments", "body", "channel", "createdAt", "createdByActorId", "id", "name", "status", "subject", "tenantId", "variables", "version", "whatsappApproval"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -86,6 +88,12 @@ class MailMessageTemplateVersion(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in attachments (list)
+        _items = []
+        if self.attachments:
+            for _item_attachments in self.attachments:
+                _items.append(_item_attachments.to_dict() if _item_attachments is not None else None)
+            _dict['attachments'] = _items
         # override the default output from pydantic by calling `to_dict()` of whatsapp_approval
         if self.whatsapp_approval:
             _dict['whatsappApproval'] = self.whatsapp_approval.to_dict()
@@ -106,6 +114,7 @@ class MailMessageTemplateVersion(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
+            "attachments": [MailEmailAssetReference.from_dict(_item) for _item in obj["attachments"]] if obj.get("attachments") is not None else None,
             "body": obj.get("body"),
             "channel": obj.get("channel"),
             "createdAt": obj.get("createdAt"),

@@ -34,7 +34,7 @@ class MailPostCadenceRunsRequest(BaseModel):
     cadence_version: Optional[Annotated[int, Field(strict=True, gt=0)]] = Field(default=None, alias="cadenceVersion")
     campaign_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, alias="campaignId")
     campaign_name: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, alias="campaignName")
-    contact_ids: Optional[Annotated[List[Annotated[str, Field(min_length=1, strict=True, max_length=200)]], Field(min_length=1, max_length=500)]] = Field(default=None, alias="contactIds")
+    contact_ids: Optional[Annotated[List[Annotated[str, Field(min_length=1, strict=True, max_length=200)]], Field(min_length=1, max_length=15000)]] = Field(default=None, alias="contactIds")
     enrollment_mode: Optional[StrictStr] = Field(default='new_only', alias="enrollmentMode")
     idempotency_key: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(alias="idempotencyKey")
     mailbox_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, alias="mailboxId")
