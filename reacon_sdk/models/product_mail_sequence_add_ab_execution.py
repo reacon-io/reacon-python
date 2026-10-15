@@ -17,31 +17,30 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
-from reacon_sdk.models.mail_signature_candidate_fields import MailSignatureCandidateFields
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
+from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class MailSignatureCandidate(BaseModel):
+class ProductMailSequenceAddAbExecution(BaseModel):
     """
-    MailSignatureCandidate
+    ProductMailSequenceAddAbExecution
     """ # noqa: E501
-    confidence: Union[StrictFloat, StrictInt]
-    created_at: datetime = Field(alias="createdAt")
-    extractor_version: StrictStr = Field(alias="extractorVersion")
-    fields: MailSignatureCandidateFields
-    id: StrictStr
-    signature_fingerprint: StrictStr = Field(alias="signatureFingerprint")
-    signature_text: StrictStr = Field(alias="signatureText")
-    signature_text_hash: StrictStr = Field(alias="signatureTextHash")
-    source_message_id: StrictStr = Field(alias="sourceMessageId")
-    status: StrictStr
-    tenant_id: StrictStr = Field(alias="tenantId")
+    execution_id: UUID = Field(alias="executionId")
+    output: Dict[str, Any] = Field(description="Response body of the Mail API operation POST /v1/teams/{teamId}/mail/cadence-campaigns/{campaignId}/manage, returned unchanged.")
+    replay: StrictBool
+    tool: StrictStr
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["confidence", "createdAt", "extractorVersion", "fields", "id", "signatureFingerprint", "signatureText", "signatureTextHash", "sourceMessageId", "status", "tenantId"]
+    __properties: ClassVar[List[str]] = ["executionId", "output", "replay", "tool"]
+
+    @field_validator('tool')
+    def tool_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['mail_sequence_add_ab']):
+            raise ValueError("must be one of enum values ('mail_sequence_add_ab')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -61,7 +60,7 @@ class MailSignatureCandidate(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of MailSignatureCandidate from a JSON string"""
+        """Create an instance of ProductMailSequenceAddAbExecution from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -85,9 +84,6 @@ class MailSignatureCandidate(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of fields
-        if self.fields:
-            _dict['fields'] = self.fields.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -97,7 +93,7 @@ class MailSignatureCandidate(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of MailSignatureCandidate from a dict"""
+        """Create an instance of ProductMailSequenceAddAbExecution from a dict"""
         if obj is None:
             return None
 
@@ -105,17 +101,10 @@ class MailSignatureCandidate(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "confidence": obj.get("confidence"),
-            "createdAt": obj.get("createdAt"),
-            "extractorVersion": obj.get("extractorVersion"),
-            "fields": MailSignatureCandidateFields.from_dict(obj["fields"]) if obj.get("fields") is not None else None,
-            "id": obj.get("id"),
-            "signatureFingerprint": obj.get("signatureFingerprint"),
-            "signatureText": obj.get("signatureText"),
-            "signatureTextHash": obj.get("signatureTextHash"),
-            "sourceMessageId": obj.get("sourceMessageId"),
-            "status": obj.get("status"),
-            "tenantId": obj.get("tenantId")
+            "executionId": obj.get("executionId"),
+            "output": obj.get("output"),
+            "replay": obj.get("replay"),
+            "tool": obj.get("tool")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

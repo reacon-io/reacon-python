@@ -31,7 +31,7 @@ class MailPostCadenceRunsPreflightRequest(BaseModel):
     audience_list_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, alias="audienceListId")
     cadence_id: Annotated[str, Field(min_length=1, strict=True, max_length=200)] = Field(alias="cadenceId")
     cadence_version: Optional[Annotated[int, Field(strict=True, gt=0)]] = Field(default=None, alias="cadenceVersion")
-    contact_ids: Optional[Annotated[List[Annotated[str, Field(min_length=1, strict=True, max_length=200)]], Field(min_length=1, max_length=500)]] = Field(default=None, alias="contactIds")
+    contact_ids: Optional[Annotated[List[Annotated[str, Field(min_length=1, strict=True, max_length=200)]], Field(min_length=1, max_length=15000)]] = Field(default=None, alias="contactIds")
     mailbox_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, alias="mailboxId")
     mailbox_pool_id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = Field(default=None, alias="mailboxPoolId")
     __properties: ClassVar[List[str]] = ["audienceListId", "cadenceId", "cadenceVersion", "contactIds", "mailboxId", "mailboxPoolId"]

@@ -20,6 +20,8 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from uuid import UUID
+from reacon_sdk.models.mail_post_cadences_request_email_recipient_overrides_inner import MailPostCadencesRequestEmailRecipientOverridesInner
 from reacon_sdk.models.mail_post_cadences_request_nodes_inner import MailPostCadencesRequestNodesInner
 from reacon_sdk.models.mail_post_cadences_request_stop_conditions import MailPostCadencesRequestStopConditions
 from typing import Optional, Set
@@ -30,12 +32,14 @@ class MailPostCadencesRequest(BaseModel):
     """
     MailPostCadencesRequest
     """ # noqa: E501
+    email_excluded_contact_ids: Optional[Annotated[List[UUID], Field(max_length=15000)]] = Field(default=None, alias="emailExcludedContactIds")
+    email_recipient_overrides: Optional[Annotated[List[MailPostCadencesRequestEmailRecipientOverridesInner], Field(max_length=500)]] = Field(default=None, alias="emailRecipientOverrides")
     id: Optional[Annotated[str, Field(min_length=1, strict=True, max_length=200)]] = None
     name: Annotated[str, Field(min_length=1, strict=True, max_length=200)]
     nodes: Annotated[List[MailPostCadencesRequestNodesInner], Field(min_length=2, max_length=500)]
     status: StrictStr
     stop_conditions: Optional[MailPostCadencesRequestStopConditions] = Field(default=None, alias="stopConditions")
-    __properties: ClassVar[List[str]] = ["id", "name", "nodes", "status", "stopConditions"]
+    __properties: ClassVar[List[str]] = ["emailExcludedContactIds", "emailRecipientOverrides", "id", "name", "nodes", "status", "stopConditions"]
 
     @field_validator('status')
     def status_validate_enum(cls, value):
@@ -84,6 +88,12 @@ class MailPostCadencesRequest(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in email_recipient_overrides (list)
+        _items = []
+        if self.email_recipient_overrides:
+            for _item_email_recipient_overrides in self.email_recipient_overrides:
+                _items.append(_item_email_recipient_overrides.to_dict() if _item_email_recipient_overrides is not None else None)
+            _dict['emailRecipientOverrides'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in nodes (list)
         _items = []
         if self.nodes:
@@ -105,6 +115,8 @@ class MailPostCadencesRequest(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
+            "emailExcludedContactIds": obj.get("emailExcludedContactIds"),
+            "emailRecipientOverrides": [MailPostCadencesRequestEmailRecipientOverridesInner.from_dict(_item) for _item in obj["emailRecipientOverrides"]] if obj.get("emailRecipientOverrides") is not None else None,
             "id": obj.get("id"),
             "name": obj.get("name"),
             "nodes": [MailPostCadencesRequestNodesInner.from_dict(_item) for _item in obj["nodes"]] if obj.get("nodes") is not None else None,

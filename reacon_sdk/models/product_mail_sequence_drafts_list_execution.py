@@ -17,27 +17,29 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from uuid import UUID
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
 
-class ProductDatedRecipient(BaseModel):
+class ProductMailSequenceDraftsListExecution(BaseModel):
     """
-    ProductDatedRecipient
+    ProductMailSequenceDraftsListExecution
     """ # noqa: E501
-    created_at: datetime = Field(alias="createdAt")
-    email: StrictStr
-    id: UUID
-    lead_id: Optional[UUID] = Field(alias="leadId")
-    sequence_id: UUID = Field(alias="sequenceId")
-    status: StrictStr
-    updated_at: datetime = Field(alias="updatedAt")
+    execution_id: Optional[StrictStr] = Field(alias="executionId")
+    output: Dict[str, Any] = Field(description="Response body of the Mail API operation GET /v1/teams/{teamId}/mail/sequence-drafts, returned unchanged.")
+    replay: StrictBool
+    tool: StrictStr
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["createdAt", "email", "id", "leadId", "sequenceId", "status", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["executionId", "output", "replay", "tool"]
+
+    @field_validator('tool')
+    def tool_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['mail_sequence_drafts_list']):
+            raise ValueError("must be one of enum values ('mail_sequence_drafts_list')")
+        return value
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -57,7 +59,7 @@ class ProductDatedRecipient(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProductDatedRecipient from a JSON string"""
+        """Create an instance of ProductMailSequenceDraftsListExecution from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -86,16 +88,16 @@ class ProductDatedRecipient(BaseModel):
             for _key, _value in self.additional_properties.items():
                 _dict[_key] = _value
 
-        # set to None if lead_id (nullable) is None
+        # set to None if execution_id (nullable) is None
         # and model_fields_set contains the field
-        if self.lead_id is None and "lead_id" in self.model_fields_set:
-            _dict['leadId'] = None
+        if self.execution_id is None and "execution_id" in self.model_fields_set:
+            _dict['executionId'] = None
 
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProductDatedRecipient from a dict"""
+        """Create an instance of ProductMailSequenceDraftsListExecution from a dict"""
         if obj is None:
             return None
 
@@ -103,13 +105,10 @@ class ProductDatedRecipient(BaseModel):
             return cls.model_validate(obj)
 
         _data = {
-            "createdAt": obj.get("createdAt"),
-            "email": obj.get("email"),
-            "id": obj.get("id"),
-            "leadId": obj.get("leadId"),
-            "sequenceId": obj.get("sequenceId"),
-            "status": obj.get("status"),
-            "updatedAt": obj.get("updatedAt")
+            "executionId": obj.get("executionId"),
+            "output": obj.get("output"),
+            "replay": obj.get("replay"),
+            "tool": obj.get("tool")
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

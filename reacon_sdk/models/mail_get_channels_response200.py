@@ -23,6 +23,7 @@ from reacon_sdk.models.mail_get_channels_response200_email import MailGetChannel
 from reacon_sdk.models.mail_get_channels_response200_execution import MailGetChannelsResponse200Execution
 from reacon_sdk.models.mail_get_channels_response200_sms import MailGetChannelsResponse200Sms
 from reacon_sdk.models.mail_get_channels_response200_whatsapp import MailGetChannelsResponse200Whatsapp
+from reacon_sdk.models.mail_mail_execution_worker_status import MailMailExecutionWorkerStatus
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -35,8 +36,9 @@ class MailGetChannelsResponse200(BaseModel):
     execution: MailGetChannelsResponse200Execution
     sms: MailGetChannelsResponse200Sms
     whatsapp: MailGetChannelsResponse200Whatsapp
+    worker: MailMailExecutionWorkerStatus
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["email", "execution", "sms", "whatsapp"]
+    __properties: ClassVar[List[str]] = ["email", "execution", "sms", "whatsapp", "worker"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -92,6 +94,9 @@ class MailGetChannelsResponse200(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of whatsapp
         if self.whatsapp:
             _dict['whatsapp'] = self.whatsapp.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of worker
+        if self.worker:
+            _dict['worker'] = self.worker.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -112,7 +117,8 @@ class MailGetChannelsResponse200(BaseModel):
             "email": MailGetChannelsResponse200Email.from_dict(obj["email"]) if obj.get("email") is not None else None,
             "execution": MailGetChannelsResponse200Execution.from_dict(obj["execution"]) if obj.get("execution") is not None else None,
             "sms": MailGetChannelsResponse200Sms.from_dict(obj["sms"]) if obj.get("sms") is not None else None,
-            "whatsapp": MailGetChannelsResponse200Whatsapp.from_dict(obj["whatsapp"]) if obj.get("whatsapp") is not None else None
+            "whatsapp": MailGetChannelsResponse200Whatsapp.from_dict(obj["whatsapp"]) if obj.get("whatsapp") is not None else None,
+            "worker": MailMailExecutionWorkerStatus.from_dict(obj["worker"]) if obj.get("worker") is not None else None
         }
         _obj = cls.model_validate({key: value for key, value in _data.items() if key in obj})
         # store additional fields in additional_properties

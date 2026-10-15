@@ -48,6 +48,7 @@ class MailCadenceRunRecord(BaseModel):
     lease_expires_at: Optional[datetime] = Field(default=None, alias="leaseExpiresAt")
     lease_owner: Optional[StrictStr] = Field(default=None, alias="leaseOwner")
     mailbox_id: StrictStr = Field(alias="mailboxId")
+    message_edit_revision: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="messageEditRevision")
     outcome: Optional[StrictStr] = None
     pending_message_id: Optional[StrictStr] = Field(default=None, alias="pendingMessageId")
     pending_next_node_id: Optional[StrictStr] = Field(default=None, alias="pendingNextNodeId")
@@ -57,7 +58,7 @@ class MailCadenceRunRecord(BaseModel):
     updated_at: datetime = Field(alias="updatedAt")
     version: Union[StrictFloat, StrictInt]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["actorId", "attemptCount", "audienceListId", "cadenceId", "cadenceVersion", "campaignId", "campaignName", "contactId", "createdAt", "currentNodeId", "dueAt", "experimentContexts", "id", "idempotencyKey", "lastAcceptedMessageId", "lastError", "leaseExpiresAt", "leaseOwner", "mailboxId", "outcome", "pendingMessageId", "pendingNextNodeId", "status", "taskId", "tenantId", "updatedAt", "version"]
+    __properties: ClassVar[List[str]] = ["actorId", "attemptCount", "audienceListId", "cadenceId", "cadenceVersion", "campaignId", "campaignName", "contactId", "createdAt", "currentNodeId", "dueAt", "experimentContexts", "id", "idempotencyKey", "lastAcceptedMessageId", "lastError", "leaseExpiresAt", "leaseOwner", "mailboxId", "messageEditRevision", "outcome", "pendingMessageId", "pendingNextNodeId", "status", "taskId", "tenantId", "updatedAt", "version"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -143,6 +144,7 @@ class MailCadenceRunRecord(BaseModel):
             "leaseExpiresAt": obj.get("leaseExpiresAt"),
             "leaseOwner": obj.get("leaseOwner"),
             "mailboxId": obj.get("mailboxId"),
+            "messageEditRevision": obj.get("messageEditRevision"),
             "outcome": obj.get("outcome"),
             "pendingMessageId": obj.get("pendingMessageId"),
             "pendingNextNodeId": obj.get("pendingNextNodeId"),

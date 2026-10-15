@@ -24,6 +24,8 @@ from reacon_sdk.models.mail_campaign_progress_message_counts import MailCampaign
 from reacon_sdk.models.mail_message_analytics_overview_daily_inner import MailMessageAnalyticsOverviewDailyInner
 from reacon_sdk.models.mail_message_analytics_overview_mailboxes_inner import MailMessageAnalyticsOverviewMailboxesInner
 from reacon_sdk.models.mail_message_analytics_overview_variants_inner import MailMessageAnalyticsOverviewVariantsInner
+from reacon_sdk.models.mail_recipient_engagement import MailRecipientEngagement
+from reacon_sdk.models.mail_sequence_recipient_engagement import MailSequenceRecipientEngagement
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -41,12 +43,14 @@ class MailMessageAnalyticsOverview(BaseModel):
     delivery_rate: Union[StrictFloat, StrictInt] = Field(alias="deliveryRate")
     var_from: datetime = Field(alias="from")
     mailboxes: List[MailMessageAnalyticsOverviewMailboxesInner]
-    reply_rate: Union[StrictFloat, StrictInt] = Field(alias="replyRate")
+    recipients: Optional[MailRecipientEngagement] = None
+    reply_rate: Union[StrictFloat, StrictInt] = Field(description="Legacy message-based rate, retained for API compatibility.", alias="replyRate")
+    sequences: Optional[List[MailSequenceRecipientEngagement]] = None
     to: datetime
     total: Union[StrictFloat, StrictInt]
     variants: List[MailMessageAnalyticsOverviewVariantsInner]
     additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["acceptanceRate", "averageAcceptanceLatencyMs", "bounceRate", "complaintRate", "counts", "daily", "deliveryRate", "from", "mailboxes", "replyRate", "to", "total", "variants"]
+    __properties: ClassVar[List[str]] = ["acceptanceRate", "averageAcceptanceLatencyMs", "bounceRate", "complaintRate", "counts", "daily", "deliveryRate", "from", "mailboxes", "recipients", "replyRate", "sequences", "to", "total", "variants"]
 
     model_config = ConfigDict(
         validate_by_name=True,
@@ -105,6 +109,15 @@ class MailMessageAnalyticsOverview(BaseModel):
             for _item_mailboxes in self.mailboxes:
                 _items.append(_item_mailboxes.to_dict() if _item_mailboxes is not None else None)
             _dict['mailboxes'] = _items
+        # override the default output from pydantic by calling `to_dict()` of recipients
+        if self.recipients:
+            _dict['recipients'] = self.recipients.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of each item in sequences (list)
+        _items = []
+        if self.sequences:
+            for _item_sequences in self.sequences:
+                _items.append(_item_sequences.to_dict() if _item_sequences is not None else None)
+            _dict['sequences'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in variants (list)
         _items = []
         if self.variants:
@@ -142,7 +155,9 @@ class MailMessageAnalyticsOverview(BaseModel):
             "deliveryRate": obj.get("deliveryRate"),
             "from": obj.get("from"),
             "mailboxes": [MailMessageAnalyticsOverviewMailboxesInner.from_dict(_item) for _item in obj["mailboxes"]] if obj.get("mailboxes") is not None else None,
+            "recipients": MailRecipientEngagement.from_dict(obj["recipients"]) if obj.get("recipients") is not None else None,
             "replyRate": obj.get("replyRate"),
+            "sequences": [MailSequenceRecipientEngagement.from_dict(_item) for _item in obj["sequences"]] if obj.get("sequences") is not None else None,
             "to": obj.get("to"),
             "total": obj.get("total"),
             "variants": [MailMessageAnalyticsOverviewVariantsInner.from_dict(_item) for _item in obj["variants"]] if obj.get("variants") is not None else None

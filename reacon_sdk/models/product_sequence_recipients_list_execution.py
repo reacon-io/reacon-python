@@ -19,7 +19,6 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from reacon_sdk.models.product_sequence_recipients_list_output import ProductSequenceRecipientsListOutput
 from typing import Optional, Set
 from typing_extensions import Self
 from pydantic_core import to_jsonable_python
@@ -29,7 +28,7 @@ class ProductSequenceRecipientsListExecution(BaseModel):
     ProductSequenceRecipientsListExecution
     """ # noqa: E501
     execution_id: Optional[StrictStr] = Field(alias="executionId")
-    output: ProductSequenceRecipientsListOutput
+    output: Dict[str, Any] = Field(description="Response body of the Mail API operation GET /v1/teams/{teamId}/mail/cadence-recipients, returned unchanged.")
     replay: StrictBool
     tool: StrictStr
     additional_properties: Dict[str, Any] = {}
@@ -84,9 +83,6 @@ class ProductSequenceRecipientsListExecution(BaseModel):
             exclude_none=True,
             exclude_unset=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of output
-        if self.output:
-            _dict['output'] = self.output.to_dict()
         # puts key-value pairs in additional_properties in the top level
         if self.additional_properties is not None:
             for _key, _value in self.additional_properties.items():
@@ -110,7 +106,7 @@ class ProductSequenceRecipientsListExecution(BaseModel):
 
         _data = {
             "executionId": obj.get("executionId"),
-            "output": ProductSequenceRecipientsListOutput.from_dict(obj["output"]) if obj.get("output") is not None else None,
+            "output": obj.get("output"),
             "replay": obj.get("replay"),
             "tool": obj.get("tool")
         }
