@@ -1,8 +1,8 @@
 {
   "formatVersion": 1,
   "family": "python",
-  "packageVersion": "6.0.0b1",
-  "canonicalVersion": "6.0.0-beta.1",
+  "packageVersion": "6.0.1b1",
+  "canonicalVersion": "6.0.1-beta.1",
   "image": "python@sha256:392307d22300de8b5986851a12d9176dfc0fc073e65bf6523ebd7dcbeb23564e",
   "contractSha256": "d126f8da770677fa40353a20ca3aa7aca820873fb11fb8e53022b6f6c691b266",
   "recordingIndexSha256": "063ea925b10d8c658ad6438e472ac62d1ffa0519b848cfa00f1a13e2d2906279",
